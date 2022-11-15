@@ -1,3 +1,5 @@
+> DISCLAIMER: This documentation is not actual to how the code is currently built, but was only to make the development process with multiple people easier. The server files can be found in the server repository.
+
 # Software Guidebook Quizzer
 This is a simple software guidebook for our quiz application.
 This application is made for education purposes.
