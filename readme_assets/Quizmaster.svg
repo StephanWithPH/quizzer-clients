@@ -1,0 +1,770 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3478" height="1391" viewBox="0 0 3478 1391">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="115" height="271" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect width="293" height="313" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect width="142" height="274" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <rect width="293" height="316" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <rect width="711" height="170" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-Quizmaster">
+      <rect width="3478" height="1391"/>
+    </clipPath>
+  </defs>
+  <g id="Quizmaster" clip-path="url(#clip-Quizmaster)">
+    <rect width="3478" height="1391" fill="#fff"/>
+    <g id="Home" transform="translate(154 115)">
+      <g id="QM_Body" data-name="QM Body" transform="translate(36 39)">
+        <g id="body" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="786" height="470" stroke="none"/>
+          <rect x="0.5" y="0.5" width="785" height="469" fill="none"/>
+        </g>
+      </g>
+      <g id="button" transform="translate(77.55 -720.544)">
+        <g id="button-2" data-name="button" transform="translate(242.45 1015.544)">
+          <g id="button-3" data-name="button" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="219" height="51" rx="25.5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="218" height="50" rx="25" fill="none"/>
+          </g>
+        </g>
+        <text id="Start" transform="translate(331.45 1048.544)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Start</tspan></text>
+      </g>
+      <text id="Quizzer" transform="translate(364 244)" fill="#707070" font-size="39" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Quizzer</tspan></text>
+      <g id="Go_to_lobby" data-name="Go to lobby" transform="translate(-2122 85)">
+        <g id="event" transform="translate(2068 472)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="244" height="38" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="243" height="37" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby" data-name="[NAV] /quizzes/:lobby" transform="translate(2190 496)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-76.445" y="0">[NAV] /quizzes/:lobby</tspan></text>
+        <path id="line" d="M-1460.327,2747.774s-87.778,26.624-137.617,81.884-61.742,139.157-61.742,139.157" transform="translate(3908 -2497.126)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Generate_code" data-name="Generate code" transform="translate(-1858 85)">
+        <g id="event-2" data-name="event" transform="translate(2068 472)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="244" height="55" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="243" height="54" rx="9.5" fill="none"/>
+        </g>
+        <text id="_REST_POST_quizzes" data-name="[REST] POST
+/quizzes" transform="translate(2190 496)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-43.246" y="0">[REST] POST</tspan><tspan x="-29.105" y="21">/quizzes</tspan></text>
+        <path id="line-2" data-name="line" d="M-1597.944,2758.869s-23.519,26.755-38.954,79.241-22.788,130.7-22.788,130.7" transform="translate(3908 -2497.126)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Lobby" transform="translate(154 115)">
+      <g id="QM_Body-2" data-name="QM Body" transform="translate(1099 39)">
+        <g id="body-2" data-name="body" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="786" height="470" stroke="none"/>
+          <rect x="0.5" y="0.5" width="785" height="469" fill="none"/>
+        </g>
+      </g>
+      <g id="Button-4" data-name="Button" transform="translate(-3)">
+        <g id="input" transform="translate(1689 442)">
+          <g id="input-2" data-name="input" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="178" height="38" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="177" height="37" rx="9.5" fill="none"/>
+          </g>
+        </g>
+        <text id="Volgende" transform="translate(1741 467)" fill="#707070" font-size="18" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Volgende</tspan></text>
+      </g>
+      <g id="Accepted_teams_table" data-name="Accepted teams table">
+        <g id="Accepted_table" data-name="Accepted table" transform="translate(1514 140)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="350" height="289" stroke="none"/>
+          <rect x="0.5" y="0.5" width="349" height="288" fill="none"/>
+        </g>
+        <g id="Accepted_teams" data-name="Accepted teams" transform="translate(1543 158)" clip-path="url(#clip-path)">
+          <g transform="translate(-1543 -158)">
+            <text id="Lorem_ipsum" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+          <g transform="translate(-1543 -111)">
+            <text id="Lorem_ipsum-2" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+          <g transform="translate(-1543 -64)">
+            <text id="Lorem_ipsum-3" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+          <g transform="translate(-1543 -17)">
+            <text id="Lorem_ipsum-4" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+          <g transform="translate(-1543 30)">
+            <text id="Lorem_ipsum-5" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+          <g transform="translate(-1543 77)">
+            <text id="Lorem_ipsum-6" data-name="Lorem ipsum" transform="translate(1543 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+          </g>
+        </g>
+        <text id="Geaccepteerde_teams" data-name="Geaccepteerde teams" transform="translate(1514 129)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Geaccepteerde teams</tspan></text>
+      </g>
+      <g id="New_teams_table" data-name="New teams table">
+        <g id="New_table" data-name="New table" transform="translate(1122 140)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="350" height="341" stroke="none"/>
+          <rect x="0.5" y="0.5" width="349" height="340" fill="none"/>
+        </g>
+        <g id="New_teams" data-name="New teams" transform="translate(1144 158)" clip-path="url(#clip-path-2)">
+          <g transform="translate(-1144 -158)">
+            <text id="Lorem_ipsum-7" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 -111)">
+            <text id="Lorem_ipsum-8" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_2" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-2" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 -64)">
+            <text id="Lorem_ipsum-9" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_3" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-3" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 -17)">
+            <text id="Lorem_ipsum-10" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_4" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-4" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 30)">
+            <text id="Lorem_ipsum-11" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_5" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-5" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 77)">
+            <text id="Lorem_ipsum-12" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_6" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-6" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+          <g transform="translate(-1144 124)">
+            <text id="Lorem_ipsum-13" data-name="Lorem ipsum" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <text id="_7" data-name="✓" transform="translate(1406 180)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="0">✓</tspan></text>
+            <text id="x-7" data-name="x" transform="translate(1427 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">x</tspan></text>
+          </g>
+        </g>
+        <text id="Nieuwe_teams" data-name="Nieuwe teams" transform="translate(1121 129)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Nieuwe teams</tspan></text>
+      </g>
+      <g id="QM_Header" data-name="QM Header" transform="translate(1100 40)">
+        <g id="nav" fill="#fff" stroke="#0eff37" stroke-width="1" stroke-dasharray="10">
+          <rect width="784" height="54" stroke="none"/>
+          <rect x="0.5" y="0.5" width="783" height="53" fill="none"/>
+        </g>
+        <text id="Lobby:_ABCD" data-name="Lobby: ABCD" transform="translate(20 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lobby: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">ABCD</tspan></text>
+      </g>
+      <g id="ApprovedTeamsPanel" transform="translate(-154 -115)">
+        <g id="ApprovedTeamsPanel-2" data-name="ApprovedTeamsPanel" transform="translate(1658 220)" fill="none" stroke="#00a8ff" stroke-width="1" stroke-dasharray="10">
+          <rect width="370" height="330" stroke="none"/>
+          <rect x="0.5" y="0.5" width="369" height="329" fill="none"/>
+        </g>
+        <path id="line-3" data-name="line" d="M1850-199.03s-8.254,41.028-22.645,59.748a38.107,38.107,0,0,1-34.918,15.131" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="Note">
+          <g id="note-2" data-name="note" transform="translate(2088 118)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="82" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="81" rx="9.5" fill="none"/>
+          </g>
+          <text id="_ApprovedTeamsPanel_" data-name="&lt;ApprovedTeamsPanel
+
+/&gt;" transform="translate(2098 143)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;ApprovedTeamsPanel</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34">/&gt;</tspan></text>
+          <text id="teams:_string_" data-name="teams: string[]" transform="translate(2107 160)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">teams: string[]</tspan></text>
+        </g>
+      </g>
+      <g id="Header" transform="translate(-154 -115)">
+        <path id="line-4" data-name="line" d="M1129.586-252.405a54.287,54.287,0,0,1,6.706,12.267,47.162,47.162,0,0,1,2.409,13.174" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="Note-3" data-name="Note">
+          <g id="note-4" data-name="note" transform="translate(1270 14)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="115" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="114" rx="9.5" fill="none"/>
+          </g>
+          <text id="_Header_" data-name="&lt;Header
+
+
+
+/&gt;" transform="translate(1285 37)" fill="#fff" font-size="16" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;Header</tspan><tspan x="0" y="21"></tspan><tspan x="0" y="42"></tspan><tspan x="0" y="63"></tspan><tspan x="0" y="84">/&gt;</tspan></text>
+          <text id="lobbycode:_string_round:_int_questionNumber:_int" data-name="lobbycode: string
+round: int
+questionNumber: int" transform="translate(1293 57)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">lobbycode: string</tspan><tspan x="0" y="21">round: int</tspan><tspan x="0" y="42">questionNumber: int</tspan></text>
+        </g>
+      </g>
+      <g id="NewTeamsPanel" transform="translate(-154 -115)">
+        <path id="line-5" data-name="line" d="M946.486,118.243s12.379-23.772,35.086-35.993,50.654-14.411,50.654-14.411" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="component" transform="translate(1270 218)" fill="none" stroke="red" stroke-width="1" stroke-dasharray="10">
+          <rect width="363" height="394" stroke="none"/>
+          <rect x="0.5" y="0.5" width="362" height="393" fill="none"/>
+        </g>
+        <g id="Note-5" data-name="Note">
+          <g id="note-6" data-name="note" transform="translate(1018 480)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="108" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="107" rx="9.5" fill="none"/>
+          </g>
+          <text id="_NewTeamsPanel_" data-name="&lt;NewTeamsPanel
+
+
+
+/&gt;" transform="translate(1036 510)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;NewTeamsPanel</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34"></tspan><tspan x="0" y="51"></tspan><tspan x="0" y="68">/&gt;</tspan></text>
+          <text id="teams:_string_onAccept:_function_onDeny:_function" data-name="teams: string[]
+onAccept: function
+onDeny: function" transform="translate(1050 528)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">teams: string[]</tspan><tspan x="0" y="17">onAccept: function</tspan><tspan x="0" y="34">onDeny: function</tspan></text>
+        </g>
+      </g>
+      <g id="NewTeamItem" transform="translate(-154 -115)">
+        <g id="component-2" data-name="component" transform="translate(1290 270)" fill="none" stroke="#d600ff" stroke-width="1" stroke-dasharray="10">
+          <rect width="315" height="41" stroke="none"/>
+          <rect x="0.5" y="0.5" width="314" height="40" fill="none"/>
+        </g>
+        <path id="line-6" data-name="line" d="M931.832-131.661s26.21,25.744,55.211,40.37,65.063,4.539,65.063,4.539" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="Note-7" data-name="Note">
+          <g id="note-8" data-name="note" transform="translate(1018 187)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="63" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="62" rx="9.5" fill="none"/>
+          </g>
+          <text id="_NewTeamItem_" data-name="&lt;NewTeamItem
+
+/&gt;" transform="translate(1031 208)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;NewTeamItem</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34">/&gt;</tspan></text>
+          <text id="name:_string" data-name="name: string" transform="translate(1050 225)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">name: string</tspan></text>
+        </g>
+      </g>
+      <g id="_Volgende_teams_button" data-name="[ ] Volgende teams button" transform="translate(22 -699)">
+        <g id="Note-9" data-name="Note" transform="translate(1519 1188)">
+          <rect id="corner" width="37" height="49" transform="translate(272 13)" fill="#fc89dd"/>
+          <path id="bg" d="M0,0H273.167L309,41.1V70.886H0Z" transform="translate(0 13)" fill="#ffa2e6"/>
+          <path id="arrow" d="M14.5,0,29,13H0Z" transform="translate(218)" fill="#ffa2e6"/>
+        </g>
+        <text id="Disabled_wanneer_er_minder_dan_2_teams_geaccepteerd_zijn" data-name="Disabled wanneer er minder dan 2 teams geaccepteerd zijn" transform="translate(1527 1208)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Disabled wanneer er minder </tspan><tspan x="0" y="49">dan 2 teams geaccepteerd zijn</tspan></text>
+      </g>
+      <g id="New_team" data-name="New team" transform="translate(-154 -115)">
+        <path id="line-7" data-name="line" d="M-2409.732,2962.073s-73.1,67.336-153.809,104.139-169.047,43.075-169.047,43.075" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="event-3" data-name="event" transform="translate(825 695)" fill="#6450e4" stroke="#002bff" stroke-width="1">
+          <rect width="146" height="39" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="145" height="38" rx="9.5" fill="none"/>
+        </g>
+        <text id="_WS_new_team" data-name="[WS] new_team" transform="translate(840 722)" fill="#fff" font-size="17" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">[WS] new_team</tspan></text>
+      </g>
+      <g id="Reject_team" data-name="Reject team" transform="translate(-154 -115)">
+        <g id="event-4" data-name="event" transform="translate(739 804)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="232" height="49" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="231" height="48" rx="9.5" fill="none"/>
+        </g>
+        <path id="line-8" data-name="line" d="M-2142.79,2969.116s-174.737,43.762-322.591,86.9-268.825,85.649-268.825,85.649" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="_REST_DELETE_quizzes_:lobby_teams_:teamID" data-name="[REST] DELETE 
+/quizzes/:lobby/teams/:teamID" transform="translate(742 806)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="63" y="17">[REST] DELETE </tspan><tspan x="4.328" y="38">/quizzes/:lobby/teams/:teamID</tspan></text>
+      </g>
+      <g id="Accept_team" data-name="Accept team" transform="translate(-154 -115)">
+        <g id="event-5" data-name="event" transform="translate(738 743)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="233" height="49" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="232" height="48" rx="9.5" fill="none"/>
+        </g>
+        <path id="line-9" data-name="line" d="M-2120.283,2969.116s-.937,50.639-99.4,80.648-153.637,4.22-294.458,39.386-221.082,110.879-221.082,110.879" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="_REST_PUT_quizzes_:lobby_teams_:teamID" data-name="[REST] PUT 
+/quizzes/:lobby/teams/:teamID" transform="translate(742 746)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="74.539" y="17">[REST] PUT </tspan><tspan x="4.328" y="38">/quizzes/:lobby/teams/:teamID</tspan></text>
+      </g>
+      <g id="Next_step" data-name="Next step" transform="translate(-154 -115)">
+        <g id="event-6" data-name="event" transform="translate(2068 472)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="244" height="38" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="243" height="37" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby_newRound" data-name="[NAV] /quizzes/:lobby/newRound" transform="translate(2190 495)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-117.059" y="0">[NAV] /quizzes/:lobby/newRound</tspan></text>
+        <path id="line-10" data-name="line" d="M-1624.9,2902s-6.1,30-21.456,46.78-39.952,20.346-39.952,20.346" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Start_ronde" data-name="Start ronde" transform="translate(154 115)">
+      <g id="QM_Body-3" data-name="QM Body" transform="translate(2177 39)">
+        <g id="body-3" data-name="body" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="786" height="470" stroke="none"/>
+          <rect x="0.5" y="0.5" width="785" height="469" fill="none"/>
+        </g>
+      </g>
+      <g id="Button-5" data-name="Button">
+        <g id="input-3" data-name="input" transform="translate(2766 442)">
+          <g id="input-4" data-name="input" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="178" height="38" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="177" height="37" rx="9.5" fill="none"/>
+          </g>
+        </g>
+        <text id="Start_ronde-2" data-name="Start ronde" transform="translate(2808 469.5)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Start ronde</tspan></text>
+      </g>
+      <g id="Button-6" data-name="Button" transform="translate(-34)">
+        <g id="input-5" data-name="input" transform="translate(2582 442)">
+          <g id="input-6" data-name="input" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="178" height="38" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="177" height="37" rx="9.5" fill="none"/>
+          </g>
+        </g>
+        <text id="Einde_quiz" data-name="Einde quiz" transform="translate(2625 469.5)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Einde quiz</tspan></text>
+      </g>
+      <g id="Categories_table" data-name="Categories table">
+        <g id="table" transform="translate(2200 140)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="744" height="289" stroke="none"/>
+          <rect x="0.5" y="0.5" width="743" height="288" fill="none"/>
+        </g>
+        <g id="categories" transform="translate(2216 155)" clip-path="url(#clip-path-3)">
+          <g transform="translate(-2216 -155)">
+            <text id="Lorem_ipsum-14" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-2216 -108)">
+            <text id="Lorem_ipsum-15" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17-2" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-2216 -61)">
+            <text id="Lorem_ipsum-16" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17-3" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-2216 -14)">
+            <text id="Lorem_ipsum-17" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17-4" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-2216 33)">
+            <text id="Lorem_ipsum-18" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17-5" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-2216 80)">
+            <text id="Lorem_ipsum-19" data-name="Lorem ipsum" transform="translate(2243 177)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+            <g id="Rectangle_17-6" data-name="Rectangle 17" transform="translate(2216 159)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text id="Categorieën_kiezen" data-name="Categorieën kiezen" transform="translate(2199 129)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Categorieën kiezen</tspan></text>
+      <g id="QM_Header-2" data-name="QM Header" transform="translate(2178 40)">
+        <g id="nav-2" data-name="nav" fill="#fff" stroke="#0eff37" stroke-width="1" stroke-dasharray="10">
+          <rect width="784" height="54" stroke="none"/>
+          <rect x="0.5" y="0.5" width="783" height="53" fill="none"/>
+        </g>
+        <text id="Lobby:_ABCD-2" data-name="Lobby: ABCD" transform="translate(20 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lobby: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">ABCD</tspan></text>
+        <line id="seperator" y2="26" transform="translate(173 14)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="Ronde:_1" data-name="Ronde: 1" transform="translate(190.5 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Ronde: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">1</tspan></text>
+      </g>
+      <g id="SelectCategoriesPanel" transform="translate(924 -115)">
+        <path id="line-11" data-name="line" d="M1850.575-198.435s-8.829,40.433-23.22,59.153a38.107,38.107,0,0,1-34.918,15.131" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="component-3" data-name="component" transform="translate(1266 216)" fill="none" stroke="#1c3ee3" stroke-width="1" stroke-dasharray="10">
+          <rect width="765" height="335" stroke="none"/>
+          <rect x="0.5" y="0.5" width="764" height="334" fill="none"/>
+        </g>
+        <g id="Note-10" data-name="Note">
+          <g id="note-11" data-name="note" transform="translate(2088 118)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="186" height="103" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="185" height="102" rx="9.5" fill="none"/>
+          </g>
+          <text id="_SelectCategoriesPanel_" data-name="&lt;SelectCategoriesPanel
+
+
+
+/&gt;" transform="translate(2098 143)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;SelectCategoriesPanel</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34"></tspan><tspan x="0" y="51"></tspan><tspan x="0" y="68">/&gt;</tspan></text>
+          <text id="categories:_string_selectedCategories:_string_onCategoryClick:_function" data-name="categories: string[]
+selectedCategories: string[]
+onCategoryClick: function" transform="translate(2107 160)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">categories: string[]</tspan><tspan x="0" y="17">selectedCategories: string[]</tspan><tspan x="0" y="34">onCategoryClick: function</tspan></text>
+        </g>
+      </g>
+      <g id="_Start_ronde_button" data-name="[ ] Start ronde button" transform="translate(2078 -585.656)">
+        <g id="Note-12" data-name="Note" transform="translate(866 1039)">
+          <rect id="corner-2" data-name="corner" width="62" height="55" transform="translate(267)" fill="#fc89dd"/>
+          <path id="bg-2" data-name="bg" d="M0,0H271.253l35.582,44.987V77.6H0Z" transform="translate(22)" fill="#ffa2e6"/>
+          <path id="arrow-2" data-name="arrow" d="M14.5,0,29,23H0Z" transform="translate(0 47) rotate(-90)" fill="#ffa2e6"/>
+        </g>
+        <text id="Disabled_wanneer_minder_dan_3_categorieën_geselecteerd" data-name="Disabled wanneer minder dan 3 categorieën geselecteerd" transform="translate(898 1049)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Disabled wanneer minder dan </tspan><tspan x="0" y="49">3 categorieën geselecteerd</tspan></text>
+      </g>
+      <g id="_Einde_quiz_button" data-name="[ ] Einde quiz button" transform="translate(886 -699)">
+        <g id="Note-13" data-name="Note" transform="translate(1519 1188)">
+          <rect id="corner-3" data-name="corner" width="37" height="49" transform="translate(272 13)" fill="#fc89dd"/>
+          <path id="bg-3" data-name="bg" d="M0,0H273.167L309,41.1V70.886H0Z" transform="translate(0 13)" fill="#ffa2e6"/>
+          <path id="arrow-3" data-name="arrow" d="M14.5,0,29,13H0Z" transform="translate(218)" fill="#ffa2e6"/>
+        </g>
+        <text id="Hidden_wanneer_er_geen_rondes_gespeeld_zijn" data-name="Hidden wanneer er geen rondes gespeeld zijn" transform="translate(1529 1208)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Hidden wanneer er geen </tspan><tspan x="0" y="49">rondes gespeeld zijn</tspan></text>
+      </g>
+      <g id="Start_round" data-name="Start round" transform="translate(926.312 -240.063)">
+        <g id="event-7" data-name="event" transform="translate(2068 472)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="310" height="62.563" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="309" height="61.563" rx="9.5" fill="none"/>
+        </g>
+        <text id="_REST_POST_quizzes_:lobby_rounds" data-name="[REST] POST
+/quizzes/:lobby/rounds" transform="translate(2223 499.281)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-43.246" y="0">[REST] POST</tspan><tspan x="-81.605" y="21">/quizzes/:lobby/rounds</tspan></text>
+        <path id="line-12" data-name="line" d="M-1632.169,2924.212s-12.531,21.452-26,64.723-31.7,86.15-31.7,86.15" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Go_to_choose_question" data-name="Go to choose question" transform="translate(926.312 -152.142)">
+        <g id="event-8" data-name="event" transform="translate(2068 485)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="310" height="49.563" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="309" height="48.563" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby_question" data-name="[NAV] /quizzes/:lobby/question" transform="translate(2223 516.281)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-110.242" y="0">[NAV] /quizzes/:lobby/question</tspan></text>
+        <path id="line-13" data-name="line" d="M-1632.169,2924.212s-4.626-4.552-18.092,38.719c-12.267,39.42-36.127,42.015-36.167,41.945" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Stop_round" data-name="Stop round" transform="translate(110 -537.37)">
+        <g id="event-9" data-name="event" transform="translate(2068 472)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="274.359" height="55.37" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="273.359" height="54.37" rx="9.5" fill="none"/>
+        </g>
+        <text id="_REST_PATCH_quizzes_:lobby" data-name="[REST] PATCH
+/quizzes/:lobby" transform="translate(2198.607 495.099)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="-38.403" y="0">[REST] PATCH</tspan><tspan x="-43.761" y="17">/quizzes/:lobby</tspan></text>
+        <path id="line-14" data-name="line" d="M2438.118,1002.736s-353.408,36.687-372.435-24.37-17.755-445.9-17.548-459.1,20.313-9.467,20.313-9.467" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Go_to_home" data-name="Go to home">
+        <g id="event-10" data-name="event" transform="translate(2482 -65.37)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="310" height="49.563" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="309" height="48.563" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_" data-name="[NAV] /" transform="translate(2637 -34.089)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-25.703" y="0">[NAV] /</tspan></text>
+        <path id="line-15" data-name="line" d="M2522.7-15.807s-52.114,24.151-143.164,32.2-221.034,0-221.034,0" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Vraag_selecteren" data-name="Vraag selecteren" transform="translate(1232 115)">
+      <g id="QM_Body-4" data-name="QM Body" transform="translate(1099 593)">
+        <g id="body-4" data-name="body" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="786" height="470" stroke="none"/>
+          <rect x="0.5" y="0.5" width="785" height="469" fill="none"/>
+        </g>
+      </g>
+      <g id="Vragen_table" data-name="Vragen table">
+        <g id="table-2" data-name="table" transform="translate(1123 691)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="744" height="349" stroke="none"/>
+          <rect x="0.5" y="0.5" width="743" height="348" fill="none"/>
+        </g>
+        <g id="vragen" transform="translate(1144 709)" clip-path="url(#clip-path-4)">
+          <g transform="translate(-1144 -158)">
+            <text id="Lorem_ipsum_Algemeen_" data-name="Lorem ipsum (Algemeen)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (Algemeen)</tspan></text>
+          </g>
+          <g transform="translate(-1144 -111)">
+            <text id="Lorem_ipsum_Muziek_" data-name="Lorem ipsum (Muziek)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (Muziek)</tspan></text>
+          </g>
+          <g transform="translate(-1144 -64)">
+            <text id="Lorem_ipsum_Social_media_" data-name="Lorem ipsum (Social media)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (Social media)</tspan></text>
+          </g>
+          <g transform="translate(-1144 -17)">
+            <text id="Lorem_ipsum_" data-name="Lorem ipsum (…)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (…)</tspan></text>
+          </g>
+          <g transform="translate(-1144 30)">
+            <text id="Lorem_ipsum_2" data-name="Lorem ipsum (…)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (…)</tspan></text>
+          </g>
+          <g transform="translate(-1144 77)">
+            <text id="Lorem_ipsum_3" data-name="Lorem ipsum (…)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (…)</tspan></text>
+          </g>
+          <g transform="translate(-1144 124)">
+            <text id="Lorem_ipsum_4" data-name="Lorem ipsum (…)" transform="translate(1144 180)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lorem ipsum (…)</tspan></text>
+          </g>
+        </g>
+      </g>
+      <text id="Kies_vraag" data-name="Kies vraag" transform="translate(1122 680)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Kies vraag</tspan></text>
+      <g id="QM_Header-3" data-name="QM Header" transform="translate(1100 594)">
+        <g id="nav-3" data-name="nav" fill="#fff" stroke="#0eff37" stroke-width="1" stroke-dasharray="10">
+          <rect width="784" height="54" stroke="none"/>
+          <rect x="0.5" y="0.5" width="783" height="53" fill="none"/>
+        </g>
+        <text id="Lobby:_ABCD-3" data-name="Lobby: ABCD" transform="translate(20 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lobby: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">ABCD</tspan></text>
+        <line id="seperator-2" data-name="seperator" y2="26" transform="translate(173 14)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="Ronde:_1-2" data-name="Ronde: 1" transform="translate(190.5 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Ronde: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">1</tspan></text>
+      </g>
+      <g id="_Selecteer_vraag" data-name="[ ] Selecteer vraag" transform="translate(527 -337)">
+        <g id="Note-14" data-name="Note" transform="translate(866 1039)">
+          <rect id="corner-4" data-name="corner" width="62" height="36" transform="translate(267)" fill="#fc89dd"/>
+          <path id="bg-4" data-name="bg" d="M0,0H271.253l35.582,28.754V49.6H0Z" transform="translate(22)" fill="#ffa2e6"/>
+          <path id="arrow-4" data-name="arrow" d="M14.5,0,29,23H0Z" transform="translate(0 38) rotate(-90)" fill="#ffa2e6"/>
+        </g>
+        <text id="Klik_op_vraag_om_te_selecteren" data-name="Klik op vraag om te selecteren" transform="translate(898 1049)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Klik op vraag om te selecteren</tspan></text>
+      </g>
+      <g id="SelectQuestionPanel" transform="translate(-159 469.675)">
+        <path id="line-16" data-name="line" d="M1850.575-198.435s-8.829,40.433-23.22,59.153a38.107,38.107,0,0,1-34.918,15.131" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="Note-15" data-name="Note">
+          <g id="note-16" data-name="note" transform="translate(2088 118)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="186" height="87" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="185" height="86" rx="9.5" fill="none"/>
+          </g>
+          <text id="_SelectQuestionPanel_" data-name="&lt;SelectQuestionPanel
+
+
+/&gt;" transform="translate(2098 143)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;SelectQuestionPanel</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34"></tspan><tspan x="0" y="51">/&gt;</tspan></text>
+          <text id="questions:_string_onQuestionClick:_function" data-name="questions: string[]
+onQuestionClick: function" transform="translate(2107 160)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">questions: string[]</tspan><tspan x="0" y="17">onQuestionClick: function</tspan></text>
+        </g>
+        <g id="component-4" data-name="component" transform="translate(1272 191.325)" fill="none" stroke="red" stroke-width="1" stroke-dasharray="10">
+          <rect width="759" height="391" stroke="none"/>
+          <rect x="0.5" y="0.5" width="758" height="390" fill="none"/>
+        </g>
+      </g>
+      <g id="Choose_question" data-name="Choose question" transform="translate(-138.688 250.458)">
+        <g id="event-11" data-name="event" transform="translate(2050 472)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="328" height="81.281" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="327" height="80.281" rx="9.5" fill="none"/>
+        </g>
+        <text id="_REST_POST_quizzes_:lobby_rounds_:roundNr_askedquestions" data-name="[REST] POST
+/quizzes/:lobby/rounds/:roundNr/askedquestions" transform="translate(2061 482.281)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="112.754" y="17">[REST] POST</tspan><tspan x="36.426" y="38">/quizzes/:lobby/rounds/:roundNr/</tspan><tspan x="101.59" y="59">askedquestions</tspan></text>
+        <path id="line-17" data-name="line" d="M-1652.924,2896.77s-93.323,14.97-241.338,12.28-329.97,4.4-329.97,4.4" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="Go_to_question_overview" data-name="Go to question overview" transform="translate(-137.688 335.858)">
+        <g id="event-12" data-name="event" transform="translate(2068 485)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="310" height="49.563" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="309" height="48.563" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby_overview" data-name="[NAV] /quizzes/:lobby/overview" transform="translate(2223 516.281)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-110.781" y="0">[NAV] /quizzes/:lobby/overview</tspan></text>
+        <path id="line-18" data-name="line" d="M-1635.7,2903.85s-165.265-2.725-313.3-25.009-275.281-43.693-275.321-43.763" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Vraag_overzicht" data-name="Vraag overzicht" transform="translate(1219 115)">
+      <g id="QM_Body-5" data-name="QM Body" transform="translate(24 593)">
+        <g id="body-5" data-name="body" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="786" height="470" stroke="none"/>
+          <rect x="0.5" y="0.5" width="785" height="469" fill="none"/>
+        </g>
+      </g>
+      <g id="Button-7" data-name="Button" transform="translate(-2168.274 558)">
+        <g id="input-7" data-name="input" transform="translate(2766.274 442)">
+          <g id="input-8" data-name="input" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="202" height="38" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="201" height="37" rx="9.5" fill="none"/>
+          </g>
+        </g>
+        <text id="Volgende_vraag" data-name="Volgende vraag" transform="translate(2798.274 469.5)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Volgende vraag</tspan></text>
+      </g>
+      <g id="Button-8" data-name="Button" transform="translate(-2199 558)">
+        <g id="input-9" data-name="input" transform="translate(2654 442)">
+          <g id="input-10" data-name="input" fill="#fff" stroke="#707070" stroke-width="1">
+            <rect width="106" height="38" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="105" height="37" rx="9.5" fill="none"/>
+          </g>
+        </g>
+        <text id="Sluit" transform="translate(2688 469.5)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Sluit</tspan></text>
+      </g>
+      <g id="Team_table" data-name="Team table">
+        <g id="table-3" data-name="table" transform="translate(56 736)" fill="#fff" stroke="#707070" stroke-width="1">
+          <rect width="744" height="198" stroke="none"/>
+          <rect x="0.5" y="0.5" width="743" height="197" fill="none"/>
+        </g>
+        <g id="team_results" data-name="team results" transform="translate(71 752)" clip-path="url(#clip-path-5)">
+          <g transform="translate(-71 -752)">
+            <text id="Team_1:_Jane_Doe" data-name="Team 1: Jane Doe" transform="translate(71 774)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Team 1:</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI, Segoe UI" font-weight="400"> Jane Doe</tspan></text>
+            <g id="Rectangle_17-7" data-name="Rectangle 17" transform="translate(762 756)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-71 -705)">
+            <text id="Team_2:_John_Doe" data-name="Team 2: John Doe" transform="translate(71 774)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Team 2:</tspan><tspan y="0" xml:space="preserve" font-family="SegoeUI, Segoe UI" font-weight="400"> John Doe</tspan></text>
+            <g id="Rectangle_17-8" data-name="Rectangle 17" transform="translate(762 756)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-71 -658)">
+            <text id="Team_Foo:_Annie_Doe" data-name="Team Foo: Annie Doe" transform="translate(71 774)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Team Foo: </tspan><tspan y="0" font-family="SegoeUI, Segoe UI" font-weight="400">Annie Doe</tspan></text>
+            <g id="Rectangle_17-9" data-name="Rectangle 17" transform="translate(762 756)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+          <g transform="translate(-71 -611)">
+            <text id="Team_Bar:_No_answer_given_yet" data-name="Team Bar: No answer given yet" transform="translate(71 774)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Team Bar:</tspan><tspan y="0" font-family="SegoeUI, Segoe UI" font-weight="400"> </tspan><tspan y="0" font-family="SegoeUI-Italic, Segoe UI" font-weight="400" font-style="italic">No answer given yet</tspan></text>
+            <g id="Rectangle_17-10" data-name="Rectangle 17" transform="translate(762 756)" fill="#fff" stroke="#707070" stroke-width="1">
+              <rect width="20" height="20" rx="5" stroke="none"/>
+              <rect x="0.5" y="0.5" width="19" height="19" rx="4.5" fill="none"/>
+            </g>
+          </g>
+        </g>
+        <text id="_8" data-name="✓" transform="translate(765 751)" fill="#707070" font-size="20" font-family="SegoeUIEmoji, Segoe UI Emoji"><tspan x="0" y="22">✓</tspan></text>
+      </g>
+      <text id="Juiste_antwoord:_John_Doe" data-name="Juiste antwoord: John Doe" transform="translate(57 707)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Juiste antwoord: </tspan><tspan y="0" font-family="SegoeUI, Segoe UI" font-weight="400">John Doe</tspan></text>
+      <text id="Vraag:_Lorem_ipsum" data-name="Vraag: Lorem ipsum" transform="translate(57 680)" fill="#707070" font-size="20" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Vraag: </tspan><tspan y="0" font-family="SegoeUI, Segoe UI" font-weight="400">Lorem ipsum</tspan></text>
+      <g id="QM_Header-4" data-name="QM Header" transform="translate(35 594)">
+        <g id="nav-4" data-name="nav" fill="#fff" stroke="#0eff37" stroke-width="1" stroke-dasharray="10">
+          <rect width="784" height="54" stroke="none"/>
+          <rect x="0.5" y="0.5" width="783" height="53" fill="none"/>
+        </g>
+        <text id="Vraag:_1_12" data-name="Vraag: 1 / 12" transform="translate(313 36.5)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Vraag: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">1 / 12</tspan></text>
+        <line id="seperator-3" data-name="seperator" y2="26" transform="translate(295.5 13.5)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="Ronde:_1-3" data-name="Ronde: 1" transform="translate(190.5 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Ronde: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">1</tspan></text>
+        <line id="seperator-4" data-name="seperator" y2="26" transform="translate(173 14)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="Lobby:_ABCD-4" data-name="Lobby: ABCD" transform="translate(20 37)" fill="#707070" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Lobby: </tspan><tspan y="0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700">ABCD</tspan></text>
+      </g>
+      <g id="QuestionOverview" transform="translate(-1219 447)">
+        <path id="line-19" data-name="line" d="M946.486,118.243s12.379-23.772,35.086-35.993,50.654-14.411,50.654-14.411" transform="translate(229.774 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="component-5" data-name="component" transform="translate(1262 209)" fill="none" stroke="#ab00ff" stroke-width="1" stroke-dasharray="10">
+          <rect width="766" height="317" stroke="none"/>
+          <rect x="0.5" y="0.5" width="765" height="316" fill="none"/>
+        </g>
+        <g id="Note-17" data-name="Note" transform="translate(-8.226)">
+          <g id="note-18" data-name="note" transform="translate(1018 480)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="135" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="134" rx="9.5" fill="none"/>
+          </g>
+          <text id="_QuestionOverview_" data-name="&lt;QuestionOverview
+
+
+
+
+
+/&gt;" transform="translate(1036 505)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;QuestionOverview</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34"></tspan><tspan x="0" y="51"></tspan><tspan x="0" y="68"></tspan><tspan x="0" y="85"></tspan><tspan x="0" y="102">/&gt;</tspan></text>
+          <text id="question:_string_answer:_string_teams:_string_onApprove:_function_questionClosed:_bool" data-name="question: string
+answer: string
+teams: string[]
+onApprove: function
+questionClosed: bool" transform="translate(1050 523)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">question: string</tspan><tspan x="0" y="17">answer: string</tspan><tspan x="0" y="34">teams: string[]</tspan><tspan x="0" y="51">onApprove: function</tspan><tspan x="0" y="68">questionClosed: bool</tspan></text>
+        </g>
+      </g>
+      <g id="NewTeamItem-2" data-name="NewTeamItem" transform="translate(-1227 480)">
+        <g id="component-6" data-name="component" transform="translate(1290 270)" fill="none" stroke="#d600ff" stroke-width="1" stroke-dasharray="10">
+          <rect width="725" height="41" stroke="none"/>
+          <rect x="0.5" y="0.5" width="724" height="40" fill="none"/>
+        </g>
+        <path id="line-20" data-name="line" d="M931.832-131.661s26.21,25.744,55.211,40.37,65.063,4.539,65.063,4.539" transform="translate(238 381)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="Note-19" data-name="Note">
+          <g id="note-20" data-name="note" transform="translate(1018 187)" fill="#7a7a7a" stroke="#707070" stroke-width="1">
+            <rect width="167" height="79" rx="10" stroke="none"/>
+            <rect x="0.5" y="0.5" width="166" height="78" rx="9.5" fill="none"/>
+          </g>
+          <text id="_QuestionOverviewItem_" data-name="&lt;QuestionOverviewItem
+
+
+/&gt;" transform="translate(1027 208)" fill="#fff" font-size="13" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">&lt;QuestionOverviewItem</tspan><tspan x="0" y="17"></tspan><tspan x="0" y="34"></tspan><tspan x="0" y="51">/&gt;</tspan></text>
+          <text id="name:_string_approved:_boolean" data-name="name: string
+approved: boolean" transform="translate(1050 225)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">name: string</tspan><tspan x="0" y="17">approved: boolean</tspan></text>
+        </g>
+      </g>
+      <g id="_Sluit_vraag" data-name="[ ] Sluit vraag" transform="translate(-1400 -198)">
+        <g id="Note-21" data-name="Note" transform="translate(1519 1201)">
+          <rect id="corner-5" data-name="corner" width="37" height="28" transform="translate(272)" fill="#fc89dd"/>
+          <path id="bg-5" data-name="bg" d="M0,0H273.167L309,24.929V43H0Z" fill="#ffa2e6"/>
+          <path id="arrow-5" data-name="arrow" d="M14.5,0,29,13H0Z" transform="translate(322 6) rotate(90)" fill="#ffa2e6"/>
+        </g>
+        <text id="Disabled_wanneer_geklikt" data-name="Disabled wanneer geklikt" transform="translate(1538 1230)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Disabled wanneer geklikt</tspan></text>
+      </g>
+      <g id="_Volgende_vraag_button" data-name="[ ] Volgende vraag button" transform="translate(-869 -115)">
+        <g id="Note-22" data-name="Note" transform="translate(1519 1188)">
+          <rect id="corner-6" data-name="corner" width="37" height="65" transform="translate(0 13)" fill="#fc89dd"/>
+          <path id="bg-6" data-name="bg" d="M309,0H24.054L0,22.52V96.2H309Z" transform="translate(0 13)" fill="#ffa2e6"/>
+          <path id="arrow-6" data-name="arrow" d="M14.5,0,29,13H0Z" transform="translate(37)" fill="#ffa2e6"/>
+        </g>
+        <text id="Enabled_wanneer_vraag_gesloten_standaard_disabled" data-name="Enabled wanneer vraag gesloten, standaard disabled" transform="translate(1566 1208)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Enabled wanneer vraag </tspan><tspan x="0" y="49">gesloten, standaard </tspan><tspan x="0" y="76">disabled</tspan></text>
+      </g>
+      <g id="New_answer" data-name="New answer" transform="translate(-1026 144)">
+        <path id="line-21" data-name="line" d="M-2481.287,3075.145s-18.328,7.395-77.907,15.389-173.395,18.754-173.395,18.754" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="event-13" data-name="event" transform="translate(825 695)" fill="#6450e4" stroke="#002bff" stroke-width="1">
+          <rect width="146" height="39" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="145" height="38" rx="9.5" fill="none"/>
+        </g>
+        <text id="_WS_new_answer" data-name="[WS] new_answer" transform="translate(833 722)" fill="#fff" font-size="17" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">[WS] new_answer</tspan></text>
+      </g>
+      <g id="Close_question" data-name="Close question" transform="translate(-807.406 366.422)">
+        <g id="event-14" data-name="event" transform="translate(526 743)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="445" height="71" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="444" height="70" rx="9.5" fill="none"/>
+        </g>
+        <path id="line-22" data-name="line" d="M-2383.737,3062.589s-129.963,19.516-208.418,47.468-141.312,34.454-141.312,34.454" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="_REST_PATCH_quizzes_:lobby_rounds_:roundNr_askedquestions_:questionNr" data-name="[REST] PATCH 
+/quizzes/:lobby/rounds/:roundNr/askedquestions/:questionNr" transform="translate(535.5 746)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="164.234" y="17">[REST] PATCH </tspan><tspan x="91.926" y="38">/quizzes/:lobby/rounds/:roundNr/</tspan><tspan x="112.793" y="59">askedquestions/:questionNr</tspan></text>
+      </g>
+      <g id="Go_to_select_next_question" data-name="Go to select next question" transform="translate(-1063.688 606.921)">
+        <g id="event-15" data-name="event" transform="translate(2068 591.726)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="310" height="49.563" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="309" height="48.563" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby_question-2" data-name="[NAV] /quizzes/:lobby/question" transform="translate(2223 623.008)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-110.242" y="0">[NAV] /quizzes/:lobby/question</tspan></text>
+        <path id="line-23" data-name="line" d="M-1628.1,2983.726s-13.111-104.934-64.542-127.876-148.752-43.7-148.791-43.769" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <g id="_Approve_answer" data-name="[ ] Approve answer" transform="translate(-767 -521)">
+        <g id="Note-23" data-name="Note" transform="translate(1519 1201)">
+          <rect id="corner-7" data-name="corner" width="37" height="28" transform="translate(272)" fill="#fc89dd"/>
+          <path id="bg-7" data-name="bg" d="M0,0H273.167L309,24.929V43H0Z" fill="#ffa2e6"/>
+          <path id="arrow-7" data-name="arrow" d="M14.5,0,29,13H0Z" transform="translate(37 53) rotate(180)" fill="#ffa2e6"/>
+        </g>
+        <text id="Disabled_tot_vraag_gesloten" data-name="Disabled tot vraag gesloten" transform="translate(1538 1230)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Disabled tot vraag gesloten</tspan></text>
+      </g>
+      <g id="Close_question-2" data-name="Close question" transform="translate(306.594 379.114)">
+        <g id="event-16" data-name="event" transform="translate(738 743)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="415" height="67" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="414" height="66" rx="9.5" fill="none"/>
+        </g>
+        <path id="line-24" data-name="line" d="M-3226.387,2785.439s20.952,115.458,87.25,203.153,177.945,147.625,177.945,147.625" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <text id="_REST_PATCH_quizzes_:lobby_rounds_:roundNr_askedquestions_:questionNr_givenanswers_:answerId" data-name="[REST] PATCH 
+/quizzes/:lobby/rounds/:roundNr
+/askedquestions/:questionNr/givenanswers/:answerId" transform="translate(738 746)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="158.734" y="17">[REST] PATCH </tspan><tspan x="89.543" y="38">/quizzes/:lobby/rounds/:roundNr</tspan><tspan x="17.305" y="59">/askedquestions/:questionNr/givenanswers/:answerId</tspan></text>
+      </g>
+      <g id="_Volgende_vraag_button-2" data-name="[ ] Volgende vraag button" transform="translate(-1206 -115)">
+        <g id="Note-24" data-name="Note" transform="translate(1519 1188)">
+          <rect id="corner-8" data-name="corner" width="37" height="65" transform="translate(0 13)" fill="#fc89dd"/>
+          <path id="bg-8" data-name="bg" d="M309,0H24.054L0,17.326V74.014H309Z" transform="translate(0 13)" fill="#ffa2e6"/>
+          <path id="arrow-8" data-name="arrow" d="M14.5,0,29,13H0Z" transform="translate(276)" fill="#ffa2e6"/>
+        </g>
+        <text id="Toon_eindig_ronde_wanneer_laatste_vraag" data-name="Toon eindig ronde wanneer laatste vraag" transform="translate(1566 1208)" fill="#fff" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="22">Toon eindig ronde </tspan><tspan x="0" y="49">wanneer laatste vraag</tspan></text>
+      </g>
+      <g id="Eindig_ronde" data-name="Eindig ronde" transform="translate(-1219 -115)">
+        <path id="line-25" data-name="line" d="M-1835.226,3544.479s-8.128,106.281-32.51,138.165-209.556,55.11-209.556,55.11" transform="translate(3704 -2392)" fill="none" stroke="#707070" stroke-width="1"/>
+        <g id="event-17" data-name="event" transform="translate(1315.975 1306.422)" fill="#50e4a3" stroke="#05ff91" stroke-width="1">
+          <rect width="311" height="49" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="310" height="48" rx="9.5" fill="none"/>
+        </g>
+        <text id="_REST_PATCH_quizzes_:lobby_rounds_:roundNr" data-name="[REST] PATCH 
+/quizzes/:lobby/rounds/:roundNr" transform="translate(1324.475 1309.422)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="97.734" y="17">[REST] PATCH </tspan><tspan x="28.543" y="38">/quizzes/:lobby/rounds/:roundNr</tspan></text>
+      </g>
+      <g id="Next_round" data-name="Next round" transform="translate(-1219 -115)">
+        <g id="event-18" data-name="event" transform="translate(1883 1321)" fill="#da902f" stroke="#ff9100" stroke-width="1">
+          <rect width="244" height="38" rx="10" stroke="none"/>
+          <rect x="0.5" y="0.5" width="243" height="37" rx="9.5" fill="none"/>
+        </g>
+        <text id="_NAV_quizzes_:lobby_newRound-2" data-name="[NAV] /quizzes/:lobby/newRound" transform="translate(2005 1344)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI"><tspan x="-117.059" y="0">[NAV] /quizzes/:lobby/newRound</tspan></text>
+        <path id="line-26" data-name="line" d="M649.774,1038s-5.515,53.783-12.65,87.153-17.826,33.352-11.1,57.2,38.008,38.184,38.008,38.184" transform="translate(1219 115)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Wanneer_laatste_vraag_van_ronde" data-name="Wanneer laatste vraag van ronde" transform="translate(554 1237)" font-size="11" font-family="SegoeUI, Segoe UI"><tspan x="-79.793" y="0">Wanneer laatste vraag van ronde</tspan></text>
+    </g>
+    <g id="_-_Quizmaster_aangemeld" data-name="-&gt; Quizmaster aangemeld" transform="translate(154 115)">
+      <g id="Arrow-9" data-name="Arrow" transform="translate(856 223)">
+        <line id="middle" x2="213" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right" x1="13" y2="10" transform="translate(200 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left" x1="13" y1="10" transform="translate(200)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Quizmaster_aangemeld" data-name="Quizmaster aangemeld" transform="translate(861 205)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Quizmaster aangemeld</tspan></text>
+    </g>
+    <g id="_-_Teams_geaccepteerd" data-name="-&gt; Teams geaccepteerd" transform="translate(154 115)">
+      <g id="Arrow-10" data-name="Arrow" transform="translate(1925 223)">
+        <line id="middle-2" data-name="middle" x2="218" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right-2" data-name="right" x1="13" y2="10" transform="translate(205 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left-2" data-name="left" x1="13" y1="10" transform="translate(205)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Teams_geaccepteerd" data-name="Teams geaccepteerd" transform="translate(1944 205)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Teams geaccepteerd</tspan></text>
+    </g>
+    <g id="_-_Categorieen_gekozen" data-name="-&gt; Categorieen gekozen" transform="translate(154 115)">
+      <g id="Arrow-11" data-name="Arrow" transform="translate(2925.99 525) rotate(90)">
+        <line id="middle-3" data-name="middle" x2="57" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right-3" data-name="right" x1="13" y2="10" transform="translate(44 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left-3" data-name="left" x1="13" y1="10" transform="translate(44)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Categorieën_gekozen" data-name="Categorieën gekozen" transform="translate(2931 562)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Categorieën gekozen</tspan></text>
+    </g>
+    <g id="_-_Volgende_vraag" data-name="-&gt; Volgende vraag" transform="translate(154 115)">
+      <g id="Arrow-12" data-name="Arrow" transform="translate(1936 927)">
+        <line id="middle-4" data-name="middle" x2="213" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right-4" data-name="right" x1="13" y2="10" transform="translate(200 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left-4" data-name="left" x1="13" y1="10" transform="translate(200)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Wanneer_volgende_vraag" data-name="Wanneer volgende vraag" transform="translate(1925 907)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Wanneer volgende vraag</tspan></text>
+    </g>
+    <g id="_-_Vraag_gekozen" data-name="-&gt; Vraag gekozen" transform="translate(154 115)">
+      <g id="Arrow-13" data-name="Arrow" transform="translate(2149 813) rotate(180)">
+        <line id="middle-5" data-name="middle" x2="213" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right-5" data-name="right" x1="13" y2="10" transform="translate(200 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left-5" data-name="left" x1="13" y1="10" transform="translate(200)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Vraag_gekozen" data-name="Vraag gekozen" transform="translate(1977 784)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Vraag gekozen</tspan></text>
+    </g>
+    <g id="_-_Ronde_klaar" data-name="-&gt; Ronde klaar" transform="translate(154 115)">
+      <g id="Arrow-14" data-name="Arrow" transform="translate(1910.439 605.315) rotate(-25)">
+        <line id="middle-6" data-name="middle" y1="0.5" x2="247.277" transform="translate(0 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="right-6" data-name="right" x1="13" y2="10" transform="translate(234.277 10)" fill="none" stroke="#707070" stroke-width="1"/>
+        <line id="left-6" data-name="left" x1="13" y1="10" transform="translate(234.277)" fill="none" stroke="#707070" stroke-width="1"/>
+      </g>
+      <text id="Wanneer_ronde_klaar_is" data-name="Wanneer ronde klaar is" transform="matrix(0.899, -0.438, 0.438, 0.899, 1920.083, 588.506)" fill="#707070" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Wanneer ronde klaar is</tspan></text>
+    </g>
+  </g>
+</svg>

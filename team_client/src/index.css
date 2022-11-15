@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.clock {
+    width: 92px;
+    aspect-ratio: 1;
+    border: 3px solid #111;
+    border-radius: 50%;
+    position: relative;
+}
+.dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    aspect-ratio: 1;
+    background-color: #111;
+    border-radius: 50%;
+}
+.hour-hand,
+.min-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 20%;
+    background-color: #111;
+    border-radius: 50vw;
+    transform: translateX(-50%);
+    transform-origin: top;
+    animation: rotate 4000ms linear infinite;
+}
+.min-hand {
+    height: 30%;
+    animation: rotate 2000ms linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+.line {
+    width: 3px;
+    height: 7px;
+    background-color: #111;
+    position: absolute;
+    border-radius: 50vw;
+}
+.line1 {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.line2 {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}
+.line3 {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.line4 {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+}

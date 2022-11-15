@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#tsparticles canvas{
+    filter: invert(1);
+}
+
+.dark #tsparticles canvas{
+    filter: invert(0);
+}
