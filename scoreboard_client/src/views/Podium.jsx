@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import crown from '../assets/crown.svg';
 import Medal from '../components/Medal';
 import Slider from '../components/Slider';
+import fetcher from '../fetcher';
 
 function Podium() {
   const serverURL = process.env.REACT_APP_API_URL;
@@ -26,7 +27,7 @@ function Podium() {
   }
 
   useEffect(() => {
-    fetch(`${serverURL}/api/v1/scoreboard/quizzes/${lobbyCode}/teams?categorize=top3`, {
+    fetcher(`${serverURL}/api/v1/scoreboard/quizzes/${lobbyCode}/teams?categorize=top3`, {
       credentials: 'include',
     })
       .then((res) => {

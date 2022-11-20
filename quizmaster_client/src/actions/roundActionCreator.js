@@ -1,5 +1,6 @@
 import toastr from 'toastr';
 import changeRouteAction from './routerActionCreator';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -13,7 +14,7 @@ export function setRoundsAction(rounds) {
 export function getRoundsActionAsync() {
   return (dispatch, getState) => {
     const { global } = getState();
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
@@ -31,9 +32,8 @@ export function getRoundsActionAsync() {
 export function createRoundActionAsync(chosenCategories) {
   return (dispatch, getState) => {
     const { global } = getState();
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -56,9 +56,8 @@ export function createRoundActionAsync(chosenCategories) {
 export function addAskedQuestionActionAsync(questionId) {
   return (dispatch, getState) => {
     const { global, rounds } = getState();
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

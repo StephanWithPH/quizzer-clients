@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import { getRoundsActionAsync } from '../actions/roundActionCreator';
 import Loader from '../components/Loader';
 import { setAnswerAction, setGivenAnswerAction } from '../actions/questionActionCreator';
+import fetcher from '../fetcher';
 
 function Question() {
   const dispatch = useDispatch();
@@ -34,9 +35,8 @@ function Question() {
     if (!question.answer) {
       toastr.error('Vul a.u.b een antwoord in');
     } else {
-      fetch(`${serverURL}/api/v1/team/quizzes/${lobbyCode}/rounds/${round._id}/askedQuestions/${askedQuestion._id}/givenAnswers`, {
+      fetcher(`${serverURL}/api/v1/team/quizzes/${lobbyCode}/rounds/${round._id}/askedQuestions/${askedQuestion._id}/givenAnswers`, {
         method: 'POST',
-        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

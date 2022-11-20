@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -12,8 +13,7 @@ export function setQuestionsAction(questions) {
 export function getQuestionsActionAsync() {
   return (dispatch, getState) => {
     const { global } = getState();
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/questions`, {
-      credentials: 'include',
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/questions`, {
     }).then((res) => {
       if (!res.ok) {
         throw new Error();

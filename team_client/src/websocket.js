@@ -19,6 +19,13 @@ export function openWebSocket(handler) {
   }
   theSocket = new WebSocket(serverHostname);
 
+  theSocket.onopen = () => {
+    theSocket.send(JSON.stringify({
+      type: 'TOKEN',
+      payload: window.sessionStorage.getItem('token'),
+    }));
+  };
+
   theSocket.onmessage = handler;
 
   theSocket.onclose = (event) => {

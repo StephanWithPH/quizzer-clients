@@ -2,6 +2,7 @@ import toastr from 'toastr';
 import { setTeamAction } from './teamActionCreator';
 import changeRouteAction from './routerActionCreator';
 import { messageHandler, openWebSocket } from '../websocket';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -18,9 +19,8 @@ export function addTeamToQuizActionAsync(lobbyCode, teamName, dataUri) {
     dataUriParam = undefined;
   }
   return (dispatch) => new Promise((resolve) => {
-    fetch(`${serverURL}/api/v1/team/quizzes/${lobbyCode}/teams`, {
+    fetcher(`${serverURL}/api/v1/team/quizzes/${lobbyCode}/teams`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -35,6 +35,7 @@ export function addTeamToQuizActionAsync(lobbyCode, teamName, dataUri) {
 
       return res.json();
     }).then((json) => {
+      window.sessionStorage.setItem('token', json.token);
       dispatch(setTeamAction(json));
       dispatch(setLobbyCodeAction(lobbyCode));
       document.title = `${teamName} - ${lobbyCode}`;

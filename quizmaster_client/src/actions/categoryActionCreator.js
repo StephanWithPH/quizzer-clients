@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -11,8 +12,7 @@ export function setCategoriesAction(categories) {
 
 export function getCategoriesActionAsync() {
   return (dispatch) => {
-    fetch(`${serverURL}/api/v1/quizmaster/categories`, {
-      credentials: 'include',
+    fetcher(`${serverURL}/api/v1/quizmaster/categories`, {
     }).then((res) => {
       if (!res.ok) {
         throw new Error();

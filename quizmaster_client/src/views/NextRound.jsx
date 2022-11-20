@@ -6,6 +6,7 @@ import SelectCategoriesPanel from '../components/selectcategories/SelectCategori
 import Button from '../components/Button';
 import changeRouteAction from '../actions/routerActionCreator';
 import { clearRoundAction, createRoundActionAsync } from '../actions/roundActionCreator';
+import fetcher from '../fetcher';
 
 function NextRound() {
   const maxCategories = process.env.REACT_APP_MAXIMAL_CATEGORIES;
@@ -16,9 +17,8 @@ function NextRound() {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleFinishQuizClick = () => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}`, {
       method: 'PATCH',
-      credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();

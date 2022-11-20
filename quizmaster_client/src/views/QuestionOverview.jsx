@@ -6,6 +6,7 @@ import QuestionOverviewPanel from '../components/questionoverview/QuestionOvervi
 import Button from '../components/Button';
 import changeRouteAction from '../actions/routerActionCreator';
 import { getRoundsActionAsync } from '../actions/roundActionCreator';
+import fetcher from '../fetcher';
 
 function QuestionOverview() {
   const dispatch = useDispatch();
@@ -16,9 +17,8 @@ function QuestionOverview() {
   const questionsPerRound = process.env.REACT_APP_QUESTIONS_PER_ROUND;
 
   const handleCloseQuestion = () => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}`, {
       method: 'PATCH',
-      credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
@@ -31,9 +31,8 @@ function QuestionOverview() {
   };
 
   const handleFinishRound = () => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}`, {
       method: 'PATCH',
-      credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();

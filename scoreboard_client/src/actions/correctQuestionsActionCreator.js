@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -12,7 +13,7 @@ export function setCorrectQuestionsAction(list) {
 export function getCorrectQuestionsActionAsync() {
   return (dispatch, getState) => new Promise((resolve) => {
     const { global, rounds } = getState();
-    fetch(`${serverURL}/api/v1/scoreboard/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
+    fetcher(`${serverURL}/api/v1/scoreboard/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
       credentials: 'include',
     })
       .then((res) => {

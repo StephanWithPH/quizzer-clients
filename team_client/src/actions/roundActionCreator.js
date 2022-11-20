@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -12,7 +13,7 @@ export function setRoundsAction(rounds) {
 export function getRoundsActionAsync() {
   return (dispatch, getState) => {
     const { global } = getState();
-    fetch(`${serverURL}/api/v1/team/quizzes/${global.lobbyCode}/rounds`, {
+    fetcher(`${serverURL}/api/v1/team/quizzes/${global.lobbyCode}/rounds`, {
       credentials: 'include',
     })
       .then((r) => {
