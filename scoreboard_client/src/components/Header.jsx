@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Check, Copy, LogOut } from 'react-feather';
 import changeRouteAction from '../actions/routerActionCreator';
+import { logoutAction } from '../actions/globalActionCreator';
 
 function Header() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function Header() {
 
   const handleExit = () => {
     document.title = 'Scoreboard';
+    dispatch(logoutAction());
     dispatch(changeRouteAction('login'));
   };
 

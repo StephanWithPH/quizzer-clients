@@ -12,6 +12,8 @@ export default function globalReducer(state = initialState, action) {
         ...state,
         lobbyCode: action.payload,
       };
+    case 'LOGOUT':
+      return { ...initialState };
     default:
       return state;
   }

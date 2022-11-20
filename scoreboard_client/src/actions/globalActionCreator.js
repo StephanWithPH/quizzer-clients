@@ -5,6 +5,12 @@ import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
+export function logoutAction() {
+  return {
+    type: 'LOGOUT',
+  };
+}
+
 export function setLobbyCodeAction(lobbyCode) {
   return {
     type: 'SET_LOBBY_CODE',

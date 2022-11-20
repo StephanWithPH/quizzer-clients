@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Camera from 'react-html5-camera-photo';
 import { X } from 'react-feather';
+import toastr from 'toastr';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { addTeamToQuizActionAsync } from '../actions/globalActionCreator';
@@ -48,6 +49,11 @@ function Home() {
     } else {
       setError('Voeg a.u.b. een teamnaam en een lobbyCode in');
     }
+  };
+
+  const handleCameraError = () => {
+    setUserWantsPicture(false);
+    toastr.error('Oeps, weet je zeker dat je toestemming hebt verleend om je camera te gebruiken? Controleer dit in de browserinstellingen.');
   };
 
   function handleTakePhotoAnimationDone(uri) {
@@ -103,6 +109,7 @@ function Home() {
             <div className="relative">
               <Camera
                 onTakePhotoAnimationDone={(uri) => (handleTakePhotoAnimationDone(uri))}
+                onCameraError={() => handleCameraError()}
                 isFullscreen
               />
               <div className="absolute right-4 top-4">
