@@ -5,7 +5,8 @@ export default function selectRandomQuestionFromCategories(questions) {
   const categories = [...new Set(questions.map((question) => question.category))];
   categories.forEach((category) => {
     const questionsInCategory = questions.filter((question) => question.category === category);
-    for (let i = 0; i < questionsPerCategory; i++) {
+    const questionLoopMax = questionsInCategory.length > questionsPerCategory ? questionsPerCategory : questionsInCategory.length;
+    for (let i = 0; i < questionLoopMax; i++) {
       let uniqueQuestionFound = false;
       while (!uniqueQuestionFound) {
         const randomQuestionIndex = Math.floor(Math.random() * questionsInCategory.length);
