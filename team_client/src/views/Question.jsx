@@ -71,23 +71,23 @@ function Question() {
   }, []);
 
   return (
-    <div className="h-screen overflow-hidden">
-      {askedQuestion.closed && (
+    <div className="h-screen">
+      {round && askedQuestion.closed && (
         <div className="fixed w-full z-10 h-screen top-0 left-0 bg-black/75 gap-y-5 flex flex-col justify-center items-center">
           <Loader styles="z-20 text-white h-10 w-10" />
           <p className="z-20 text-white">Wacht op instructies van de Quizmaster!</p>
         </div>
       )}
       {
-        askedQuestion.question.image && (
+        round && askedQuestion.question.image && (
           <Transition
             show={imgFullScreen && !askedQuestion.closed}
             enter="transform transition ease-out duration-500"
-            enterFrom="opacity-0 translate-y-full"
-            enterTo="opacity-100 translate-y-0"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
             leave="transform transition ease-out duration-500"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-full"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
             <ImageViewer
               url={askedQuestion.question.image}
@@ -103,7 +103,7 @@ function Question() {
           <h2 className="text-3xl font-bold">Vraag</h2>
           <p className="text-lg text-center">{round && askedQuestion.question.question ? askedQuestion.question.question : <Loader />}</p>
         </div>
-        {askedQuestion.question.image && (
+        {round && askedQuestion.question.image && (
           // eslint-disable-next-line max-len
           // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
           <img className="w-96 h-60 object-cover rounded mt-5" src={askedQuestion.question.image} alt="question" onClick={() => setImgFullScreen(true)} />

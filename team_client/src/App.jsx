@@ -39,7 +39,7 @@ function renderRoute(route) {
 function App() {
   const routeState = useSelector((state) => state.router);
   return (
-    <div className="min-h-screen bg-gray-100 transition-all dark:bg-neutral-800 dark:text-white">
+    <div className="overflow-y-scroll bg-gray-100 transition-all dark:bg-neutral-800 dark:text-white">
       <DarkMode />
       { renderRoute(routeState.currentRoute) }
     </div>
