@@ -1,8 +1,15 @@
 import toastr from 'toastr';
 import changeRouteAction from './routerActionCreator';
 import { messageHandler, openWebSocket } from '../websocket';
+import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
+
+export function logoutAction() {
+  return {
+    type: 'LOGOUT',
+  };
+}
 
 export function setLobbyCodeAction(lobbyCode) {
   return {
@@ -13,19 +20,21 @@ export function setLobbyCodeAction(lobbyCode) {
 
 export function connectScoreboardActionAsync(lobbyCode) {
   return (dispatch) => {
-    fetch(`${serverURL}/api/v1/scoreboard/quizzes/${lobbyCode}/scoreboards`, {
+    fetcher(`${serverURL}/api/v1/scoreboard/quizzes/${lobbyCode}/scoreboards`, {
       method: 'POST',
-      credentials: 'include',
     })
       .then((res) => {
         if (!res.ok) {
           return res.text().then((text) => { throw new Error(text); });
         }
+        return res.json();
+      })
+      .then((json) => {
+        window.sessionStorage.setItem('token', json.token);
         dispatch(setLobbyCodeAction(lobbyCode));
         document.title = `Scoreboard - ${lobbyCode}`;
         dispatch(changeRouteAction('scoreboard'));
         openWebSocket(messageHandler);
-        return res.json();
       })
       .catch((err) => {
         const message = JSON.parse(err.message).error;

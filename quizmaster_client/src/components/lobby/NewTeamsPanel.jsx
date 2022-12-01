@@ -4,6 +4,7 @@ import toastr from 'toastr';
 import NewTeamItem from './NewTeamItem';
 import { getQuizTeamsActionAsync } from '../../actions/teamActionCreator';
 import Button from '../Button';
+import fetcher from '../../fetcher';
 
 function NewTeamsPanel() {
   const dispatch = useDispatch();
@@ -14,9 +15,8 @@ function NewTeamsPanel() {
   const filteredTeams = teams.filter((team) => team.accepted === false);
 
   const handleAcceptAll = () => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams`, {
       method: 'PATCH',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,9 +31,8 @@ function NewTeamsPanel() {
   };
 
   const handleAccept = (_id) => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
       method: 'PATCH',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -48,9 +47,8 @@ function NewTeamsPanel() {
   };
 
   const handleDecline = (_id) => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
       method: 'DELETE',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

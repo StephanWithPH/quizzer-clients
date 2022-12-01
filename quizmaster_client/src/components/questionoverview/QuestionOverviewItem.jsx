@@ -3,6 +3,7 @@ import toastr from 'toastr';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../Loader';
 import { getRoundsActionAsync } from '../../actions/roundActionCreator';
+import fetcher from '../../fetcher';
 
 function QuestionOverviewItem(props) {
   const { name, id } = props;
@@ -17,9 +18,8 @@ function QuestionOverviewItem(props) {
   }
 
   const handleCheck = (e) => {
-    fetch(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}/givenanswers/${answer._id}`, {
+    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}/givenanswers/${answer._id}`, {
       method: 'PATCH',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

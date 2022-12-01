@@ -10,6 +10,8 @@ export default function routerReducer(state = initialState, action) {
         ...state,
         currentRoute: action.payload,
       };
+    case 'LOGOUT':
+      return { ...initialState };
     default:
       return state;
   }
