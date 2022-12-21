@@ -6,6 +6,7 @@ function SelectCategoriesPanel(props) {
   const { selectedCategories, setSelectedCategories, maxCategories } = props;
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
+  const showHidden = window.localStorage.getItem('showHidden');
 
   function handleSelect(e, category) {
     setSelectedCategories(selectedCategories.map((c) => {
@@ -30,7 +31,7 @@ function SelectCategoriesPanel(props) {
       <div className="flex-1 overflow-y-auto h-full rounded-lg dark:bg-neutral-700 dark:text-white
       transition-all dark:border-neutral-400 bg-white rounded border-2 border-gray-200"
       >
-        {selectedCategories.map((category) => (
+        {selectedCategories.filter((e) => showHidden || e.name !== 'Ochten').map((category) => (
           <div
             key={category.name}
             className={`
