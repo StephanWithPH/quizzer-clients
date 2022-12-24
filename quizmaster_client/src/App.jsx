@@ -9,9 +9,11 @@ import Lobby from './views/Lobby';
 import NextRound from './views/NextRound';
 import SelectQuestion from './views/SelectQuestion';
 import DarkMode from './components/DarkMode';
-import Dashboard from './views/Dashboard';
-import DashboardLogin from './views/DashboardLogin';
+import Dashboard from './views/Dashboard/Dashboard';
+import DashboardLogin from './views/Dashboard/DashboardLogin';
 import AdminRoutes from './utils/AdminRoutes';
+import Questions from './views/Dashboard/Questions';
+import EditQuestion from './views/Dashboard/EditQuestion';
 
 toastr.options = {
   progressBar: true,
@@ -51,6 +53,8 @@ function App() {
             <Route path="/dashboard/login" element={<DashboardLogin />} />
             <Route element={<AdminRoutes />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/vragen" element={<Questions />} />
+              <Route path="/dashboard/vragen/:id" element={<EditQuestion />} />
             </Route>
           </Routes>
         </BrowserRouter>

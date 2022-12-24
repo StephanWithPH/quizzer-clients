@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 function AdminRoutes() {
-  const isAuthenticated = localStorage.getItem('token');
+  const isAuthenticated = sessionStorage.getItem('token');
   const [isAuth, setIsAuth] = useState();
 
   const serverURL = process.env.REACT_APP_API_URL;
@@ -25,7 +25,7 @@ function AdminRoutes() {
 
       if (!response.ok) {
         document.title = 'Quizmaster';
-        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
       }
       setIsAuth(response);
 

@@ -7,8 +7,8 @@ function Input(props) {
 
   return (
     <input
-      className={`text-lg text-black border border-gray-300 bg-gray-100 p-2 ring-2 outline-none
-    ring-offset-2 ring-transparent focus:ring-indigo-500 rounded-md ${styles}`}
+      className={`text-lg dark:text-white text-black border border-gray-300 dark:border-neutral-500 bg-gray-100 dark:bg-neutral-600 p-2 ring-2 outline-none
+    ring-offset-2 dark:ring-offset-neutral-800 ring-transparent focus:ring-indigo-500 rounded-md ${styles}`}
       onChange={onChange}
       type={type}
       name={name}

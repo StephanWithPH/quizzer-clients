@@ -7,6 +7,8 @@ import categoryReducer from '../reducers/categoryReducer';
 import roundReducer from '../reducers/roundReducer';
 import questionReducer from '../reducers/questionReducer';
 import scoreboardStateReducer from '../reducers/scoreboardStateReducer';
+import sidebarReducer from '../reducers/sidebarReducer';
+import dashboardReducer from '../reducers/dashboardReducer';
 
 const store = createStore(
   combineReducers({
@@ -17,6 +19,8 @@ const store = createStore(
     rounds: roundReducer,
     questions: questionReducer,
     scoreboardState: scoreboardStateReducer,
+    sidebar: sidebarReducer,
+    dashboard: dashboardReducer,
   }),
   applyMiddleware(thunk),
 );

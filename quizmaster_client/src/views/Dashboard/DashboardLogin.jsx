@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'react-feather';
-import fetcher from '../fetcher';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import fetcher from '../../fetcher';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import { messageHandler, openWebSocket } from '../../websocket';
 
 const serverURL = process.env.REACT_APP_API_URL;
 function DashboardLogin() {
@@ -32,7 +33,8 @@ function DashboardLogin() {
         return res.json();
       }).then((data) => {
         document.title = 'Quizzer - Dashboard';
-        localStorage.setItem('token', data.token);
+        sessionStorage.setItem('token', data.token);
+        openWebSocket(messageHandler);
         navigate('/dashboard');
       }).catch((err) => {
         const message = JSON.parse(err.message).error;
@@ -56,10 +58,10 @@ function DashboardLogin() {
       <button
         onClick={handleGoBack}
         type="button"
-        className="absolute ring-2 ring-offset-4 ring-offset-neutral-800 hover:bg-indigo-400 ring-indigo-500
+        className="absolute ring-2 ring-offset-4 dark:ring-offset-neutral-800 hover:bg-indigo-400 ring-indigo-500
         overflow-hidden transition-all hover:ring-indigo-400 bg-indigo-500 p-4 rounded-b-full top-0 left-1/2 -translate-x-1/2"
       >
-        <ArrowLeft className="relative transition-all" strokeWidth={2} />
+        <ArrowLeft className="relative text-white transition-all" strokeWidth={2} />
       </button>
 
       <div className="h-full w-full flex items-center justify-center">

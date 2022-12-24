@@ -2,6 +2,7 @@ import store from './store/store';
 import { getQuizTeamsActionAsync } from './actions/teamActionCreator';
 import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
+import { getQuestionsActionAsync, setDashboardConnectedAction } from './actions/dashboardActionCreator';
 
 const serverHostname = process.env.REACT_APP_WS_URL;
 
@@ -56,6 +57,18 @@ export function messageHandler(msg) {
       break;
     case 'SCOREBOARD_CONNECTED':
       store.dispatch(setScoreboardConnectedAction(true));
+      break;
+      // Dashboard Events
+    case 'SOCKET_CONNECTED':
+      store.dispatch(setDashboardConnectedAction(true));
+      break;
+    case 'SOCKET_DISCONNECTED':
+      store.dispatch(setDashboardConnectedAction(false));
+      break;
+    case 'QUESTION_CREATED':
+    case 'QUESTIONS_DELETED':
+    case 'QUESTION_DELETED':
+      store.dispatch(getQuestionsActionAsync());
       break;
     default:
       break;

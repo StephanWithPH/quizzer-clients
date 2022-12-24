@@ -18,6 +18,9 @@ module.exports = {
   ],
   rules: {
     'max-len': ['warn', 175],
+    'jsx-a11y/label-has-associated-control': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-nested-ternary': 'off',
     'linebreak-style': 'off',
     'react/prop-types': 'off',
     'react/button-has-type': 'off',

@@ -1,33 +1,52 @@
 import React from 'react';
+import {
+  ArrowLeft, Camera, CheckSquare, Grid, HelpCircle, Power,
+} from 'react-feather';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import SideBarItem from './SideBarItem';
+import switchMenuAction from '../../actions/menuOpenActionCreator';
 
+const defaultIconSize = 30;
+const defaultIconStyle = '';
 function SideBar() {
+  const menuOpen = useSelector((state) => state.sidebar.menuOpen);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('token');
+    navigate('/dashboard/login');
+  };
+
   return (
-    <aside className="w-64 h-full" aria-label="Sidebar">
-      <div className="overflow-y-auto h-full py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
-        <ul className="space-y-2">
-          <li>
-            <a
-              href="/"
-              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+    <aside className={`${menuOpen ? 'w-64' : 'w-28'} transition-all h-full relative`} aria-label="Sidebar">
+      <div className="h-full py-4 px-3 bg-indigo-500 flex flex-col items-center justify-between gap-y-2">
+        <div className="w-full flex flex-col gap-y-4">
+          <div className="my-4 w-full text-center ">
+            <Link
+              to="/dashboard"
+              className="font-bold text-white text-2xl rounded-full w-full px-4 p-2"
             >
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="flex-1 ml-3 whitespace-nowrap">Products</span>
-            </a>
-          </li>
-        </ul>
+              {menuOpen ? 'Quizzer' : 'QD'}
+            </Link>
+          </div>
+          <SideBarItem icon={<CheckSquare className={defaultIconStyle} size={defaultIconSize} />} to="vragen" name="vragen" />
+          <SideBarItem icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieen" />
+          <SideBarItem icon={<HelpCircle className={defaultIconStyle} size={defaultIconSize} />} to="quizzes" name="quizzes" />
+          <SideBarItem icon={<Camera className={defaultIconStyle} size={defaultIconSize} />} to="afbeeldingen" name="afbeeldingen" />
+        </div>
+        <div className="flex flex-col gap-y-2 my-2 group hover:bg-indigo-400 transition-all w-10 h-10 rounded-full items-center justify-center">
+          <Power className="text-white w-8 h-8 group-hover:w-6 group-hover:h-6 transition-all cursor-pointer" onClick={handleLogout} />
+        </div>
       </div>
+      <button
+        onClick={() => dispatch(switchMenuAction())}
+        type="button"
+        className="absolute text-white bottom-16 -right-4 p-2 bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 w-fit rounded-full"
+      >
+        <ArrowLeft className={`${!menuOpen && 'rotate-180'} transition-all`} />
+      </button>
     </aside>
   );
 }
