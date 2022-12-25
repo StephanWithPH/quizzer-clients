@@ -41,7 +41,7 @@ export function setQuestionsAction(data) {
   };
 }
 
-export function getQuestionsActionAsync(search, page, perPage = 10) {
+export function getQuestionsActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
     fetcher(`${serverURL}/api/v1/admin/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',

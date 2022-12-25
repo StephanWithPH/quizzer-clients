@@ -87,14 +87,14 @@ function QuestionsTable() {
                   <div className="relative w-full h-full overflow-hidden rounded-xl">
                     <button
                       type="button"
-                      onClick={() => handlePreview(`${serverURL}${question.image.split('src')[1]}`)}
+                      onClick={() => handlePreview(`${serverURL}/${question.image}`)}
                       aria-label="preview image"
                       className="w-full h-full absolute pointer-events-none opacity-0 flex items-center justify-center
                       group-hover:pointer-events-auto group-hover:opacity-100 bg-neutral-700/50 transition-all"
                     >
                       <Maximize className="absolute w-8 h-8 text-white" />
                     </button>
-                    <img src={`${serverURL}${question.image.split('src')[1]}`} alt="question" className="w-full h-full object-cover" />
+                    <img src={`${serverURL}/${question.image}`} alt="question" className="w-full h-full object-cover" />
                   </div>
                 ) : (
                   <Image className="text-gray-400" />
