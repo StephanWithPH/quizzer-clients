@@ -3,6 +3,7 @@ import { getQuizTeamsActionAsync } from './actions/teamActionCreator';
 import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
 import { getQuestionsActionAsync, setDashboardConnectedAction } from './actions/dashboardActionCreator';
+import { getTotalAmountsActionAsync } from './actions/sideBarActionCreator';
 
 const serverHostname = process.env.REACT_APP_WS_URL;
 
@@ -68,6 +69,7 @@ export function messageHandler(msg) {
     case 'QUESTION_CREATED':
     case 'QUESTIONS_DELETED':
     case 'QUESTION_DELETED':
+      store.dispatch(getTotalAmountsActionAsync());
       store.dispatch(getQuestionsActionAsync());
       break;
     default:

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Search, X } from 'react-feather';
+import { FolderPlus, Search, X } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
@@ -51,7 +51,7 @@ function Questions() {
             <Button name="Vragen Verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
           </div>
         </div>
-        <div className="w-full 2xl:w-2/3 bg-white dark:text-white grid grid-cols-4 gap-x-5 dark:bg-neutral-800 rounded-md px-10 py-6 shadow-xl">
+        <div className="w-full 2xl:w-2/3 bg-white dark:text-white grid grid-cols-4 gap-x-5 dark:bg-neutral-800 rounded-md px-10 py-6 shadow-md">
           <div className="flex gap-y-2 flex-col">
             <p className="text-lg font-medium">Type vraag</p>
           </div>
@@ -76,14 +76,26 @@ function Questions() {
             </div>
           </label>
         </div>
-        <div className="w-full bg-gray-50 dark:text-white dark:bg-neutral-800 rounded-md shadow-xl">
+        <div className="w-full dark:text-white rounded-md">
           {questions.length > 0 ? (
             <QuestionsTable />
           ) : (
-            <div className="flex flex-col items-center justify-center gap-y-2 h-96">
-              <p className="text-3xl font-medium">Geen vragen gevonden</p>
-              <p className="text-lg">Probeer een andere zoekterm of maak een nieuwe vraag</p>
-            </div>
+            search ? (
+              <div className="flex flex-col items-center shadow-md bg-white dark:bg-neutral-800 justify-center rounded-md gap-y-2 w-2/3 h-96">
+                <p className="text-3xl font-medium">Geen vragen gevonden</p>
+                <p className="text-lg">Probeer een andere zoekterm</p>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setCreateOpen(true)}
+                className="flex flex-col items-center gap-y-4 shadow-md bg-white border-2 border-dashed dark:bg-neutral-900
+              dark:border-neutral-700 justify-center rounded-md w-2/3 h-96 dark:hover:border-indigo-500 transition-all"
+              >
+                <FolderPlus size={60} className="text-indigo-400" strokeWidth={1} />
+                <p className="text-xl font-medium">Maak een nieuwe vraag</p>
+              </button>
+            )
           )}
         </div>
         {totalQuestionCount > 10 && (

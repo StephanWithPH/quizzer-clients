@@ -31,33 +31,34 @@ function QuestionsTable() {
       method: 'DELETE',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error('Er is iets misgegaan');
+        return res.text().then((text) => { throw new Error(text); });
       }
 
-      toastr.success('Vraag verwijderd');
+      return toastr.success('Vraag verwijderd');
     }).catch((err) => {
-      toastr.error(err.message);
+      const message = JSON.parse(err.message).error;
+      toastr.error(message);
     });
   };
 
   return (
     <>
-      <table className="w-full dark:text-white rounded-md overflow-hidden">
+      <table className="w-full dark:text-white rounded-md overflow-hidden table-fixed">
         <thead>
-          <tr className="text-left bg-indigo-300 dark:bg-neutral-700">
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+          <tr className="text-left bg-indigo-300 dark:bg-indigo-500">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-1/3">
               Vraag
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Antwoord
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
-              Type
+              Datum bijgewerkt
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Categorie
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-32">
               Afbeelding
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
@@ -65,24 +66,26 @@ function QuestionsTable() {
             </th>
           </tr>
           {questions.map((question) => (
-            <tr key={question._id} className="px-6 py-4 whitespace-nowrap even:bg-indigo-50 odd:bg-indigo-100 dark:odd:bg-neutral-700 dark:bg-neutral-800">
-              <td className="px-6 py-4 whitespace-nowrap">
+            <tr key={question._id} className="px-6 py-4 even:bg-indigo-50 odd:bg-indigo-100 dark:odd:bg-neutral-700 dark:bg-neutral-800">
+              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.question}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
+              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.answer}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                Open vraag
+              <td className="px-6 py-4 capitalize">
+                {new Date(question.date).toLocaleDateString('nl-NL', {
+                  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                })}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <div className="bg-indigo-300/30 border-2 font-medium py-2 flex items-center justify-center
-                border-indigo-500 text-indigo-500 dark:text-indigo-400 rounded-full"
+              <td className="px-6 py-4">
+                <div className="bg-indigo-300/30 border-2 font-medium px-6 py-2 flex items-center justify-center
+                border-indigo-500 text-indigo-500 dark:text-indigo-400 w-fit rounded-full"
                 >
                   {question.category}
                 </div>
               </td>
-              <td className="px-6 py-2 h-20 whitespace-nowrap group flex items-center justify-center">
+              <td className="py-2 w-16 h-16 group mx-auto flex items-center justify-center">
                 {question.image ? (
                   <div className="relative w-full h-full overflow-hidden rounded-xl">
                     <button
@@ -100,7 +103,7 @@ function QuestionsTable() {
                   <Image className="text-gray-400" />
                 )}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap">
+              <td className="px-6 py-4">
                 <div className="flex gap-4">
                   <Link
                     to={`/dashboard/vragen/${question._id}`}
