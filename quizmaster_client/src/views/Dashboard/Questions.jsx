@@ -51,7 +51,7 @@ function Questions() {
             <Button name="Vragen Verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
           </div>
         </div>
-        <div className="w-full 2xl:w-2/3 bg-white dark:text-white grid grid-cols-4 gap-x-5 dark:bg-neutral-800 rounded-md px-10 py-6 shadow-md">
+        <div className="w-full 2xl:w-2/3 bg-white dark:text-white grid grid-cols-4 gap-x-5 dark:bg-neutral-800 rounded-md px-10 py-6">
           <div className="flex gap-y-2 flex-col">
             <p className="text-lg font-medium">Type vraag</p>
           </div>
