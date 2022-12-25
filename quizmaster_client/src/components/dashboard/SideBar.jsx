@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ArrowLeft, Camera, CheckSquare, Grid, HelpCircle, Power,
 } from 'react-feather';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SideBarItem from './SideBarItem';
-import switchMenuAction from '../../actions/menuOpenActionCreator';
+import { getTotalAmountsActionAsync, switchMenuAction } from '../../actions/sideBarActionCreator';
 
 const defaultIconSize = 30;
 const defaultIconStyle = '';
 function SideBar() {
-  const menuOpen = useSelector((state) => state.sidebar.menuOpen);
+  const {
+    menuOpen, questions, quizzes, categories, images,
+  } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -19,8 +21,12 @@ function SideBar() {
     navigate('/dashboard/login');
   };
 
+  useEffect(() => {
+    dispatch(getTotalAmountsActionAsync());
+  }, []);
+
   return (
-    <aside className={`${menuOpen ? 'w-64' : 'w-28'} transition-all h-full relative`} aria-label="Sidebar">
+    <aside className={`${menuOpen ? 'w-72' : 'w-28'} transition-all h-full relative`} aria-label="Sidebar">
       <div className="h-full py-4 px-3 bg-indigo-500 flex flex-col items-center justify-between gap-y-2">
         <div className="w-full flex flex-col gap-y-4">
           <div className="my-4 w-full text-center ">
@@ -31,10 +37,10 @@ function SideBar() {
               {menuOpen ? 'Quizzer' : 'QD'}
             </Link>
           </div>
-          <SideBarItem icon={<CheckSquare className={defaultIconStyle} size={defaultIconSize} />} to="vragen" name="vragen" />
-          <SideBarItem icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieen" />
-          <SideBarItem icon={<HelpCircle className={defaultIconStyle} size={defaultIconSize} />} to="quizzes" name="quizzes" />
-          <SideBarItem icon={<Camera className={defaultIconStyle} size={defaultIconSize} />} to="afbeeldingen" name="afbeeldingen" />
+          <SideBarItem count={questions} icon={<CheckSquare className={defaultIconStyle} size={defaultIconSize} />} to="vragen" name="vragen" />
+          <SideBarItem count={categories} icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieen" />
+          <SideBarItem count={quizzes} icon={<HelpCircle className={defaultIconStyle} size={defaultIconSize} />} to="quizzes" name="quizzes" />
+          <SideBarItem count={images} icon={<Camera className={defaultIconStyle} size={defaultIconSize} />} to="afbeeldingen" name="foto's" />
         </div>
         <div className="flex flex-col gap-y-2 my-2 group hover:bg-indigo-400 transition-all w-10 h-10 rounded-full items-center justify-center">
           <Power className="text-white w-8 h-8 group-hover:w-6 group-hover:h-6 transition-all cursor-pointer" onClick={handleLogout} />

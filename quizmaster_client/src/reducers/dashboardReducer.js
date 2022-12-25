@@ -1,9 +1,13 @@
 const initialState = {
   connected: false,
   categories: [],
+  totalCategoryCount: 0,
   questions: [],
+  totalQuestionCount: 0,
   quizzes: [],
+  totalQuizCount: 0,
   images: [],
+  totalImageCount: 0,
 };
 
 // eslint-disable-next-line default-param-last
@@ -13,8 +17,8 @@ export default function dashboardReducer(state = initialState, action) {
       return { ...state, connected: action.payload };
     case 'SET_CATEGORIES':
       return { ...state, categories: [...action.payload] };
-    case 'SET_QUESTIONS':
-      return { ...state, questions: [...action.payload] };
+    case 'SET_DASHBOARD_QUESTIONS':
+      return { ...state, questions: [...action.payload.questions], totalQuestionCount: action.payload.total };
     case 'SET_QUIZZES':
       return { ...state, quizzes: [...action.payload] };
     case 'SET_IMAGES':

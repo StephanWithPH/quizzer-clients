@@ -8,7 +8,7 @@ function DashboardLayout({ children }) {
       <SideBar />
       <div className="w-full h-screen flex flex-col">
         <TopBar />
-        <div className="p-6">
+        <div className="px-10 py-6">
           {children}
         </div>
       </div>

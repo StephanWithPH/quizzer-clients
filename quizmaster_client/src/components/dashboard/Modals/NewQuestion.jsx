@@ -149,7 +149,7 @@ function NewQuestion({ setModalOpen }) {
                         {
                       ...getRootProps({
                         className: `flex justify-center items-center bg-indigo-300/25 hover:bg-indigo-200/25 transition-all 
-                        p-4 py-12 rounded-xl border-dashed border-2 border-indigo-500 
+                        px-4 py-24 rounded-xl border-dashed border-2 border-indigo-500 
                         ${isDragAccept && acceptStyle || isDragReject && rejectStyle}`,
                       })
                     }

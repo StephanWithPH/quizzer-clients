@@ -34,24 +34,24 @@ export function getCategoriesActionAsync() {
   };
 }
 
-export function setQuestionsAction(questions) {
+export function setQuestionsAction(data) {
   return {
-    type: 'SET_QUESTIONS',
-    payload: questions,
+    type: 'SET_DASHBOARD_QUESTIONS',
+    payload: { questions: data.questions, total: data.total },
   };
 }
 
-export function getQuestionsActionAsync() {
+export function getQuestionsActionAsync(search, page, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/questions?page=1&perPage=10`, {
+    fetcher(`${serverURL}/api/v1/admin/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((questions) => {
-      dispatch(setQuestionsAction(questions));
+    }).then((data) => {
+      dispatch(setQuestionsAction(data));
     }).catch(() => {
       toastr.error('Er is een fout opgetreden!');
     });
