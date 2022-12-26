@@ -45,7 +45,7 @@ function renderRoute(route) {
 function App() {
   const routeState = useSelector((state) => state.router);
   return (
-    <div className="relative bg-gray-100 dark:bg-neutral-800 dark:text-white h-screen">
+    <div className="relative bg-gray-100 dark:bg-neutral-800 dark:text-white h-full min-h-screen">
       <DarkMode />
       { window.location.pathname === '/' ? renderRoute(routeState.currentRoute) : (
         <BrowserRouter>

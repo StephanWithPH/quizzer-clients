@@ -4,9 +4,9 @@ import TopBar from './TopBar';
 
 function DashboardLayout({ children }) {
   return (
-    <div className="w-full h-screen dark:bg-neutral-900 flex">
+    <div className="w-full h-full min-h-screen dark:bg-neutral-900 flex">
       <SideBar />
-      <div className="w-full h-screen flex flex-col">
+      <div className="w-full h-full min-h-screen flex flex-col">
         <TopBar />
         <div className="px-10 py-6">
           {children}

@@ -46,7 +46,7 @@ function QuestionsTable() {
       <table className="w-full dark:text-white rounded-md overflow-hidden table-fixed">
         <thead>
           <tr className="text-left bg-indigo-300 dark:bg-indigo-500">
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-1/3">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider 3xl:w-1/3">
               Vraag
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
@@ -67,7 +67,7 @@ function QuestionsTable() {
           </tr>
           {questions.map((question) => (
             <tr key={question._id} className="px-6 py-4 even:bg-indigo-50 odd:bg-indigo-100 dark:odd:bg-neutral-700 dark:bg-neutral-800">
-              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
+              <td className="px-6 py-4 mx-auto w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.question}
               </td>
               <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
@@ -85,7 +85,7 @@ function QuestionsTable() {
                   {question.category}
                 </div>
               </td>
-              <td className="py-2 w-16 h-16 group mx-auto flex items-center justify-center">
+              <td className="py-4 w-24 h-24 group mx-auto flex items-center justify-center">
                 {question.image ? (
                   <div className="relative w-full h-full overflow-hidden rounded-xl">
                     <button

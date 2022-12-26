@@ -26,7 +26,7 @@ function SideBar() {
   }, []);
 
   return (
-    <aside className={`${menuOpen ? 'w-72' : 'w-28'} transition-all h-full relative`} aria-label="Sidebar">
+    <aside className={`${menuOpen ? 'w-72' : 'w-28'} transition-all h-screen sticky top-0`} aria-label="Sidebar">
       <div className="h-full py-4 px-3 bg-indigo-500 flex flex-col items-center justify-between gap-y-2">
         <div className="w-full flex flex-col gap-y-4">
           <div className="my-4 w-full text-center ">
