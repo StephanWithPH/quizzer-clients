@@ -19,7 +19,7 @@ export function setCategoriesAction(categories) {
 
 export function getCategoriesActionAsync() {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/categories`, {
+    fetcher(`${serverURL}/api/v1/manage/categories`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
@@ -43,7 +43,7 @@ export function setQuestionsAction(data) {
 
 export function getQuestionsActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
+    fetcher(`${serverURL}/api/v1/manage/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
@@ -67,7 +67,7 @@ export function setQuizzesAction(quizzes) {
 
 export function getQuizzesActionAsync() {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/quizzes`, {
+    fetcher(`${serverURL}/api/v1/manage/quizzes`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
@@ -82,16 +82,16 @@ export function getQuizzesActionAsync() {
   };
 }
 
-export function setImagesAction(images) {
+export function setImagesAction(data) {
   return {
     type: 'SET_IMAGES',
-    payload: images,
+    payload: { images: data.images, total: data.total },
   };
 }
 
-export function getImagesActionAsync() {
+export function getImagesActionAsync(offset, limit = 12) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/images`, {
+    fetcher(`${serverURL}/api/v1/manage/images?offset=${offset}&limit=${limit}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {

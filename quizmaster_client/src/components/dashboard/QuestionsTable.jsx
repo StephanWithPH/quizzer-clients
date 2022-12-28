@@ -27,7 +27,7 @@ function QuestionsTable() {
   };
 
   const deleteQuestion = (id) => {
-    fetcher(`${serverURL}/api/v1/admin/questions/${id}`, {
+    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
       method: 'DELETE',
     }).then((res) => {
       if (!res.ok) {

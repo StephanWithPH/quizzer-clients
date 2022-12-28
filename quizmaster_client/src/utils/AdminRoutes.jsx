@@ -14,7 +14,7 @@ function AdminRoutes() {
       return;
     }
     const checkTokenWithIdOnServer = async (token) => {
-      const response = await fetch(`${serverURL}/api/v1/admin/validate`, {
+      const response = await fetch(`${serverURL}/api/v1/manage/validate`, {
         method: 'POST',
         credentials: 'include',
         headers: {

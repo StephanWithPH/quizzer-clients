@@ -3,7 +3,7 @@ import { Minimize } from 'react-feather';
 
 function ImagePreview({ handleClose, image }) {
   return (
-    <div className="flex justify-center items-center max-h-[95vh] max-w-[95vw] overflow-hidden w-full h-full rounded-xl">
+    <div className="flex justify-center items-center m-10 overflow-hidden w-fit h-fit rounded-xl relative">
       <button
         type="button"
         onClick={handleClose}
@@ -15,7 +15,7 @@ function ImagePreview({ handleClose, image }) {
         pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
         />
       </button>
-      <img src={image} alt="preview" className="w-full h-full object-cover" />
+      <img src={image} alt="preview" className="w-full h-full max-h-[95vh] max-w-[95vw] object-contain" />
     </div>
   );
 }

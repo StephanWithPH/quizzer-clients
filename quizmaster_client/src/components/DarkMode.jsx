@@ -12,7 +12,7 @@ function DarkMode() {
   };
 
   return (
-    <div className="fixed z-20 transition-all ring-2 ring-offset-2 ring-black ring-offset-white/50 dark:ring-offset-black/50
+    <div className="fixed z-40 transition-all ring-2 ring-offset-2 ring-black ring-offset-white/50 dark:ring-offset-black/50
     dark:ring-white right-8 bottom-8 p-2 bg-white rounded-full dark:bg-black"
     >
       <DarkModeSwitch

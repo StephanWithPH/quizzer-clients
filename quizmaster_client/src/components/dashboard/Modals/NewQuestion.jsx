@@ -43,7 +43,7 @@ function NewQuestion({ setModalOpen }) {
 
   useEffect(() => {
     // fetch categories
-    fetcher(`${serverURL}/api/v1/admin/categories`, {
+    fetcher(`${serverURL}/api/v1/manage/categories`, {
       credentials: 'include',
     }).then((res) => res.json())
       .then((data) => {
@@ -66,7 +66,7 @@ function NewQuestion({ setModalOpen }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/admin/questions`, {
+    fetcher(`${serverURL}/api/v1/manage/questions`, {
       method: 'POST',
       credentials: 'include',
       headers: {

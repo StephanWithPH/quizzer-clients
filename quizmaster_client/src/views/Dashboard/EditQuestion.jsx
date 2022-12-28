@@ -49,7 +49,7 @@ function EditQuestion() {
 
   useEffect(() => {
     // fetch categories
-    fetcher(`${serverURL}/api/v1/admin/categories`, {
+    fetcher(`${serverURL}/api/v1/manage/categories`, {
       credentials: 'include',
     }).then((res) => res.json())
       .then((data) => {
@@ -58,7 +58,7 @@ function EditQuestion() {
   }, []);
 
   const fetchQuestion = () => {
-    fetcher(`${serverURL}/api/v1/admin/questions/${id}`, {
+    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
@@ -87,7 +87,7 @@ function EditQuestion() {
   const handleInformationSubmit = (e) => {
     e.preventDefault();
 
-    fetcher(`${serverURL}/api/v1/admin/questions/${id}`, {
+    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
       method: 'PUT',
       credentials: 'include',
       headers: {
@@ -125,7 +125,7 @@ function EditQuestion() {
   const handleImageSubmit = async (e) => {
     e.preventDefault();
 
-    fetcher(`${serverURL}/api/v1/admin/questions/${id}`, {
+    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
       method: 'PATCH',
       credentials: 'include',
       headers: {

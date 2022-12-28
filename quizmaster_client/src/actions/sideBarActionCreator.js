@@ -13,7 +13,7 @@ export function setTotalAmountsAction(totalAmounts) {
 
 export function getTotalAmountsActionAsync() {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/admin/totals`, {
+    fetcher(`${serverURL}/api/v1/manage/totals`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {

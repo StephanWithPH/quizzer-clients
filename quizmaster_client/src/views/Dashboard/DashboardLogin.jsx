@@ -19,7 +19,7 @@ function DashboardLogin() {
     e.preventDefault();
 
     if (password.length > 0) {
-      fetcher(`${serverURL}/api/v1/admin/login`, {
+      fetcher(`${serverURL}/api/v1/manage/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

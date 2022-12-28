@@ -11,7 +11,7 @@ function DeleteQuestions({ setModalOpen }) {
 
   const handleDelete = () => {
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/admin/questions`, {
+    fetcher(`${serverURL}/api/v1/manage/questions`, {
       method: 'DELETE',
       credentials: 'include',
     }).then((res) => {
