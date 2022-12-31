@@ -14,7 +14,7 @@ function TopBar() {
   };
 
   return (
-    <div className="bg-indigo-500 z-30 sticky top-0 flex justify-between items-center text-white border-l-2 border-l-indigo-400/50 px-10 py-5">
+    <div className="bg-indigo-500 z-40 sticky top-0 flex justify-between items-center text-white border-l-2 border-l-indigo-400/50 px-10 py-5">
       {(breadcrumbs.length > 2) ? (
         <h1 className="flex items-center gap-x-1">
           {breadcrumbs.slice(1).map((breadcrumb, index) => (

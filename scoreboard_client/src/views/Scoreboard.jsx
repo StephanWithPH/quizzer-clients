@@ -17,6 +17,8 @@ function Scoreboard() {
     askedQuestion = round.askedQuestions[round.askedQuestions.length - 1];
   }
 
+  console.log(askedQuestion);
+
   return (
     <div className="h-full h-full flex flex-col">
       <Header />
@@ -35,7 +37,7 @@ function Scoreboard() {
                       <p>{askedQuestion && askedQuestion.question.question}</p>
                     </div>
                     <div className="text-xl hidden lg:flex justify-center items-center bg-violet-500 text-white px-4 h-full py-2">
-                      <p>{askedQuestion && askedQuestion.question.category}</p>
+                      <p>{askedQuestion && askedQuestion.question.category.name}</p>
                     </div>
                   </>
                 ) : (

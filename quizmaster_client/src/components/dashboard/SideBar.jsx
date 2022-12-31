@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  ArrowLeft, Camera, CheckSquare, Grid, HelpCircle, Power,
+  ArrowLeft, Camera, CheckSquare, Grid, HelpCircle, Power, Image,
 } from 'react-feather';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ const defaultIconSize = 30;
 const defaultIconStyle = '';
 function SideBar() {
   const {
-    menuOpen, questions, quizzes, categories, images,
+    menuOpen, questions, quizzes, categories, images, placeholders,
   } = useSelector((state) => state.sidebar);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,6 +41,7 @@ function SideBar() {
           <SideBarItem count={categories} icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieen" />
           <SideBarItem count={quizzes} icon={<HelpCircle className={defaultIconStyle} size={defaultIconSize} />} to="quizzes" name="quizzes" />
           <SideBarItem count={images} icon={<Camera className={defaultIconStyle} size={defaultIconSize} />} to="afbeeldingen" name="foto's" />
+          <SideBarItem count={placeholders} icon={<Image className={defaultIconStyle} size={defaultIconSize} />} to="placeholders" name="placeholders" />
         </div>
         <div className="flex flex-col gap-y-2 my-2 group hover:bg-indigo-400 transition-all w-10 h-10 rounded-full items-center justify-center">
           <Power className="text-white w-8 h-8 group-hover:w-6 group-hover:h-6 transition-all cursor-pointer" onClick={handleLogout} />

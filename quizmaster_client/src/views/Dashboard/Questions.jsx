@@ -90,7 +90,7 @@ function Questions() {
                 type="button"
                 onClick={() => setCreateOpen(true)}
                 className="flex flex-col items-center gap-y-4 shadow-md bg-white border-2 border-dashed dark:bg-neutral-900
-              dark:border-neutral-700 justify-center rounded-md w-2/3 h-96 dark:hover:border-indigo-500 transition-all"
+              dark:border-neutral-700 justify-center rounded-md w-2/3 h-96 hover:border-indigo-500 transition-all"
               >
                 <FolderPlus size={60} className="text-indigo-400" strokeWidth={1} />
                 <p className="text-xl font-medium">Maak een nieuwe vraag</p>

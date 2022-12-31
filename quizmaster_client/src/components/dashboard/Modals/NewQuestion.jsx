@@ -47,7 +47,8 @@ function NewQuestion({ setModalOpen }) {
       credentials: 'include',
     }).then((res) => res.json())
       .then((data) => {
-        setCategories(data);
+        const mappedCategories = data.map((cat) => cat.name);
+        setCategories(mappedCategories);
       });
   }, []);
 

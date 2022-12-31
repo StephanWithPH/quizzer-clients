@@ -25,7 +25,7 @@ function SelectQuestionPanel(props) {
             <span
               className="rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-purple-500 text-white px-4 py-2 text-xs font-bold"
             >
-              {question.category}
+              {question.category.name}
             </span>
           </button>
         ))}

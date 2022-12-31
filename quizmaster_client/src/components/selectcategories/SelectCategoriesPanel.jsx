@@ -18,7 +18,7 @@ function SelectCategoriesPanel(props) {
   }
 
   useEffect(() => {
-    setSelectedCategories(categories.map((category) => ({ name: category, selected: false })));
+    setSelectedCategories(categories.map((category) => ({ _id: category._id, name: category.name, selected: false })));
   }, [categories]);
 
   useEffect(() => {

@@ -4,6 +4,7 @@ const initialState = {
   questions: 0,
   quizzes: 0,
   images: 0,
+  placeholders: 0,
 };
 
 // eslint-disable-next-line default-param-last
@@ -18,6 +19,7 @@ export default function sidebarReducer(state = initialState, action) {
         questions: action.payload.questions,
         quizzes: action.payload.quizzes,
         images: action.payload.images,
+        placeholders: action.payload.placeholders,
       };
     default:
       return {

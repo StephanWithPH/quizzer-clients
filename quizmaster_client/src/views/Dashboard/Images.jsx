@@ -26,7 +26,7 @@ function Images() {
   }, []);
 
   const handlePreview = (image) => {
-    setPreviewImage(`${serverURL}/static/images/teams/${image}`);
+    setPreviewImage(`${serverURL}${image}`);
     setShowModal(true);
   };
 
@@ -47,28 +47,42 @@ function Images() {
           <h1 className="font-bold text-xl">Team Foto&apos;s</h1>
           <h3 className="font-medium text-lg text-neutral-400">Bewonder foto&apos;s die teams hebben geüpload</h3>
         </div>
-        <div className="grid grid-cols-4 gap-4">
-          {images.map((image) => (
-            <button
-              key={image}
-              onClick={() => handlePreview(image)}
-              className="w-full h-full rounded-xl overflow-hidden group
+        {images.length > 0 ? (
+          <div className="grid grid-cols-4 gap-4">
+            {images.map((team) => (
+              <button
+                key={team._id}
+                onClick={() => handlePreview(team.image)}
+                className="w-full h-full rounded-xl overflow-hidden group
             h-[20rem] relative bg-gray-300 dark:bg-neutral-700 shadow-lg"
-            >
-              <div className="absolute z-20 w-full h-full bg-neutral-700/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
-                <Maximize className="absolute w-8 h-8 text-white group-hover:opacity-100 opacity-0 transition-all duration-300" />
-              </div>
+              >
+                <span className="absolute z-30 top-0 left-0 p-2 inline-flex rounded-br-md bg-indigo-500 text-white">{team.name}</span>
 
-              <LazyLoadImage
-                src={`${serverURL}/static/images/teams/${image}`}
-                wrapperClassName="w-full h-full z-10 overflow-hidden lazy-load-container"
-                alt="team"
-                scrollPosition={scrollPosition}
-                effect="blur"
-              />
-            </button>
-          ))}
-        </div>
+                <span className="absolute z-30 bottom-0 right-0 p-2 inline-flex rounded-tl-md bg-neutral-600 text-white">{new Date(team.date).toLocaleDateString()}</span>
+
+                <div className="absolute z-20 w-full h-full bg-neutral-700/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
+                  <Maximize className="absolute w-8 h-8 text-white group-hover:opacity-100 opacity-0 transition-all duration-300" />
+                </div>
+
+                <LazyLoadImage
+                  src={`${serverURL}${team.image}`}
+                  wrapperClassName="w-full h-full z-10 overflow-hidden lazy-load-container"
+                  alt="team"
+                  scrollPosition={scrollPosition}
+                  effect="blur"
+                />
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <div className="w-2/3 border-2 border-dashed dark:bg-neutral-900 flex items-center justify-center border-gray-300
+            dark:border-neutral-700 rounded-md h-96"
+            >
+              <p>Er zijn nog geen afbeeldingen geüpload door teams.</p>
+            </div>
+          </div>
+        )}
         {(totalImageCount - (limit * timesPressed) > 0) && <Button icon={<RefreshCw />} onClick={handleLoadMore} />}
       </div>
       {showModal && (

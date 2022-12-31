@@ -82,7 +82,7 @@ function QuestionsTable() {
                 <div className="bg-indigo-300/30 border-2 font-medium px-6 py-2 flex items-center justify-center
                 border-indigo-500 text-indigo-500 dark:text-indigo-400 w-fit rounded-full"
                 >
-                  {question.category}
+                  {question.category.name}
                 </div>
               </td>
               <td className="py-4 w-24 h-24 group mx-auto flex items-center justify-center">

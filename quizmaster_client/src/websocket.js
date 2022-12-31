@@ -2,7 +2,11 @@ import store from './store/store';
 import { getQuizTeamsActionAsync } from './actions/teamActionCreator';
 import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
-import { getQuestionsActionAsync, setDashboardConnectedAction } from './actions/dashboardActionCreator';
+import {
+  getImagesActionAsync,
+  getQuestionsActionAsync,
+  setDashboardConnectedAction,
+} from './actions/dashboardActionCreator';
 import { getTotalAmountsActionAsync } from './actions/sideBarActionCreator';
 
 const serverHostname = process.env.REACT_APP_WS_URL;
@@ -71,6 +75,11 @@ export function messageHandler(msg) {
     case 'QUESTION_DELETED':
       store.dispatch(getTotalAmountsActionAsync());
       store.dispatch(getQuestionsActionAsync());
+      break;
+    case 'NEW_TEAM':
+      console.log('New team');
+      store.dispatch(getTotalAmountsActionAsync());
+      store.dispatch(getImagesActionAsync());
       break;
     default:
       break;

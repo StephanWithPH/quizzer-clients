@@ -2,9 +2,9 @@ const questionsPerCategory = process.env.REACT_APP_QUESTIONS_PER_CATEGORY ? proc
 
 export default function selectRandomQuestionFromCategories(questions) {
   const selectedQuestions = [];
-  const categories = [...new Set(questions.map((question) => question.category))];
+  const categories = [...new Set(questions.map((question) => question.category.name))];
   categories.forEach((category) => {
-    const questionsInCategory = questions.filter((question) => question.category === category);
+    const questionsInCategory = questions.filter((question) => question.category.name === category);
     const questionLoopMax = questionsInCategory.length > questionsPerCategory ? questionsPerCategory : questionsInCategory.length;
     for (let i = 0; i < questionLoopMax; i++) {
       let uniqueQuestionFound = false;

@@ -36,7 +36,7 @@ function NextRound() {
     if (selectedCategories.filter((e) => e.selected).length.toString() !== maxCategories) {
       toastr.error('Je hebt teveel of te weinig categorieën geselecteerd');
     } else {
-      const chosenCategories = selectedCategories.filter((e) => e.selected).map((e) => e.name);
+      const chosenCategories = selectedCategories.filter((e) => e.selected).map((e) => e._id);
       dispatch(createRoundActionAsync(chosenCategories));
     }
   };
