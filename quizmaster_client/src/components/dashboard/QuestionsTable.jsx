@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { Image, Maximize } from 'react-feather';
 import toastr from 'toastr';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Button from '../Button';
 import fetcher from '../../fetcher';
 import ModalContainer from './ModalContainer';
 import ImagePreview from './Modals/ImagePreview';
+import { getTotalAmountsActionAsync } from '../../actions/sideBarActionCreator';
+import { getQuestionsActionAsync } from '../../actions/dashboardActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
 function QuestionsTable() {
+  const dispatch = useDispatch();
+
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
 
-  const questions = useSelector((state) => state.dashboard.questions);
+  const { questions } = useSelector((state) => state.dashboard);
 
   const handlePreview = (src) => {
     setPreviewOpen(true);
@@ -34,7 +37,9 @@ function QuestionsTable() {
         return res.text().then((text) => { throw new Error(text); });
       }
 
-      return toastr.success('Vraag verwijderd');
+      toastr.success('Vraag verwijderd');
+      dispatch(getTotalAmountsActionAsync());
+      return dispatch(getQuestionsActionAsync());
     }).catch((err) => {
       const message = JSON.parse(err.message).error;
       toastr.error(message);
@@ -43,35 +48,43 @@ function QuestionsTable() {
 
   return (
     <>
-      <table className="w-full dark:text-white rounded-md overflow-hidden table-fixed">
+      <table className="w-full rounded-md overflow-hidden table-fixed">
         <thead>
-          <tr className="text-left bg-indigo-300 dark:bg-indigo-500">
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider 3xl:w-1/3">
+          <tr className="text-left bg-indigo-300 dark:bg-indigo-400">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
               Vraag
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
               Antwoord
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
+              Type
+            </th>
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
               Datum bijgewerkt
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-56">
               Categorie
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-32">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-44">
               Afbeelding
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-44">
               Acties
             </th>
           </tr>
+        </thead>
+        <tbody>
           {questions.map((question) => (
-            <tr key={question._id} className="px-6 py-4 even:bg-indigo-50 odd:bg-indigo-100 dark:odd:bg-neutral-700 dark:bg-neutral-800">
+            <tr key={question._id} className="px-6 py-4 even:bg-indigo-50 odd:bg-indigo-100 dark:text-white dark:odd:bg-neutral-700 dark:bg-neutral-800">
               <td className="px-6 py-4 mx-auto w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.question}
               </td>
               <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.answer}
+              </td>
+              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
+                -
               </td>
               <td className="px-6 py-4 capitalize">
                 {new Date(question.date).toLocaleDateString('nl-NL', {
@@ -79,10 +92,10 @@ function QuestionsTable() {
                 })}
               </td>
               <td className="px-6 py-4">
-                <div className="bg-indigo-300/30 border-2 font-medium px-6 py-2 flex items-center justify-center
-                border-indigo-500 text-indigo-500 dark:text-indigo-400 w-fit rounded-full"
+                <div className="bg-indigo-300/30 text-sm font-medium px-3 py-1 flex items-center justify-center
+                text-indigo-500 dark:text-indigo-200 w-fit rounded-full text-center"
                 >
-                  {question.category.name}
+                  {question.category}
                 </div>
               </td>
               <td className="py-4 w-24 h-24 group mx-auto flex items-center justify-center">
@@ -104,20 +117,24 @@ function QuestionsTable() {
                 )}
               </td>
               <td className="px-6 py-4">
-                <div className="flex gap-4">
+                <div className="flex flex-col gap-2">
                   <Link
                     to={`/dashboard/vragen/${question._id}`}
-                    className="bg-indigo-500 hover:bg-indigo-400 ring-indigo-500 hover:ring-indigo-400
-                transition-all text-white py-2 px-3 rounded-md font-bold justify-center ring-2 dark:ring-offset-neutral-800 ring-offset-2"
                   >
                     Bewerken
                   </Link>
-                  <Button name="Verwijderen" styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" onClick={() => deleteQuestion(question._id)} />
+                  <button
+                    type="button"
+                    onClick={() => deleteQuestion(question._id)}
+                    className="text-left text-red-400"
+                  >
+                    Verwijderen
+                  </button>
                 </div>
               </td>
             </tr>
           ))}
-        </thead>
+        </tbody>
       </table>
       {previewOpen && (
         <ModalContainer setModalOpen={setPreviewOpen}>

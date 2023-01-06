@@ -4,7 +4,6 @@ import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
 import {
   getImagesActionAsync,
-  getQuestionsActionAsync,
   setDashboardConnectedAction,
 } from './actions/dashboardActionCreator';
 import { getTotalAmountsActionAsync } from './actions/sideBarActionCreator';
@@ -70,14 +69,7 @@ export function messageHandler(msg) {
     case 'SOCKET_DISCONNECTED':
       store.dispatch(setDashboardConnectedAction(false));
       break;
-    case 'QUESTION_CREATED':
-    case 'QUESTIONS_DELETED':
-    case 'QUESTION_DELETED':
-      store.dispatch(getTotalAmountsActionAsync());
-      store.dispatch(getQuestionsActionAsync());
-      break;
     case 'NEW_TEAM':
-      console.log('New team');
       store.dispatch(getTotalAmountsActionAsync());
       store.dispatch(getImagesActionAsync());
       break;

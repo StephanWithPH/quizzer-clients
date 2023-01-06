@@ -38,7 +38,7 @@ function SideBar() {
             </Link>
           </div>
           <SideBarItem count={questions} icon={<CheckSquare className={defaultIconStyle} size={defaultIconSize} />} to="vragen" name="vragen" />
-          <SideBarItem count={categories} icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieen" />
+          <SideBarItem count={categories} icon={<Grid className={defaultIconStyle} size={defaultIconSize} />} to="categorieen" name="categorieën" />
           <SideBarItem count={quizzes} icon={<HelpCircle className={defaultIconStyle} size={defaultIconSize} />} to="quizzes" name="quizzes" />
           <SideBarItem count={images} icon={<Camera className={defaultIconStyle} size={defaultIconSize} />} to="afbeeldingen" name="foto's" />
           <SideBarItem count={placeholders} icon={<Image className={defaultIconStyle} size={defaultIconSize} />} to="placeholders" name="placeholders" />

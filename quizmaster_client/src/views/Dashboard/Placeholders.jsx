@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Maximize, Trash2 } from 'react-feather';
+import { Maximize, Plus, Trash2 } from 'react-feather';
 import toastr from 'toastr';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,6 @@ import ModalContainer from '../../components/dashboard/ModalContainer';
 import ImagePreview from '../../components/dashboard/Modals/ImagePreview';
 import { getPlaceholderImagesActionAsync } from '../../actions/dashboardActionCreator';
 import useScrollPosition from '../../hooks/scrollposition';
-import Button from '../../components/Button';
 import fetcher from '../../fetcher';
 import CreatePlaceholder from '../../components/dashboard/Modals/CreatePlaceholder';
 
@@ -65,7 +64,12 @@ function Placeholders() {
             <h3 className="font-medium text-lg text-neutral-400">Placeholder afbeeldingen voor teams die geen afbeelding uploaden</h3>
           </div>
           <div>
-            <Button onClick={() => setShowCreateModal(true)} name="Nieuwe placeholder" />
+            <Plus
+              size={45}
+              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer
+            ring ring-offset-4 ring-offset-white dark:ring-offset-neutral-700 ring-indigo-500 hover:ring-indigo-400"
+              onClick={() => setShowCreateModal(true)}
+            />
           </div>
         </div>
         {placeholders.length > 0 ? (

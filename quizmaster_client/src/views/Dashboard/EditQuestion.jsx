@@ -206,7 +206,7 @@ function EditQuestion() {
                         Categorie
                         <sup className="text-indigo-500 font-medium text-xl left-1 -top-px">*</sup>
                       </label>
-                      <Dropdown name="Categorie" value={category.name} onChange={handleChangeCategory} options={categories} />
+                      <Dropdown name="Categorie" value={category} onChange={handleChangeCategory} options={categories} />
                       <p className="text-sm dark:text-gray-300 text-gray-500">
                         Kies hierboven de categorie van de vraag.
                       </p>

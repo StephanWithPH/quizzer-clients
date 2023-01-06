@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FolderPlus, Search, X } from 'react-feather';
+import {
+  FolderPlus, Search, X,
+} from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
-import Button from '../../components/Button';
 import Input from '../../components/Input';
 import ModalContainer from '../../components/dashboard/ModalContainer';
 import NewQuestion from '../../components/dashboard/Modals/NewQuestion';
@@ -12,6 +13,7 @@ import {
   getQuestionsActionAsync,
 } from '../../actions/dashboardActionCreator';
 import QuestionsTable from '../../components/dashboard/QuestionsTable';
+import Button from '../../components/Button';
 
 function Questions() {
   const dispatch = useDispatch();
@@ -35,7 +37,6 @@ function Questions() {
     setPage(e.selected + 1);
     dispatch(getQuestionsActionAsync(search, e.selected + 1));
   };
-
   const handleSearch = (e) => {
     setPage(1);
     setSearch(e.target.value);
@@ -47,11 +48,11 @@ function Questions() {
         <div className="w-full flex items-center justify-between">
           <h1 className="text-2xl font-medium">Alle Vragen</h1>
           <div className="flex gap-4 col-span-2">
-            <Button name="Vragen Importeren" disabled />
-            <Button name="Vragen Verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
+            <Button name="Vraag toevoegen" onClick={() => setCreateOpen(true)} />
+            <Button name="Vragen verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
           </div>
         </div>
-        <div className="w-full 2xl:w-2/3 bg-white dark:text-white grid grid-cols-4 gap-x-5 dark:bg-neutral-800 rounded-md px-10 py-6">
+        <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
           <div className="flex gap-y-2 flex-col">
             <p className="text-lg font-medium">Type vraag</p>
           </div>
@@ -69,12 +70,6 @@ function Questions() {
               {search && <X onClick={() => setSearch('')} className="text-red-400 absolute top-1/2 right-4 transform -translate-y-1/2" />}
             </div>
           </div>
-          <label className="flex text-black dark:text-gray-100 justify-end items-center w-full h-full">
-            <div className="flex flex-col gap-y-2 justify-start">
-              <p>Maak een nieuwe vraag</p>
-              <Button name="Aanmaken" styles="w-full" onClick={() => setCreateOpen(true)} />
-            </div>
-          </label>
         </div>
         <div className="w-full dark:text-white rounded-md">
           {questions.length > 0 ? (

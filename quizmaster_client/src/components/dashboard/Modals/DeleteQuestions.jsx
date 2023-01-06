@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { AlertTriangle } from 'react-feather';
 import toastr from 'toastr';
+import { useDispatch } from 'react-redux';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
+import { getQuestionsActionAsync } from '../../../actions/dashboardActionCreator';
+import { getTotalAmountsActionAsync } from '../../../actions/sideBarActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
 function DeleteQuestions({ setModalOpen }) {
+  const dispatch = useDispatch();
   const [disabled, setDisabled] = useState(false);
 
   const handleDelete = () => {
@@ -20,10 +24,14 @@ function DeleteQuestions({ setModalOpen }) {
       }
 
       toastr.success('Alle vragen zijn verwijderd');
-      setModalOpen(false);
+      dispatch(getQuestionsActionAsync());
+      dispatch(getTotalAmountsActionAsync());
     }).catch((err) => {
       toastr.error(err.message);
-    }).finally(() => setDisabled(false));
+    }).finally(() => {
+      setDisabled(false);
+      setModalOpen(false);
+    });
   };
 
   return (

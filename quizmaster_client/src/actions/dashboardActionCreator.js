@@ -17,9 +17,9 @@ export function setCategoriesAction(categories) {
   };
 }
 
-export function getCategoriesActionAsync() {
+export function getCategoriesActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/categories`, {
+    fetcher(`${serverURL}/api/v1/manage/categories?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {

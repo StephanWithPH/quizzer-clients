@@ -4,10 +4,13 @@ import {
 } from 'react-feather';
 import toastr from 'toastr';
 import { useDropzone } from 'react-dropzone';
+import { useDispatch } from 'react-redux';
 import Button from '../../Button';
 import Input from '../../Input';
 import Dropdown from '../Dropdown';
 import fetcher from '../../../fetcher';
+import { getTotalAmountsActionAsync } from '../../../actions/sideBarActionCreator';
+import { getQuestionsActionAsync } from '../../../actions/dashboardActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -15,6 +18,8 @@ const acceptStyle = 'border-2 !border-green-500 !bg-green-300/25';
 const rejectStyle = 'border-2 !border-red-500 !bg-red-400/25';
 
 function NewQuestion({ setModalOpen }) {
+  const dispatch = useDispatch();
+
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [category, setCategory] = useState('0');
@@ -85,12 +90,16 @@ function NewQuestion({ setModalOpen }) {
           return res.text().then((text) => { throw new Error(text); });
         }
 
-        toastr.success('Vraag aangemaakt');
-        return setModalOpen(false);
+        dispatch(getTotalAmountsActionAsync());
+        dispatch(getQuestionsActionAsync());
+        return toastr.success('Vraag aangemaakt');
       }).catch((err) => {
         const message = JSON.parse(err.message).error || 'Er is iets misgegaan';
         toastr.error(message);
-      }).finally(() => setDisabled(false));
+      }).finally(() => {
+        setDisabled(false);
+        setModalOpen(false);
+      });
   };
 
   const handleChangeCategory = (e) => {
