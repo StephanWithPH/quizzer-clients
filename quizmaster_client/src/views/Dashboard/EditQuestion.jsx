@@ -73,7 +73,7 @@ function EditQuestion() {
 
         setQuestion(data.question);
         setAnswer(data.answer);
-        setCategory(data.category);
+        setCategory(data.category.name);
         setImage(data.image);
       })
       .catch((err) => {
@@ -216,7 +216,12 @@ function EditQuestion() {
                     <Button
                       type="submit"
                       name="Opslaan"
-                      disabled={!question || !answer || !category || question === DBQuestion?.question && answer === DBQuestion?.answer && category === DBQuestion?.category}
+                      disabled={!question
+                        || !answer
+                        || !category
+                        || question === DBQuestion?.question
+                        && answer === DBQuestion?.answer
+                        && category === DBQuestion?.category.name}
                       className="bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500"
                     />
                   </div>

@@ -37,9 +37,9 @@ function QuestionsTable() {
         return res.text().then((text) => { throw new Error(text); });
       }
 
-      toastr.success('Vraag verwijderd');
       dispatch(getTotalAmountsActionAsync());
-      return dispatch(getQuestionsActionAsync());
+      dispatch(getQuestionsActionAsync());
+      return toastr.success('Vraag verwijderd');
     }).catch((err) => {
       const message = JSON.parse(err.message).error;
       toastr.error(message);
@@ -95,7 +95,7 @@ function QuestionsTable() {
                 <div className="bg-indigo-300/30 text-sm font-medium px-3 py-1 flex items-center justify-center
                 text-indigo-500 dark:text-indigo-200 w-fit rounded-full text-center"
                 >
-                  {question.category}
+                  {question.category.name}
                 </div>
               </td>
               <td className="py-4 w-24 h-24 group mx-auto flex items-center justify-center">

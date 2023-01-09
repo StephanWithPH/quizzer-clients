@@ -97,8 +97,8 @@ function NewQuestion({ setModalOpen }) {
         const message = JSON.parse(err.message).error || 'Er is iets misgegaan';
         toastr.error(message);
       }).finally(() => {
-        setDisabled(false);
         setModalOpen(false);
+        setDisabled(false);
       });
   };
 
@@ -157,12 +157,12 @@ function NewQuestion({ setModalOpen }) {
                     ) : (
                       <div
                         {
-                      ...getRootProps({
-                        className: `flex justify-center items-center bg-indigo-300/25 hover:bg-indigo-200/25 transition-all 
+                          ...getRootProps({
+                            className: `flex justify-center items-center bg-indigo-300/25 hover:bg-indigo-200/25 transition-all 
                         px-4 py-24 rounded-xl border-dashed border-2 border-indigo-500 
                         ${isDragAccept && acceptStyle || isDragReject && rejectStyle}`,
-                      })
-                    }
+                          })
+                        }
                       >
                         {isDragAccept ? (
                           <Plus size={30} strokeWidth={2} className="text-green-500" />
