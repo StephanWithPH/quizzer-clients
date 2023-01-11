@@ -24,7 +24,7 @@ export function getQuizRoundsActionAsync() {
       dispatch(setRoundsAction(rounds));
       resolve();
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de rondes!');
       resolve();
     });
   });

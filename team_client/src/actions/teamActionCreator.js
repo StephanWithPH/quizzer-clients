@@ -24,7 +24,7 @@ export function getTeamActionAsync() {
     }).then((resJson) => {
       dispatch(setTeamAction(resJson));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de teams!');
     });
   };
 }

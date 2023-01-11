@@ -26,7 +26,7 @@ function QuestionOverview() {
 
       dispatch(getRoundsActionAsync());
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het sluiten van de vraag!');
     });
   };
 
@@ -40,7 +40,7 @@ function QuestionOverview() {
     })
       .then(() => dispatch(changeRouteAction('nextRound')))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het eindigen van de ronde!');
       });
   };
 

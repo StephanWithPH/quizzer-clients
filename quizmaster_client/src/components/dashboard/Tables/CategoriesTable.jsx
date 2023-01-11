@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ModalContainer from './ModalContainer';
-import DeleteCategory from './Modals/DeleteCategory';
+import ModalContainer from '../ModalContainer';
+import DeleteCategory from '../Modals/DeleteCategory';
 
 function CategoriesTable() {
   const { categories } = useSelector((state) => state.dashboard);

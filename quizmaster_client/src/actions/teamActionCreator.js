@@ -23,7 +23,7 @@ export function getQuizTeamsActionAsync() {
     }).then((teams) => {
       dispatch(setQuizTeamsAction(teams));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de teams!');
     });
   };
 }

@@ -22,7 +22,7 @@ export default function dashboardReducer(state = initialState, action) {
     case 'SET_DASHBOARD_QUESTIONS':
       return { ...state, questions: [...action.payload.questions], totalQuestionCount: action.payload.total };
     case 'SET_QUIZZES':
-      return { ...state, quizzes: [...action.payload] };
+      return { ...state, quizzes: [...action.payload.quizzes], totalQuizCount: action.payload.total };
     case 'SET_IMAGES':
       return { ...state, images: [...action.payload.images], totalImageCount: action.payload.total };
     case 'SET_PLACEHOLDERS':

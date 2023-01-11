@@ -9,7 +9,7 @@ import Input from '../../components/Input';
 import ModalContainer from '../../components/dashboard/ModalContainer';
 import CreateCategory from '../../components/dashboard/Modals/CreateCategory';
 import { getCategoriesActionAsync } from '../../actions/dashboardActionCreator';
-import CategoriesTable from '../../components/dashboard/CategoriesTable';
+import CategoriesTable from '../../components/dashboard/Tables/CategoriesTable';
 
 function Categories() {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function Categories() {
             <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle categorieën waaraan vragen gekoppeld kunnen worden</h3>
           </div>
         </div>
-        <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md px-10 py-6">
+        <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
           <div className="flex gap-y-2 flex-col col-span-3">
             <p className="text-lg font-medium">Welke categorie zoek je?</p>
             <div className="relative w-full">

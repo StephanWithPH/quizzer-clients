@@ -28,7 +28,7 @@ function NextRound() {
       dispatch(changeRouteAction('login'));
       dispatch(clearRoundAction());
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het afronden van de quiz!');
     });
   };
 

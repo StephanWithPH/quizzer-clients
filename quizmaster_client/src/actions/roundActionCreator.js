@@ -24,7 +24,7 @@ export function getRoundsActionAsync() {
     }).then((rounds) => {
       dispatch(setRoundsAction(rounds));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de rondes!');
     });
   };
 }
@@ -48,7 +48,7 @@ export function createRoundActionAsync(chosenCategories) {
       dispatch(getRoundsActionAsync());
       dispatch(changeRouteAction('selectQuestion'));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het aanmaken van een ronde!');
     });
   };
 }
@@ -70,7 +70,7 @@ export function addAskedQuestionActionAsync(questionId) {
       }
       dispatch(changeRouteAction('questionOverview'));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het kiezen van een vraag!');
     });
   };
 }

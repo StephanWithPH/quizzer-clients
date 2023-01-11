@@ -3,7 +3,7 @@ import { getQuizTeamsActionAsync } from './actions/teamActionCreator';
 import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
 import {
-  getImagesActionAsync,
+  getImagesActionAsync, getQuizzesActionAsync,
   setDashboardConnectedAction,
 } from './actions/dashboardActionCreator';
 import { getTotalAmountsActionAsync } from './actions/sideBarActionCreator';
@@ -70,8 +70,13 @@ export function messageHandler(msg) {
       store.dispatch(setDashboardConnectedAction(false));
       break;
     case 'NEW_TEAM':
+    case 'NEW_QUIZ':
+    case 'NEW_ROUND':
+    case 'ROUND_FINISHED':
+    case 'QUIZ_ENDED':
       store.dispatch(getTotalAmountsActionAsync());
       store.dispatch(getImagesActionAsync());
+      store.dispatch(getQuizzesActionAsync());
       break;
     default:
       break;

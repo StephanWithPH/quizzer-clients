@@ -12,8 +12,8 @@ import DeleteQuestions from '../../components/dashboard/Modals/DeleteQuestions';
 import {
   getQuestionsActionAsync,
 } from '../../actions/dashboardActionCreator';
-import QuestionsTable from '../../components/dashboard/QuestionsTable';
 import Button from '../../components/Button';
+import QuestionsTable from '../../components/dashboard/Tables/QuestionsTable';
 
 function Questions() {
   const dispatch = useDispatch();

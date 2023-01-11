@@ -3,11 +3,11 @@ import { Image, Maximize } from 'react-feather';
 import toastr from 'toastr';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import fetcher from '../../fetcher';
-import ModalContainer from './ModalContainer';
-import ImagePreview from './Modals/ImagePreview';
-import { getTotalAmountsActionAsync } from '../../actions/sideBarActionCreator';
-import { getQuestionsActionAsync } from '../../actions/dashboardActionCreator';
+import fetcher from '../../../fetcher';
+import ModalContainer from '../ModalContainer';
+import ImagePreview from '../Modals/ImagePreview';
+import { getTotalAmountsActionAsync } from '../../../actions/sideBarActionCreator';
+import { getQuestionsActionAsync } from '../../../actions/dashboardActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -50,26 +50,26 @@ function QuestionsTable() {
     <>
       <table className="w-full rounded-md overflow-hidden table-fixed">
         <thead>
-          <tr className="text-left bg-indigo-300 dark:bg-indigo-400">
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
+          <tr className="text-left bg-indigo-300 dark:bg-indigo-500">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Vraag
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Antwoord
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Type
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Datum bijgewerkt
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-56">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-56">
               Categorie
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-44">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-44">
               Afbeelding
             </th>
-            <th className="px-6 py-3 text-sm font-bold text-white uppercase tracking-wider w-44">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-44">
               Acties
             </th>
           </tr>

@@ -29,7 +29,7 @@ export function getCategoriesActionAsync(search = '', page = 1, perPage = 10) {
     }).then((categories) => {
       dispatch(setCategoriesAction(categories));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van categorieen!');
     });
   };
 }
@@ -53,31 +53,31 @@ export function getQuestionsActionAsync(search = '', page = 1, perPage = 10) {
     }).then((data) => {
       dispatch(setQuestionsAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de vragen!');
     });
   };
 }
 
-export function setQuizzesAction(quizzes) {
+export function setQuizzesAction(data) {
   return {
     type: 'SET_QUIZZES',
-    payload: quizzes,
+    payload: { quizzes: data.quizzes, total: data.total },
   };
 }
 
-export function getQuizzesActionAsync() {
+export function getQuizzesActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/quizzes`, {
+    fetcher(`${serverURL}/api/v1/manage/quizzes?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((quizzes) => {
-      dispatch(setQuizzesAction(quizzes));
+    }).then((data) => {
+      dispatch(setQuizzesAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de quizzen!');
     });
   };
 }
@@ -101,7 +101,7 @@ export function getImagesActionAsync(offset = 1, limit = 12) {
     }).then((images) => {
       dispatch(setImagesAction(images));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de afbeeldingen!');
     });
   };
 }
@@ -125,7 +125,7 @@ export function getPlaceholderImagesActionAsync() {
     }).then((data) => {
       dispatch(setPlaceholderImagesAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de placeholders!');
     });
   };
 }

@@ -40,7 +40,7 @@ function Podium() {
         setPodium(resJson);
       })
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het ophalen van het podium!');
       });
   }, []);
 

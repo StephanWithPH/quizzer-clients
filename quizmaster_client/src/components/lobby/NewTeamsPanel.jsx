@@ -26,7 +26,7 @@ function NewTeamsPanel() {
       }
     }).then(() => dispatch(getQuizTeamsActionAsync()))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het accepteren van alle teams!');
       });
   };
 
@@ -42,7 +42,7 @@ function NewTeamsPanel() {
       }
     }).then(() => dispatch(getQuizTeamsActionAsync()))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het accepteren van een team!');
       });
   };
 
@@ -58,7 +58,7 @@ function NewTeamsPanel() {
       }
     }).then(() => dispatch(getQuizTeamsActionAsync()))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het weigeren van een team!');
       });
   };
 

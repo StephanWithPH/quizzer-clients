@@ -65,7 +65,7 @@ function App() {
               <Route path="/dashboard/categorieen" element={<Categories />} />
               <Route path="/dashboard/categorieen/:id" element={<EditCategory />} />
 
-              <Route path="/dashboard/quizzes" element={<Quizzes />} />
+              <Route path="/dashboard/quizzen" element={<Quizzes />} />
 
               <Route path="/dashboard/afbeeldingen" element={<Images />} />
               <Route path="/dashboard/placeholders" element={<Placeholders />} />

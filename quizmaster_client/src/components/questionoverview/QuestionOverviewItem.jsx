@@ -32,7 +32,7 @@ function QuestionOverviewItem(props) {
       }
     }).then(() => dispatch(getRoundsActionAsync()))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden!');
+        toastr.error('Er is een fout opgetreden met het beoordelen van de vraag!');
       });
   };
   return (

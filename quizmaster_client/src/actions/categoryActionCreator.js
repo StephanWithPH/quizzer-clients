@@ -21,7 +21,7 @@ export function getCategoriesActionAsync() {
     }).then((categories) => {
       dispatch(setCategoriesAction(categories));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de categorieen!');
     });
   };
 }

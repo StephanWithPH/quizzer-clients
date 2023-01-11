@@ -5,12 +5,19 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   safelist: [
-    { pattern: /^bg-/ },
-    { pattern: /^text-/ },
-    { pattern: /^border-/ },
+    {
+      pattern: /^bg-/,
+      variants: ['dark'],
+    },
+    {
+      pattern: /^text-/,
+      variants: ['dark'],
+    },
+    {
+      pattern: /^border-/,
+      variants: ['dark'],
+    },
   ],
-  theme: {
-    extend: {},
-  },
+  theme: {},
   plugins: [],
 };

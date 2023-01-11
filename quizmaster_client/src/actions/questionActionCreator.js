@@ -22,7 +22,7 @@ export function getQuestionsActionAsync() {
     }).then((json) => {
       dispatch(setQuestionsAction(json));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden!');
+      toastr.error('Er is een fout opgetreden met het ophalen van de vragen!');
     });
   };
 }
