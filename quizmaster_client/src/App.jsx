@@ -17,6 +17,7 @@ import EditQuestion from './views/Dashboard/EditQuestion';
 import Images from './views/Dashboard/Images';
 import Placeholders from './views/Dashboard/Placeholders';
 import Categories from './views/Dashboard/Categories';
+import EditCategory from './views/Dashboard/EditCategory';
 
 toastr.options = {
   progressBar: true,
@@ -59,6 +60,7 @@ function App() {
               <Route path="/dashboard/vragen" element={<Questions />} />
               <Route path="/dashboard/vragen/:id" element={<EditQuestion />} />
               <Route path="/dashboard/categorieen" element={<Categories />} />
+              <Route path="/dashboard/categorieen/:id" element={<EditCategory />} />
               <Route path="/dashboard/afbeeldingen" element={<Images />} />
               <Route path="/dashboard/placeholders" element={<Placeholders />} />
             </Route>

@@ -318,7 +318,6 @@ function EditQuestion() {
       </div>
     </DashboardLayout>
   );
-  // DBQuestion?.image === image
 }
 
 export default EditQuestion;

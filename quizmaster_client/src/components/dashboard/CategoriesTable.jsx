@@ -49,9 +49,8 @@ function CategoriesTable() {
               </td>
               <td className="px-6 py-4">
                 <div className="flex flex-col gap-2">
-                  {/* TODO Bewerken categorie */}
                   <Link
-                    to={`/dashboard/categorieeen/${category._id}`}
+                    to={`/dashboard/categorieen/${category._id}`}
                   >
                     Bewerken
                   </Link>
