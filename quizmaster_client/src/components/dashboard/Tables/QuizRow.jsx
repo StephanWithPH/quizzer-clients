@@ -15,7 +15,7 @@ function QuizRow({ quiz }) {
       };
     }
 
-    // If it's been more than a day since the quiz has been finished, set the status to inactive
+    // If it's been more than a day since the quiz has been started, set the status to inactive
     const now = Date.now();
     const quizDate = new Date(quiz.date).getTime();
 
@@ -34,8 +34,8 @@ function QuizRow({ quiz }) {
     // If there are no rounds, the quiz is has not started yet
     if (quiz.rounds.length === 0) {
       return {
-        text: 'Nog niet gestart',
-        color: 'indigo',
+        text: 'Nieuwe quiz',
+        color: 'violet',
       };
     }
 
@@ -89,7 +89,7 @@ function QuizRow({ quiz }) {
           weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
         })}
       </td>
-      <td className="px-6 py-4 flex">
+      <td className="px-6 py-4">
         <Link to={`/quizzen/${quiz._id}`} className="transition-all hover:text-gray-500 dark:hover:text-gray-300">
           Meer info
         </Link>
