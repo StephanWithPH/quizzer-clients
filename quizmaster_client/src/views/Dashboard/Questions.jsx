@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  FolderPlus, Search, X,
+  FolderPlus, Plus, Search, X,
 } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
@@ -44,13 +44,13 @@ function Questions() {
 
   return (
     <DashboardLayout>
-      <div className="flex flex-col gap-y-10">
-        <div className="w-full flex items-center justify-between">
-          <h1 className="text-2xl font-medium">Alle Vragen</h1>
-          <div className="flex gap-4 col-span-2">
-            <Button name="Vraag toevoegen" onClick={() => setCreateOpen(true)} />
-            <Button name="Vragen verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
+      <div className="flex flex-col gap-y-8">
+        <div className="flex justify-between w-full">
+          <div>
+            <h1 className="font-bold text-xl">Vragen</h1>
+            <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle vragen die gesteld kunnen worden in quizzes</h3>
           </div>
+          <Button name="Vragen verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
           <div className="flex gap-y-2 flex-col">
@@ -70,6 +70,14 @@ function Questions() {
               {search && <X onClick={() => setSearch('')} className="text-red-400 absolute top-1/2 right-4 transform -translate-y-1/2" />}
             </div>
           </div>
+          <label className="flex justify-end items-center w-full h-full">
+            <Plus
+              size={45}
+              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer
+              ring-2 ring-offset-4 ring-offset-white dark:ring-offset-neutral-700 ring-indigo-500 hover:ring-indigo-400"
+              onClick={() => setCreateOpen(true)}
+            />
+          </label>
         </div>
         <div className="w-full dark:text-white rounded-md">
           {questions.length > 0 ? (

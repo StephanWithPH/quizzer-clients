@@ -43,9 +43,11 @@ function Images() {
   return (
     <DashboardLayout>
       <div className="flex flex-col gap-y-8">
-        <div className="flex flex-col items-center justify-center w-full">
-          <h1 className="font-bold text-xl">Team Foto&apos;s</h1>
-          <h3 className="font-medium text-lg text-neutral-400">Bewonder foto&apos;s die teams hebben geüpload</h3>
+        <div className="flex justify-between w-full">
+          <div>
+            <h1 className="font-bold text-xl">Team Foto&apos;s</h1>
+            <h3 className="font-medium text-lg text-neutral-400">Bewonder foto&apos;s die teams hebben geüpload</h3>
+          </div>
         </div>
         {images.length > 0 ? (
           <div className="grid grid-cols-4 gap-4">
@@ -75,7 +77,7 @@ function Images() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center w-full h-full">
+          <div className="flex flex-col justify-center w-full h-full">
             <div className="w-2/3 border-2 border-dashed dark:bg-neutral-900 flex items-center justify-center border-gray-300
             dark:border-neutral-700 rounded-md h-96"
             >

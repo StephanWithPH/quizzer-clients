@@ -39,9 +39,12 @@ function Categories() {
 
   return (
     <DashboardLayout>
-      <div className="flex flex-col gap-y-10">
-        <div className="w-full flex items-center p-2">
-          <h1 className="text-2xl font-medium">Alle Categorieën</h1>
+      <div className="flex flex-col gap-y-8">
+        <div className="flex justify-between w-full">
+          <div>
+            <h1 className="font-bold text-xl">Categorieën</h1>
+            <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle categorieën waaraan vragen gekoppeld kunnen worden</h3>
+          </div>
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md px-10 py-6">
           <div className="flex gap-y-2 flex-col col-span-3">
@@ -111,12 +114,12 @@ function Categories() {
           dark:hover:bg-indigo-400/75 cursor-pointer hover:bg-indigo-400 rounded-l-md px-3 py-2 text-sm font-medium"
           />
         )}
+        {createOpen && (
+        <ModalContainer setModalOpen={setCreateOpen}>
+          <CreateCategory setModalOpen={setCreateOpen} />
+        </ModalContainer>
+        )}
       </div>
-      {createOpen && (
-      <ModalContainer setModalOpen={setCreateOpen}>
-        <CreateCategory setModalOpen={setCreateOpen} />
-      </ModalContainer>
-      )}
     </DashboardLayout>
   );
 }
