@@ -27,7 +27,7 @@ function QuizRow({ quiz }) {
     if (diffDays > 1) {
       return {
         text: 'Inactief',
-        color: 'red',
+        color: 'yellow',
       };
     }
 
