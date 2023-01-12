@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Maximize, Plus, Trash2 } from 'react-feather';
+import {
+  Maximize, Plus, RefreshCw, Trash2,
+} from 'react-feather';
 import toastr from 'toastr';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,19 +13,23 @@ import useScrollPosition from '../../hooks/scrollposition';
 import fetcher from '../../fetcher';
 import CreatePlaceholder from '../../components/dashboard/Modals/CreatePlaceholder';
 import { getTotalAmountsActionAsync } from '../../actions/sideBarActionCreator';
+import Button from '../../components/Button';
 
 const serverURL = process.env.REACT_APP_API_URL;
+const limit = 12;
+
 function Placeholders() {
   const dispatch = useDispatch();
   const scrollPosition = useScrollPosition();
 
-  const { placeholders } = useSelector((state) => state.dashboard);
+  const { placeholders, totalPlaceholderCount } = useSelector((state) => state.dashboard);
+  const [timesPressed, setTimesPressed] = useState(1);
   const [previewImage, setPreviewImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   useEffect(() => {
-    dispatch(getPlaceholderImagesActionAsync());
+    dispatch(getPlaceholderImagesActionAsync(timesPressed, limit));
   }, []);
 
   const handlePreview = (image) => {
@@ -34,6 +40,11 @@ function Placeholders() {
   const handleClose = () => {
     setShowModal(false);
     setPreviewImage(null);
+  };
+
+  const handleLoadMore = () => {
+    setTimesPressed(timesPressed + 1);
+    dispatch(getPlaceholderImagesActionAsync(timesPressed + 1, limit));
   };
 
   const handleDelete = (image) => {
@@ -118,6 +129,7 @@ function Placeholders() {
             </div>
           </div>
         )}
+        {(totalPlaceholderCount - (limit * timesPressed) > 0) && <Button icon={<RefreshCw />} onClick={handleLoadMore} />}
       </div>
       {showModal && (
         <ModalContainer setModalOpen={setShowModal}>

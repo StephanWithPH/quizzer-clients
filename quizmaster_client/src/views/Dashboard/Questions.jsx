@@ -13,6 +13,13 @@ import {
   getQuestionsActionAsync,
 } from '../../actions/dashboardActionCreator';
 import QuestionsTable from '../../components/dashboard/Tables/QuestionsTable';
+import Dropdown from '../../components/dashboard/Dropdown';
+
+const types = [
+  'Open',
+  'Multiple Choice',
+  'True or False',
+];
 
 function Questions() {
   const dispatch = useDispatch();
@@ -21,6 +28,8 @@ function Questions() {
   const [page, setPage] = useState(1);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [createOpen, setCreateOpen] = useState(false);
+
+  const [questionType, setQuestionType] = useState('Open');
 
   const { questions, totalQuestionCount } = useSelector((state) => state.dashboard);
 
@@ -41,6 +50,10 @@ function Questions() {
     setSearch(e.target.value);
   };
 
+  const handleChangeType = (e) => {
+    setQuestionType(e.target.value);
+  };
+
   return (
     <DashboardLayout>
       <div className="flex flex-col gap-y-8">
@@ -57,7 +70,11 @@ function Questions() {
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
           <div className="flex gap-y-2 flex-col">
-            <p className="text-lg font-medium">Type vraag</p>
+            <p className="text-lg font-medium inline-flex gap-x-2 items-center">
+              Type vraag
+              <span className="text-orange-400">(WIP)</span>
+            </p>
+            <Dropdown name="Type_vraag" value={questionType} onChange={handleChangeType} options={types} />
           </div>
           <div className="flex gap-y-2 flex-col col-span-2">
             <p className="text-lg font-medium">Welke vraag zoek je?</p>

@@ -70,7 +70,7 @@ function EditCategory() {
     <DashboardLayout>
       <div className="flex flex-col gap-y-10">
         <div className="w-full flex items-center">
-          <h1 className="text-2xl font-medium">Bewerk Vraag</h1>
+          <h1 className="text-2xl font-medium">Bewerk Categorie</h1>
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white rounded-md flex flex-col px-6">
           <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -78,7 +78,7 @@ function EditCategory() {
               <div className="px-4 sm:px-0">
                 <h3 className="text-lg font-medium leading-6 dark:text-white text-gray-900">Informatie</h3>
                 <p className="mt-1 text-sm dark:text-gray-400 text-gray-600">
-                  Vul hier de naam van de categorie.
+                  Vul hier de gegevens van de categorie in.
                 </p>
               </div>
             </div>
@@ -97,7 +97,7 @@ function EditCategory() {
                         onChange={(e) => setCategory(e.target.value)}
                       />
                       <p className="text-sm dark:text-gray-300 text-gray-500">
-                        Vul hierboven de vraag die gesteld zal worden in.
+                        Vul hier de naam van de categorie in.
                       </p>
                     </div>
                     <div className="bg-gray-50 dark:bg-neutral-800 px-4 py-6 flex items-center justify-end">

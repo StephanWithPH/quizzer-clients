@@ -113,9 +113,9 @@ export function setPlaceholderImagesAction(data) {
   };
 }
 
-export function getPlaceholderImagesActionAsync() {
+export function getPlaceholderImagesActionAsync(offset = 1, limit = 12) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/images/placeholder`, {
+    fetcher(`${serverURL}/api/v1/manage/images/placeholder?offset=${offset}&limit=${limit}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {

@@ -17,6 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-unsafe-optional-chaining': 'off',
     'max-len': ['warn', 175],
     'jsx-a11y/label-has-associated-control': 'off',
     'react/jsx-props-no-spreading': 'off',
