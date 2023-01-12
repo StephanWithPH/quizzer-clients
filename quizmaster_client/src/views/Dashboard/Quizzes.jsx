@@ -9,6 +9,8 @@ import Input from '../../components/Input';
 import { getQuizzesActionAsync } from '../../actions/dashboardActionCreator';
 import QuizzesTable from '../../components/dashboard/Tables/QuizzesTable';
 
+const perPage = 12;
+
 function Quizzes() {
   const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ function Quizzes() {
 
   useEffect(() => {
     const searchTimeout = setTimeout(() => {
-      dispatch(getQuizzesActionAsync(search, page));
+      dispatch(getQuizzesActionAsync(search, page, perPage));
     }, 500);
 
     return () => clearTimeout(searchTimeout);
@@ -27,7 +29,7 @@ function Quizzes() {
 
   const handlePageChange = (e) => {
     setPage(e.selected + 1);
-    dispatch(getQuizzesActionAsync(search, e.selected + 1));
+    dispatch(getQuizzesActionAsync(search, e.selected + 1, perPage));
   };
   const handleSearch = (e) => {
     setPage(1);
@@ -78,14 +80,14 @@ function Quizzes() {
             )
           )}
         </div>
-        {totalQuizCount > 10 && (
+        {totalQuizCount > perPage && (
           <ReactPaginate
             breakLabel="..."
             nextLabel="Volgende"
             previousLabel="Vorige"
             onPageChange={handlePageChange}
             renderOnZeroPageCount={null}
-            pageCount={Math.ceil(totalQuizCount / 10)}
+            pageCount={Math.ceil(totalQuizCount / perPage)}
             pageRangeDisplayed={5}
             containerClassName="flex justify-start items-center rounded-md shadow-sm"
             nextClassName="relative text-white inline-flex transition-all items-center bg-indigo-500 dark:bg-indigo-400/50

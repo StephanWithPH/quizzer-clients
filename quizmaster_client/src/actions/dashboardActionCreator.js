@@ -10,10 +10,10 @@ export function setDashboardConnectedAction(connected) {
   };
 }
 
-export function setCategoriesAction(categories) {
+export function setCategoriesAction(data) {
   return {
-    type: 'SET_CATEGORIES',
-    payload: categories,
+    type: 'SET_DASHBOARD_CATEGORIES',
+    payload: { categories: data.categories, total: data.total },
   };
 }
 
@@ -26,8 +26,8 @@ export function getCategoriesActionAsync(search = '', page = 1, perPage = 10) {
         throw new Error();
       }
       return res.json();
-    }).then((categories) => {
-      dispatch(setCategoriesAction(categories));
+    }).then((data) => {
+      dispatch(setCategoriesAction(data));
     }).catch(() => {
       toastr.error('Er is een fout opgetreden met het ophalen van categorieen!');
     });
@@ -65,7 +65,7 @@ export function setQuizzesAction(data) {
   };
 }
 
-export function getQuizzesActionAsync(search = '', page = 1, perPage = 10) {
+export function getQuizzesActionAsync(search = '', page = 1, perPage = 12) {
   return async (dispatch) => {
     fetcher(`${serverURL}/api/v1/manage/quizzes?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',

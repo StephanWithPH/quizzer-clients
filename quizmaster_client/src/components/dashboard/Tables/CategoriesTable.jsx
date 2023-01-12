@@ -37,17 +37,17 @@ function CategoriesTable() {
               key={category._id}
               className="px-6 py-4 even:bg-indigo-50 odd:bg-indigo-100 dark:odd:bg-neutral-700 dark:bg-neutral-800"
             >
-              <td className="px-6 py-4 capitalize text-lg">
+              <td className="px-6 py-2 capitalize text-lg">
                 {category.name}
               </td>
-              <td className="px-6 py-4 capitalize">
+              <td className="px-6 py-2 capitalize">
                 <span className="bg-indigo-300/30 font-medium px-4 py-px flex items-center justify-center
                 text-indigo-500 dark:text-indigo-200 w-fit rounded-full text-sm"
                 >
                   {category.count || 0}
                 </span>
               </td>
-              <td className="px-6 py-4">
+              <td className="px-6 py-2.5">
                 <div className="flex flex-col gap-2">
                   <Link
                     to={`/dashboard/categorieen/${category._id}`}

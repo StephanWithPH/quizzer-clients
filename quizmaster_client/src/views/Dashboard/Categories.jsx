@@ -11,6 +11,8 @@ import CreateCategory from '../../components/dashboard/Modals/CreateCategory';
 import { getCategoriesActionAsync } from '../../actions/dashboardActionCreator';
 import CategoriesTable from '../../components/dashboard/Tables/CategoriesTable';
 
+const perPage = 10;
+
 function Categories() {
   const dispatch = useDispatch();
 
@@ -18,11 +20,11 @@ function Categories() {
   const [page, setPage] = useState(1);
   const [createOpen, setCreateOpen] = useState(false);
 
-  const { categories, totalCategoriesCount } = useSelector((state) => state.dashboard);
+  const { categories, totalCategoryCount } = useSelector((state) => state.dashboard);
 
   useEffect(() => {
     const searchTimeout = setTimeout(() => {
-      dispatch(getCategoriesActionAsync(search, page));
+      dispatch(getCategoriesActionAsync(search, page, perPage));
     }, 500);
 
     return () => clearTimeout(searchTimeout);
@@ -34,7 +36,7 @@ function Categories() {
 
   const handlePageChange = (e) => {
     setPage(e.selected + 1);
-    dispatch(getCategoriesActionAsync(search, e.selected + 1));
+    dispatch(getCategoriesActionAsync(search, e.selected + 1, perPage));
   };
 
   return (
@@ -91,14 +93,14 @@ function Categories() {
             )
           )}
         </div>
-        {totalCategoriesCount > 10 && (
+        {totalCategoryCount > perPage && (
           <ReactPaginate
             breakLabel="..."
             nextLabel="Volgende"
             previousLabel="Vorige"
             onPageChange={handlePageChange}
             renderOnZeroPageCount={null}
-            pageCount={Math.ceil(totalCategoriesCount / 10)}
+            pageCount={Math.ceil(totalCategoryCount / perPage)}
             pageRangeDisplayed={5}
             containerClassName="flex justify-start items-center rounded-md shadow-sm"
             nextClassName="relative text-white inline-flex transition-all items-center bg-indigo-500 dark:bg-indigo-400/50

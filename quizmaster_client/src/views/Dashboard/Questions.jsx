@@ -21,6 +21,8 @@ const types = [
   'True or False',
 ];
 
+const perPage = 10;
+
 function Questions() {
   const dispatch = useDispatch();
 
@@ -35,7 +37,7 @@ function Questions() {
 
   useEffect(() => {
     const searchTimeout = setTimeout(() => {
-      dispatch(getQuestionsActionAsync(search, page));
+      dispatch(getQuestionsActionAsync(search, page, perPage));
     }, 500);
 
     return () => clearTimeout(searchTimeout);
@@ -43,7 +45,7 @@ function Questions() {
 
   const handlePageChange = (e) => {
     setPage(e.selected + 1);
-    dispatch(getQuestionsActionAsync(search, e.selected + 1));
+    dispatch(getQuestionsActionAsync(search, e.selected + 1, perPage));
   };
   const handleSearch = (e) => {
     setPage(1);
@@ -120,14 +122,14 @@ function Questions() {
             )
           )}
         </div>
-        {totalQuestionCount > 10 && (
+        {totalQuestionCount > perPage && (
         <ReactPaginate
           breakLabel="..."
           nextLabel="Volgende"
           previousLabel="Vorige"
           onPageChange={handlePageChange}
           renderOnZeroPageCount={null}
-          pageCount={Math.ceil(totalQuestionCount / 10)}
+          pageCount={Math.ceil(totalQuestionCount / perPage)}
           pageRangeDisplayed={5}
           containerClassName="flex justify-start items-center rounded-md shadow-sm"
           nextClassName="relative text-white inline-flex transition-all items-center bg-indigo-500 dark:bg-indigo-400/50
