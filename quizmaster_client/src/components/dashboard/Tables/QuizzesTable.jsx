@@ -16,10 +16,10 @@ function QuizzesTable() {
             Rondes
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
-            Status
+            Teams
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
-            Teams
+            Status
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
             Datum

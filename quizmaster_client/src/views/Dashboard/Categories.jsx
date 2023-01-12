@@ -64,8 +64,7 @@ function Categories() {
           <label className="flex justify-end items-center w-full h-full">
             <Plus
               size={45}
-              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer
-            ring-2 ring-offset-4 ring-offset-white dark:ring-offset-neutral-700 ring-indigo-500 hover:ring-indigo-400"
+              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer"
               onClick={() => setCreateOpen(true)}
             />
           </label>

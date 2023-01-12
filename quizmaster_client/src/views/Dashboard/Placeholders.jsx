@@ -68,8 +68,7 @@ function Placeholders() {
           <div>
             <Plus
               size={45}
-              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer
-            ring ring-offset-4 ring-offset-white dark:ring-offset-neutral-700 ring-indigo-500 hover:ring-indigo-400"
+              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer"
               onClick={() => setShowCreateModal(true)}
             />
           </div>

@@ -75,14 +75,14 @@ function QuizRow({ quiz }) {
         {quiz.rounds.length}
       </td>
       <td className="px-6 py-4">
+        {quiz?.teams.filter((team) => team.accepted).length}
+      </td>
+      <td className="px-6 py-4">
         <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 px-4 py-1 flex items-center justify-center
                 text-${color}-500 dark:text-${color}-300 min-w-[7rem] w-fit rounded-full text-sm`}
         >
           {status}
         </span>
-      </td>
-      <td className="px-6 py-4">
-        {quiz?.teams.filter((team) => team.accepted).length}
       </td>
       <td className="px-6 py-4 capitalize">
         {new Date(quiz.date).toLocaleDateString('nl-NL', {

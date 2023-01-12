@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  FolderPlus, Plus, Search, X,
+  FolderPlus, Plus, Search, X, XOctagon,
 } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPaginate from 'react-paginate';
@@ -12,7 +12,6 @@ import DeleteQuestions from '../../components/dashboard/Modals/DeleteQuestions';
 import {
   getQuestionsActionAsync,
 } from '../../actions/dashboardActionCreator';
-import Button from '../../components/Button';
 import QuestionsTable from '../../components/dashboard/Tables/QuestionsTable';
 
 function Questions() {
@@ -50,7 +49,11 @@ function Questions() {
             <h1 className="font-bold text-xl">Vragen</h1>
             <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle vragen die gesteld kunnen worden in quizzes</h3>
           </div>
-          <Button name="Vragen verwijderen" onClick={() => setDeleteOpen(true)} styles="!bg-red-500 hover:!bg-red-400 ring-red-500 hover:ring-red-400" />
+          <XOctagon
+            size={45}
+            className="p-2 rounded-full bg-red-500 hover:bg-red-400 transition-all text-white cursor-pointer"
+            onClick={() => setDeleteOpen(true)}
+          />
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
           <div className="flex gap-y-2 flex-col">
@@ -73,8 +76,7 @@ function Questions() {
           <label className="flex justify-end items-center w-full h-full">
             <Plus
               size={45}
-              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer
-              ring-2 ring-offset-4 ring-offset-white dark:ring-offset-neutral-700 ring-indigo-500 hover:ring-indigo-400"
+              className="p-2 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all text-white cursor-pointer"
               onClick={() => setCreateOpen(true)}
             />
           </label>

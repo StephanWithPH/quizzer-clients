@@ -57,7 +57,7 @@ function QuestionsTable() {
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Antwoord
             </th>
-            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-72">
               Type
             </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
@@ -80,25 +80,25 @@ function QuestionsTable() {
               <td className="px-6 py-4 mx-auto w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.question}
               </td>
-              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
+              <td className="px-6 py-2 w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 {question.answer}
               </td>
-              <td className="px-6 py-4 w-full text-ellipsis whitespace-nowrap overflow-hidden">
+              <td className="px-6 py-2 w-full text-ellipsis whitespace-nowrap overflow-hidden">
                 -
               </td>
-              <td className="px-6 py-4 capitalize">
+              <td className="px-6 py-2 capitalize">
                 {new Date(question.date).toLocaleDateString('nl-NL', {
                   weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
                 })}
               </td>
-              <td className="px-6 py-4">
+              <td className="px-6 py-2">
                 <div className="bg-indigo-300/30 text-sm font-medium px-3 py-1 flex items-center justify-center
                 text-indigo-500 dark:text-indigo-200 w-fit rounded-full text-center"
                 >
                   {question.category.name}
                 </div>
               </td>
-              <td className="py-4 w-24 h-24 group mx-auto flex items-center justify-center">
+              <td className="py-2 w-32 h-20 group mx-auto flex items-center justify-center">
                 {question.image ? (
                   <div className="relative w-full h-full overflow-hidden rounded-xl">
                     <button
@@ -116,7 +116,7 @@ function QuestionsTable() {
                   <Image className="text-gray-400" />
                 )}
               </td>
-              <td className="px-6 py-4">
+              <td className="px-6 py-2">
                 <div className="flex flex-col gap-2">
                   <Link
                     to={`/dashboard/vragen/${question._id}`}
