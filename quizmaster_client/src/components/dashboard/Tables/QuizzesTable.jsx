@@ -12,13 +12,13 @@ function QuizzesTable() {
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
             LobbyCode
           </th>
-          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-72">
             Rondes
           </th>
-          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-72">
             Teams
           </th>
-          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+          <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-60">
             Status
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">

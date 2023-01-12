@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const MIN_TEAMS = process.env.REACT_APP_MINIMAL_TEAMS;
+const QUESTIONS_PER_ROUND = process.env.REACT_APP_QUESTIONS_PER_ROUND;
+
 function QuizRow({ quiz }) {
   const [status, setStatus] = useState('Inactief');
   const [color, setColor] = useState('indigo');
@@ -71,14 +74,59 @@ function QuizRow({ quiz }) {
           {quiz.lobby}
         </span>
       </td>
-      <td className="px-6 py-4">
-        {quiz.rounds.length}
+      <td className="px-6 pt-2 pb-3">
+        <div className="flex flex-col gap-y-1 w-full h-full">
+          <p className="text-sm capitalize">
+            Ronde
+            {' '}
+            {quiz.rounds.length}
+          </p>
+          <div className="flex justify-between items-center gap-x-2">
+            <p className="text-xs text-neutral-300">
+              {`${quiz.rounds[quiz.rounds.length - 1]?.askedQuestions.length > 0
+                // eslint-disable-next-line no-unsafe-optional-chaining
+                ? Math.round((quiz.rounds[quiz.rounds.length - 1]?.askedQuestions.length / QUESTIONS_PER_ROUND) * 100) : 0}%`}
+            </p>
+            <div className="h-2 w-36 rounded-full bg-neutral-600 overflow-hidden">
+              <div
+                className="bg-gradient-to-r rounded-full h-2 transition-all from-green-500 to-green-300"
+                /* eslint-disable-next-line no-unsafe-optional-chaining */
+                style={{
+                  width: `${quiz.rounds[quiz.rounds.length - 1]?.askedQuestions.length
+                    // eslint-disable-next-line no-unsafe-optional-chaining
+                    ? Math.round((quiz.rounds[quiz.rounds.length - 1]?.askedQuestions.length / QUESTIONS_PER_ROUND) * 100) : 0}%`,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </td>
+      <td className="px-6 pt-2 pb-3">
+        <div className="flex flex-col gap-y-1 w-full h-full">
+          <p className="text-sm capitalize">
+            {quiz?.teams.filter((team) => team.accepted).length}
+            {quiz?.teams.filter((team) => team.accepted).length === 1 ? ' team' : ' teams'}
+          </p>
+          <div className="flex justify-between items-center gap-x-2">
+            <p className="text-xs text-neutral-300">
+              {`${quiz.teams.filter((team) => team.accepted).length / MIN_TEAMS * 100 >= 100
+                ? 100 : Math.round(quiz.teams.filter((team) => team.accepted).length / MIN_TEAMS * 100)}%`}
+            </p>
+            <div className="h-2 w-36 rounded-full bg-neutral-600 overflow-hidden">
+              <div
+                className={`bg-gradient-to-r rounded-full h-2 transition-all
+                ${quiz.teams.filter((team) => team.accepted).length >= MIN_TEAMS ? 'from-green-500 to-green-300' : 'from-yellow-500 to-yellow-300'}`}
+                style={{
+                  width: `${quiz.teams.filter((team) => team.accepted).length >= MIN_TEAMS ? 100
+                    : Math.round(quiz.teams.filter((team) => team.accepted).length / MIN_TEAMS * 100)}%`,
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </td>
       <td className="px-6 py-4">
-        {quiz?.teams.filter((team) => team.accepted).length}
-      </td>
-      <td className="px-6 py-4">
-        <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 px-4 py-1 flex items-center justify-center
+        <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 px-4 py-1 flex items-center justify-center transition-all
                 text-${color}-500 dark:text-${color}-300 min-w-[7rem] w-fit rounded-full text-sm`}
         >
           {status}

@@ -72,6 +72,7 @@ export function messageHandler(msg) {
     case 'NEW_TEAM':
     case 'NEW_QUIZ':
     case 'NEW_ROUND':
+    case 'NEW_QUESTION':
     case 'ROUND_FINISHED':
     case 'QUIZ_ENDED':
       store.dispatch(getTotalAmountsActionAsync());
