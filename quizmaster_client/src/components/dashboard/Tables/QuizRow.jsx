@@ -34,8 +34,8 @@ function QuizRow({ quiz }) {
     // If there are no rounds, the quiz is has not started yet
     if (quiz.rounds.length === 0) {
       return {
-        text: 'Nieuwe quiz',
-        color: 'violet',
+        text: 'Nieuw',
+        color: 'indigo',
       };
     }
 
@@ -75,8 +75,8 @@ function QuizRow({ quiz }) {
         {quiz.rounds.length}
       </td>
       <td className="px-6 py-4">
-        <span className={`bg-${color}-300/30 font-bold px-6 py-2 flex items-center justify-center
-                text-${color}-500 dark:text-${color}-300 min-w-[10rem] w-fit rounded-xl text-sm border-2 border-${color}-300/30`}
+        <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 px-4 py-1 flex items-center justify-center
+                text-${color}-500 dark:text-${color}-300 min-w-[7rem] w-fit rounded-full text-sm`}
         >
           {status}
         </span>

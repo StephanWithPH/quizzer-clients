@@ -90,7 +90,7 @@ function Question() {
             leaveTo="opacity-0"
           >
             <ImageViewer
-              url={askedQuestion.question.image}
+              url={`${serverURL}/${askedQuestion.question.image}`}
               onClose={() => setImgFullScreen(false)}
             />
           </Transition>
@@ -106,7 +106,7 @@ function Question() {
         {round && askedQuestion.question.image && (
           // eslint-disable-next-line max-len
           // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
-          <img className="w-96 h-60 object-cover rounded mt-5" src={askedQuestion.question.image} alt="question" onClick={() => setImgFullScreen(true)} />
+          <img className="w-96 h-60 object-cover rounded mt-5" src={`${serverURL}/${askedQuestion.question.image}`} alt="question" onClick={() => setImgFullScreen(true)} />
         )}
         <form className="flex w-full flex-col justify-center items-center gap-y-5" onSubmit={handleSubmit}>
           <Input name="antwoord" styles="bg-white w-full md:w-1/2 lg:w-1/3" disabled={askedQuestion.closed} value={question.answer || question.answer} placeholder="Antwoord" onChange={handleAnswerChange} />

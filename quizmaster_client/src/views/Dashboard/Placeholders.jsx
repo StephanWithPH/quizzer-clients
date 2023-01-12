@@ -10,6 +10,7 @@ import { getPlaceholderImagesActionAsync } from '../../actions/dashboardActionCr
 import useScrollPosition from '../../hooks/scrollposition';
 import fetcher from '../../fetcher';
 import CreatePlaceholder from '../../components/dashboard/Modals/CreatePlaceholder';
+import { getTotalAmountsActionAsync } from '../../actions/sideBarActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 function Placeholders() {
@@ -48,6 +49,7 @@ function Placeholders() {
       return res.json();
     }).then(() => {
       toastr.success('Afbeelding verwijderd');
+      dispatch(getTotalAmountsActionAsync());
       dispatch(getPlaceholderImagesActionAsync());
     })
       .catch((err) => {

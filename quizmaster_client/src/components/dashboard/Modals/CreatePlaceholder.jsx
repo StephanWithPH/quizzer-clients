@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
 import { getPlaceholderImagesActionAsync } from '../../../actions/dashboardActionCreator';
+import { getTotalAmountsActionAsync } from '../../../actions/sideBarActionCreator';
 
 const serverURL = process.env.REACT_APP_API_URL;
 
@@ -68,6 +69,7 @@ function CreatePlaceholder({ setModalOpen }) {
       }
 
       toastr.success('Placeholder is aangemaakt');
+      dispatch(getTotalAmountsActionAsync());
       return dispatch(getPlaceholderImagesActionAsync());
     }).catch((err) => {
       const message = JSON.parse(err.message).error;
