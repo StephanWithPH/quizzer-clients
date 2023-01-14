@@ -63,7 +63,7 @@ function EditQuestion() {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error('Er is iets fout gegaan');
+        return res.text().then((text) => { throw new Error(text); });
       }
 
       return res.json();
@@ -77,7 +77,8 @@ function EditQuestion() {
         setImage(data.image);
       })
       .catch((err) => {
-        toastr.error(err.message);
+        const message = JSON.parse(err.message).error;
+        toastr.error(message || 'Er is iets fout gegaan met het ophalen van de vraag');
       });
   };
 
@@ -101,13 +102,14 @@ function EditQuestion() {
       }),
     }).then((res) => {
       if (!res.ok) {
-        throw new Error('Er is iets fout gegaan');
+        return res.text().then((text) => { throw new Error(text); });
       }
 
       fetchQuestion();
       return toastr.success('De vraag is succesvol bijgewerkt');
     }).catch((err) => {
-      toastr.error(err.message);
+      const message = JSON.parse(err.message).error;
+      toastr.error(message || 'Er is iets fout gegaan met het bijwerken de vraag');
     });
   };
 
@@ -138,14 +140,15 @@ function EditQuestion() {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error('Er is iets fout gegaan');
+          return res.text().then((text) => { throw new Error(text); });
         }
 
         setPreviewImage(null);
         fetchQuestion();
         return toastr.success('De afbeelding is succesvol bijgewerkt');
       }).catch((err) => {
-        toastr.error(err.message);
+        const message = JSON.parse(err.message).error;
+        toastr.error(message || 'Er is iets fout gegaan met het bijwerken van de afbeelding');
       });
   };
 

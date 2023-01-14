@@ -73,7 +73,7 @@ function CreatePlaceholder({ setModalOpen }) {
       return dispatch(getPlaceholderImagesActionAsync());
     }).catch((err) => {
       const message = JSON.parse(err.message).error;
-      toastr.error(message || 'Er is iets fout gegaan');
+      toastr.error(message || 'Er is iets fout gegaan met het uploaden van de afbeelding');
     }).finally(() => {
       setDisabled(false);
       setModalOpen(false);
