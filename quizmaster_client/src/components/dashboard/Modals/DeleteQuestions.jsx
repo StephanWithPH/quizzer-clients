@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AlertTriangle } from 'react-feather';
-import toastr from 'toastr';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
 import { getQuestionsActionAsync } from '../../../actions/dashboardActionCreator';
@@ -13,24 +13,25 @@ function DeleteQuestions({ setModalOpen }) {
   const dispatch = useDispatch();
   const [disabled, setDisabled] = useState(false);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/questions`, {
+    await toast.promise(fetcher(`${serverURL}/api/v1/manage/questions`, {
       method: 'DELETE',
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error('Er is iets fout gegaan');
+        throw new Error();
       }
-
-      toastr.success('Alle vragen zijn verwijderd');
+    }), {
+      pending: 'Verwijderen...',
+      success: 'Alle vragen zijn verwijderd',
+      error: 'Er is iets fout gegaan',
+    }).then(() => {
       dispatch(getQuestionsActionAsync());
       dispatch(getTotalAmountsActionAsync());
-    }).catch((err) => {
-      toastr.error(err.message);
+      setModalOpen(false);
     }).finally(() => {
       setDisabled(false);
-      setModalOpen(false);
     });
   };
 

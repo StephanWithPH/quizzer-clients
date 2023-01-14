@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus } from 'react-feather';
-import toastr from 'toastr';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import Input from '../../Input';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
@@ -16,31 +16,40 @@ function CreateCategory({ setModalOpen }) {
   const [name, setName] = useState('');
   const [disabled, setDisabled] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/categories`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name }),
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/categories`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name }),
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      toastr.success('Categorie is aangemaakt');
+        return res;
+      }),
+      {
+        pending: 'Category wordt aangemaakt...',
+        success: 'Category aangemaakt!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er ging iets mis met het aanmaken van de category';
+          },
+        },
+      },
+    ).then(() => {
       dispatch(getTotalAmountsActionAsync());
-      return dispatch(getCategoriesActionAsync());
-    }).catch((err) => {
-      const message = JSON.parse(err.message).error;
-      toastr.error(message);
-    }).finally(() => {
-      setDisabled(false);
+      dispatch(getCategoriesActionAsync());
       setModalOpen(false);
-    });
+    }).finally(() => setDisabled(false));
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AlertTriangle } from 'react-feather';
-import toastr from 'toastr';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
 import { getCategoriesActionAsync } from '../../../actions/dashboardActionCreator';
@@ -16,20 +16,24 @@ function DeleteCategory({ category, setModalOpen }) {
 
   const handleDelete = async () => {
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/categories/${category._id}`, {
-      method: 'DELETE',
-      credentials: 'include',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error('Er is iets misgegaan');
-      }
-
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/categories/${category._id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      }).then((res) => {
+        if (!res.ok) {
+          throw new Error();
+        }
+      }),
+      {
+        pending: 'Verwijderen...',
+        success: 'Categorie verwijderd',
+        error: 'Er is iets misgegaan',
+      },
+    ).then(() => {
       dispatch(getCategoriesActionAsync());
       dispatch(getTotalAmountsActionAsync());
-      toastr.success('Categorie verwijderd');
-      return setModalOpen(false);
-    }).catch((err) => {
-      toastr.error(err.message);
+      setModalOpen(false);
     }).finally(() => setDisabled(false));
   };
 

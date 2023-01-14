@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {
   AlertOctagon, Image, Plus, X,
 } from 'react-feather';
-import toastr from 'toastr';
 import { useDropzone } from 'react-dropzone';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import Button from '../../Button';
 import Input from '../../Input';
 import Dropdown from '../Dropdown';
@@ -72,34 +72,44 @@ function NewQuestion({ setModalOpen }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/questions`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        question,
-        answer,
-        category,
-        base64Image: await fileToBase64(image),
-      }),
-    })
-      .then((res) => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/questions`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question,
+          answer,
+          category,
+          base64Image: await fileToBase64(image),
+        }),
+      }).then((res) => {
         if (!res.ok) {
-          return res.text().then((text) => { throw new Error(text); });
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
         }
 
-        dispatch(getTotalAmountsActionAsync());
-        dispatch(getQuestionsActionAsync());
-        return toastr.success('Vraag aangemaakt');
-      }).catch((err) => {
-        const message = JSON.parse(err.message).error || 'Er is iets misgegaan';
-        toastr.error(message);
-      }).finally(() => {
-        setModalOpen(false);
-        setDisabled(false);
-      });
+        return res;
+      }),
+      {
+        pending: 'Bezig met opslaan...',
+        success: 'Vraag opgeslagen',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het aanmaken van de vraag';
+          },
+        },
+      },
+    ).then(() => {
+      setModalOpen(false);
+      dispatch(getTotalAmountsActionAsync());
+      dispatch(getQuestionsActionAsync());
+    }).finally(() => {
+      setDisabled(false);
+    });
   };
 
   const handleChangeCategory = (e) => {

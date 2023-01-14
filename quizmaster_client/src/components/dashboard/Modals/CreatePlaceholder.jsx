@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import {
   AlertOctagon, Image, Plus, X,
 } from 'react-feather';
-import toastr from 'toastr';
 import { useDropzone } from 'react-dropzone';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import Button from '../../Button';
 import fetcher from '../../../fetcher';
 import { getPlaceholderImagesActionAsync } from '../../../actions/dashboardActionCreator';
@@ -54,7 +54,7 @@ function CreatePlaceholder({ setModalOpen }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/images/placeholder`, {
+    await toast.promise(fetcher(`${serverURL}/api/v1/manage/images/placeholder`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -68,16 +68,20 @@ function CreatePlaceholder({ setModalOpen }) {
         return res.text().then((text) => { throw new Error(text); });
       }
 
-      toastr.success('Placeholder is aangemaakt');
+      return res;
+    }), {
+      pending: 'Placeholder wordt aangemaakt',
+      success: 'Placeholder is aangemaakt',
+      error: {
+        render({ data }) {
+          return JSON.parse(data.message).error || 'Er is iets fout gegaan met het uploaden van de afbeelding';
+        },
+      },
+    }).then(() => {
       dispatch(getTotalAmountsActionAsync());
-      return dispatch(getPlaceholderImagesActionAsync());
-    }).catch((err) => {
-      const message = JSON.parse(err.message).error;
-      toastr.error(message || 'Er is iets fout gegaan met het uploaden van de afbeelding');
-    }).finally(() => {
-      setDisabled(false);
+      dispatch(getPlaceholderImagesActionAsync());
       setModalOpen(false);
-    });
+    }).finally(() => setDisabled(false));
   };
 
   return (

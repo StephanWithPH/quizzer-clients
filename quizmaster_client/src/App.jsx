@@ -1,8 +1,7 @@
 import React from 'react';
-import toastr from 'toastr';
-import 'toastr/build/toastr.min.css';
 import { useSelector } from 'react-redux';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Login from './views/Login';
 import QuestionOverview from './views/QuestionOverview';
 import Lobby from './views/Lobby';
@@ -22,15 +21,7 @@ import Quizzes from './views/Dashboard/Quizzes';
 import ViewQuiz from './views/Dashboard/ViewQuiz';
 import NotFound from './views/Dashboard/NotFound';
 
-toastr.options = {
-  progressBar: true,
-  maxOpened: 1,
-  newestOnTop: true,
-  preventDuplicates: true,
-  positionClass: 'toast-top-right',
-  hideMethod: 'slideUp',
-  closeMethod: 'slideUp',
-};
+import 'react-toastify/dist/ReactToastify.css';
 
 function renderRoute(route) {
   switch (route) {
@@ -54,6 +45,16 @@ function App() {
   return (
     <div className="relative bg-gray-100 dark:bg-neutral-800 dark:text-white h-full min-h-screen">
       <DarkMode />
+
+      <ToastContainer
+        position="top-center"
+        newestOnTop
+        closeOnClick
+        draggable
+        pauseOnHover
+        pauseOnFocusLoss={false}
+      />
+
       { window.location.pathname === '/' ? renderRoute(routeState.currentRoute) : (
         <BrowserRouter>
           <Routes>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Image, Maximize } from 'react-feather';
-import toastr from 'toastr';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import fetcher from '../../../fetcher';
 import ModalContainer from '../ModalContainer';
 import ImagePreview from '../Modals/ImagePreview';
@@ -29,20 +29,29 @@ function QuestionsTable() {
     setPreviewImage('');
   };
 
-  const deleteQuestion = (id) => {
-    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
-      method: 'DELETE',
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const deleteQuestion = async (id) => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
+        method: 'DELETE',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => { throw new Error(text); });
+        }
 
+        return res;
+      }),
+      {
+        pending: 'Verwijderen...',
+        success: 'Vraag verwijderd',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets misgegaan met het verwijderen van de vraag';
+          },
+        },
+      },
+    ).then(() => {
       dispatch(getTotalAmountsActionAsync());
       dispatch(getQuestionsActionAsync());
-      return toastr.success('Vraag verwijderd');
-    }).catch((err) => {
-      const message = JSON.parse(err.message).error;
-      toastr.error(message);
     });
   };
 
