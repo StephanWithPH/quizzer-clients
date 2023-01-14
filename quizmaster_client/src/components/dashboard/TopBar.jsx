@@ -3,15 +3,10 @@ import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'react-feather';
 import { useSelector } from 'react-redux';
-import { messageHandler, openWebSocket } from '../../websocket';
 
 function TopBar() {
   const breadcrumbs = useBreadcrumbs();
   const websocketConnected = useSelector((state) => state.dashboard.connected);
-
-  const handleReconnect = () => {
-    openWebSocket(messageHandler);
-  };
 
   return (
     <div className="bg-indigo-500 z-40 sticky top-0 flex justify-between items-center text-white border-l-2 border-l-indigo-400/50 px-10 py-5">
@@ -39,7 +34,7 @@ function TopBar() {
         </div>
       ) : (
         <div className="w-7 h-7 relative flex items-center justify-center">
-          <button type="button" aria-label="reconnect" onClick={handleReconnect} className="w-full h-full bg-neutral-700 rounded-full" />
+          <button aria-label="connection" className="w-full h-full bg-neutral-700 rounded-full" />
         </div>
       )}
     </div>

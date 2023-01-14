@@ -22,7 +22,7 @@ function QuizzesTable() {
             Status
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-96">
-            Datum
+            Datum bijgewerkt
           </th>
           <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-44">
             Acties

@@ -42,7 +42,7 @@ function Quizzes() {
         <div className="flex justify-between w-full">
           <div>
             <h1 className="font-bold text-xl">Quizzen</h1>
-            <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle quizzes die gespeeld zijn en de bijhorende resultaten</h3>
+            <h3 className="font-medium text-lg text-neutral-400">Bekijk hier alle quizzen die gespeeld zijn en de bijhorende resultaten</h3>
           </div>
         </div>
         <div className="w-full 2xl:w-2/3 dark:text-white grid grid-cols-4 gap-x-5 rounded-md py-6">
@@ -67,8 +67,8 @@ function Quizzes() {
           ) : (
             search ? (
               <div className="flex flex-col items-center shadow-md bg-white dark:bg-neutral-800 justify-center rounded-md gap-y-2 w-2/3 h-96">
-                <p className="text-3xl font-medium">Geen vragen gevonden</p>
-                <p className="text-lg">Probeer een andere zoekterm</p>
+                <p className="text-3xl font-medium">Geen quizzen gevonden</p>
+                <p className="text-lg">Probeer een andere lobbyCode</p>
               </div>
             ) : (
               <div

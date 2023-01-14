@@ -87,7 +87,7 @@ function QuestionsTable() {
                 -
               </td>
               <td className="px-6 py-2 capitalize">
-                {new Date(question.date).toLocaleDateString('nl-NL', {
+                {new Date(question.updatedAt).toLocaleDateString('nl-NL', {
                   weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
                 })}
               </td>

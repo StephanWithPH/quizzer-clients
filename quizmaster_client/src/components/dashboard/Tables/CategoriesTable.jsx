@@ -26,6 +26,9 @@ function CategoriesTable() {
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
               Referenties
             </th>
+            <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider">
+              Datum bijgewerkt
+            </th>
             <th className="px-6 py-3 text-xs font-medium text-white uppercase tracking-wider w-44">
               Acties
             </th>
@@ -46,6 +49,11 @@ function CategoriesTable() {
                 >
                   {category.count || 0}
                 </span>
+              </td>
+              <td className="px-6 py-2 capitalize">
+                {new Date(category.updatedAt).toLocaleDateString('nl-NL', {
+                  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                })}
               </td>
               <td className="px-6 py-2.5">
                 <div className="flex flex-col gap-2">

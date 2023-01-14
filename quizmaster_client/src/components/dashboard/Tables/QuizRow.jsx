@@ -40,7 +40,7 @@ function QuizRow({ quiz }) {
 
     // If it's been more than a day since the quiz has been started, set the status to inactive
     const now = Date.now();
-    const quizDate = new Date(quiz.date).getTime();
+    const quizDate = new Date(quiz.updatedAt).getTime();
 
     const oneDay = 1000 * 60 * 60 * 24;
 
