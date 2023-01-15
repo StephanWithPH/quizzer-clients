@@ -58,7 +58,7 @@ function DashboardLogin() {
       <button
         onClick={handleGoBack}
         type="button"
-        className="absolute ring-2 ring-offset-4 dark:ring-offset-neutral-800 hover:bg-indigo-400 ring-indigo-500
+        className="absolute ring-2 ring-offset-4 dark:ring-offset-neutral-800 hover:bg-indigo-400 ring-indigo-500 z-50
         overflow-hidden transition-all hover:ring-indigo-400 bg-indigo-500 p-4 rounded-b-full top-0 left-1/2 -translate-x-1/2"
       >
         <ArrowLeft className="relative text-white transition-all" strokeWidth={2} />
