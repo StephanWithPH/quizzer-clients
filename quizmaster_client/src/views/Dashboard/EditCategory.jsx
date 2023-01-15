@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
@@ -20,7 +20,7 @@ function EditCategory() {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error('Er is iets fout gegaan');
+        return res.text().then((text) => { throw new Error(text); });
       }
 
       return res.json();
@@ -31,7 +31,7 @@ function EditCategory() {
         setCategory(data.name);
       })
       .catch((err) => {
-        toastr.error(err.message);
+        toast.error(JSON.parse(err.message).error || 'Er is iets fout gegaan met het ophalen van de categorie');
       });
   };
 
@@ -39,31 +39,40 @@ function EditCategory() {
     fetchCategory();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
-    fetcher(`${serverURL}/api/v1/manage/categories/${id}`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: category,
-      }),
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
 
-      fetchCategory();
-      return toastr.success('Categorie succesvol bijgewerkt');
-    }).catch((err) => {
-      const message = JSON.parse(err.message).error;
-      toastr.error(message || 'Er is iets fout gegaan');
-    }).finally(() => {
-      setDisabled(false);
-    });
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/categories/${id}`, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: category,
+        }),
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+
+        return res;
+      }),
+      {
+        pending: 'Categorie bijwerken...',
+        success: 'Categorie succesvol bijgewerkt',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het bijwerken van de categorie';
+          },
+        },
+      },
+    ).then(() => fetchCategory())
+      .finally(() => setDisabled(false));
   };
 
   return (

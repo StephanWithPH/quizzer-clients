@@ -45,7 +45,7 @@ function QuestionsTable() {
         success: 'Vraag verwijderd',
         error: {
           render({ data }) {
-            return JSON.parse(data.message).error || 'Er is iets misgegaan met het verwijderen van de vraag';
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het verwijderen van de vraag';
           },
         },
       },

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {
   Maximize, Plus, RefreshCw, Trash2,
 } from 'react-feather';
-import toastr from 'toastr';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import ModalContainer from '../../components/dashboard/ModalContainer';
 import ImagePreview from '../../components/dashboard/Modals/ImagePreview';
@@ -47,25 +47,32 @@ function Placeholders() {
     dispatch(getPlaceholderImagesActionAsync(timesPressed + 1, limit));
   };
 
-  const handleDelete = (image) => {
+  const handleDelete = async (image) => {
     const name = image.split('/').pop().replace(/\.[^/.]+$/, '');
-    fetcher(`${serverURL}/api/v1/manage/images/placeholder/${name}`, {
-      method: 'DELETE',
-      credentials: 'include',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error('Er is iets fout gegaan');
-      }
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/images/placeholder/${name}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => { throw new Error(text); });
+        }
 
-      return res.json();
-    }).then(() => {
-      toastr.success('Afbeelding verwijderd');
+        return res.json();
+      }),
+      {
+        pending: 'Bezig met verwijderen...',
+        success: 'Afbeelding verwijderd',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).message || 'Er is iets fout gegaan met het verwijderen van de afbeelding';
+          },
+        },
+      },
+    ).then(() => {
       dispatch(getTotalAmountsActionAsync());
       dispatch(getPlaceholderImagesActionAsync());
-    })
-      .catch((err) => {
-        toastr.error(err.message);
-      });
+    });
   };
 
   return (

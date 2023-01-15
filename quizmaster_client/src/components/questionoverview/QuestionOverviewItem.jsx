@@ -1,6 +1,6 @@
 import React from 'react';
-import toastr from 'toastr';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import Loader from '../Loader';
 import { getRoundsActionAsync } from '../../actions/roundActionCreator';
 import fetcher from '../../fetcher';
@@ -32,7 +32,7 @@ function QuestionOverviewItem(props) {
       }
     }).then(() => dispatch(getRoundsActionAsync()))
       .catch(() => {
-        toastr.error('Er is een fout opgetreden met het beoordelen van de vraag!');
+        toast.error('Er is een fout opgetreden met het beoordelen van de vraag!');
       });
   };
   return (

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import toastr from 'toastr';
 import {
   AlertOctagon, Image, Plus, X,
 } from 'react-feather';
 import { useDropzone } from 'react-dropzone';
+import { toast } from 'react-toastify';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import fetcher from '../../fetcher';
 import Input from '../../components/Input';
@@ -78,7 +78,7 @@ function EditQuestion() {
       })
       .catch((err) => {
         const message = JSON.parse(err.message).error;
-        toastr.error(message || 'Er is iets fout gegaan met het ophalen van de vraag');
+        toast.error(message || 'Er is iets fout gegaan met het ophalen van de vraag');
       });
   };
 
@@ -86,30 +86,41 @@ function EditQuestion() {
     fetchQuestion();
   }, []);
 
-  const handleInformationSubmit = (e) => {
+  const handleInformationSubmit = async (e) => {
     e.preventDefault();
 
-    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        question,
-        answer,
-        category,
-      }),
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question,
+          answer,
+          category,
+        }),
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
+        return res;
+      }),
+      {
+        pending: 'De vraag wordt bijgewerkt',
+        success: 'De vraag is succesvol bijgewerkt',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het bijwerken de vraag';
+          },
+        },
+      },
+    ).then(() => {
       fetchQuestion();
-      return toastr.success('De vraag is succesvol bijgewerkt');
-    }).catch((err) => {
-      const message = JSON.parse(err.message).error;
-      toastr.error(message || 'Er is iets fout gegaan met het bijwerken de vraag');
     });
   };
 
@@ -128,28 +139,37 @@ function EditQuestion() {
   const handleImageSubmit = async (e) => {
     e.preventDefault();
 
-    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        base64Image: await fileToBase64(previewImage),
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          return res.text().then((text) => { throw new Error(text); });
-        }
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
+        method: 'PATCH',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          base64Image: await fileToBase64(previewImage),
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            return res.text().then((text) => { throw new Error(text); });
+          }
 
-        setPreviewImage(null);
-        fetchQuestion();
-        return toastr.success('De afbeelding is succesvol bijgewerkt');
-      }).catch((err) => {
-        const message = JSON.parse(err.message).error;
-        toastr.error(message || 'Er is iets fout gegaan met het bijwerken van de afbeelding');
-      });
+          return res;
+        }),
+      {
+        pending: 'De afbeelding wordt bijgewerkt',
+        success: 'De afbeelding is succesvol bijgewerkt',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het bijwerken van de afbeelding';
+          },
+        },
+      },
+    ).then(() => {
+      setPreviewImage(null);
+      fetchQuestion();
+    });
   };
 
   const handleChangeCategory = (e) => {

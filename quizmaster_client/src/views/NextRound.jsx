@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import toastr from 'toastr';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import Header from '../components/Header';
 import SelectCategoriesPanel from '../components/selectcategories/SelectCategoriesPanel';
 import Button from '../components/Button';
@@ -28,13 +28,13 @@ function NextRound() {
       dispatch(changeRouteAction('login'));
       dispatch(clearRoundAction());
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het afronden van de quiz!');
+      toast.error('Er is een fout opgetreden met het afronden van de quiz!');
     });
   };
 
   const handleStartRoundClick = () => {
     if (selectedCategories.filter((e) => e.selected).length.toString() !== maxCategories) {
-      toastr.error('Je hebt teveel of te weinig categorieën geselecteerd');
+      toast.error('Je hebt teveel of te weinig categorieën geselecteerd');
     } else {
       const chosenCategories = selectedCategories.filter((e) => e.selected).map((e) => e._id);
       dispatch(createRoundActionAsync(chosenCategories));

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import NewTeamItem from './NewTeamItem';
 import { getQuizTeamsActionAsync } from '../../actions/teamActionCreator';
 import Button from '../Button';
@@ -22,11 +22,13 @@ function NewTeamsPanel() {
       },
     }).then((res) => {
       if (!res.ok) {
-        throw new Error();
+        return res.text().then((text) => { throw new Error(text); });
       }
+
+      return res.json();
     }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch(() => {
-        toastr.error('Er is een fout opgetreden met het accepteren van alle teams!');
+      .catch((err) => {
+        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het accepteren van alle teams!');
       });
   };
 
@@ -38,11 +40,13 @@ function NewTeamsPanel() {
       },
     }).then((res) => {
       if (!res.ok) {
-        throw new Error();
+        return res.text().then((text) => { throw new Error(text); });
       }
+
+      return res.json();
     }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch(() => {
-        toastr.error('Er is een fout opgetreden met het accepteren van een team!');
+      .catch((err) => {
+        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het accepteren van een team!');
       });
   };
 
@@ -54,11 +58,13 @@ function NewTeamsPanel() {
       },
     }).then((res) => {
       if (!res.ok) {
-        throw new Error();
+        return res.text().then((text) => { throw new Error(text); });
       }
+
+      return res.json();
     }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch(() => {
-        toastr.error('Er is een fout opgetreden met het weigeren van een team!');
+      .catch((err) => {
+        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het weigeren van een team!');
       });
   };
 

@@ -1,4 +1,4 @@
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
@@ -29,7 +29,7 @@ export function getCategoriesActionAsync(search = '', page = 1, perPage = 10) {
     }).then((data) => {
       dispatch(setCategoriesAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van categorieen!');
+      toast.error('Er is een fout opgetreden met het ophalen van categorieen!');
     });
   };
 }
@@ -53,7 +53,7 @@ export function getQuestionsActionAsync(search = '', page = 1, perPage = 10) {
     }).then((data) => {
       dispatch(setQuestionsAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de vragen!');
+      toast.error('Er is een fout opgetreden met het ophalen van de vragen!');
     });
   };
 }
@@ -77,7 +77,7 @@ export function getQuizzesActionAsync(search = '', page = 1, perPage = 12) {
     }).then((data) => {
       dispatch(setQuizzesAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de quizzen!');
+      toast.error('Er is een fout opgetreden met het ophalen van de quizzen!');
     });
   };
 }
@@ -101,7 +101,7 @@ export function getImagesActionAsync(offset = 1, limit = 12) {
     }).then((images) => {
       dispatch(setImagesAction(images));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de afbeeldingen!');
+      toast.error('Er is een fout opgetreden met het ophalen van de afbeeldingen!');
     });
   };
 }
@@ -125,7 +125,7 @@ export function getPlaceholderImagesActionAsync(offset = 1, limit = 12) {
     }).then((data) => {
       dispatch(setPlaceholderImagesAction(data));
     }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de placeholders!');
+      toast.error('Er is een fout opgetreden met het ophalen van de placeholders!');
     });
   };
 }

@@ -28,7 +28,7 @@ function DeleteCategory({ category, setModalOpen }) {
       {
         pending: 'Verwijderen...',
         success: 'Categorie verwijderd',
-        error: 'Er is iets misgegaan',
+        error: 'Er is iets fout gegaan met het verwijderen van de categorie',
       },
     ).then(() => {
       dispatch(getCategoriesActionAsync());

@@ -163,7 +163,7 @@ function QuizRow({ quiz }) {
         </span>
       </td>
       <td className="px-6 py-4 capitalize">
-        {new Date(quiz.date).toLocaleDateString('nl-NL', {
+        {new Date(quiz.updatedAt).toLocaleDateString('nl-NL', {
           weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
         })}
       </td>

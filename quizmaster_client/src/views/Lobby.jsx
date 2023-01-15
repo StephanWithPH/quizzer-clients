@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import AcceptedTeamsPanel from '../components/lobby/AcceptedTeamsPanel';
 import Header from '../components/Header';
 import Button from '../components/Button';
@@ -21,7 +21,7 @@ function Lobby() {
 
   const handleNextClick = () => {
     if (teams.length < minTeams) {
-      toastr.error(`Er moeten minimaal ${minTeams} teams zijn om door te gaan.`);
+      toast.error(`Er moeten minimaal ${minTeams} teams zijn om door te gaan.`);
     } else {
       dispatch(changeRouteAction('nextRound'));
     }
