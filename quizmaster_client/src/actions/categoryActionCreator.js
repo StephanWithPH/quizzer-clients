@@ -1,4 +1,4 @@
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import fetcher from '../fetcher';
 
 const serverURL = process.env.REACT_APP_API_URL;
@@ -11,17 +11,26 @@ export function setCategoriesAction(categories) {
 }
 
 export function getCategoriesActionAsync() {
-  return (dispatch) => {
-    fetcher(`${serverURL}/api/v1/quizmaster/categories`, {
-    }).then((res) => {
+  return async (dispatch) => {
+    const doFetch = fetcher(`${serverURL}/api/v1/quizmaster/categories`, {}).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((categories) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Categorieen ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de categorieen!';
+          },
+        },
+      },
+    ).then((categories) => {
       dispatch(setCategoriesAction(categories));
-    }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de categorieen!');
     });
   };
 }

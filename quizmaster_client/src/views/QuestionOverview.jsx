@@ -16,32 +16,50 @@ function QuestionOverview() {
   const serverURL = process.env.REACT_APP_API_URL;
   const questionsPerRound = process.env.REACT_APP_QUESTIONS_PER_ROUND;
 
-  const handleCloseQuestion = () => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}`, {
-      method: 'PATCH',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error();
-      }
+  const handleCloseQuestion = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}`, {
+        method: 'PATCH',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      dispatch(getRoundsActionAsync());
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het sluiten van de vraag!');
-    });
+        return res.json();
+      }),
+      {
+        pending: 'Vraag sluiten...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het sluiten van de vraag';
+          },
+        },
+      },
+    ).then(() => dispatch(getRoundsActionAsync()));
   };
 
-  const handleFinishRound = () => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}`, {
-      method: 'PATCH',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error();
-      }
-    })
-      .then(() => dispatch(changeRouteAction('nextRound')))
-      .catch(() => {
-        toast.error('Er is een fout opgetreden met het eindigen van de ronde!');
-      });
+  const handleFinishRound = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}`, {
+        method: 'PATCH',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => { throw new Error(text); });
+        }
+
+        return res.json();
+      }),
+      {
+        pending: 'Ronde afronden...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het afronden van de ronde';
+          },
+        },
+      },
+    ).then(() => dispatch(changeRouteAction('nextRound')));
   };
 
   const handleNextQuestion = () => {

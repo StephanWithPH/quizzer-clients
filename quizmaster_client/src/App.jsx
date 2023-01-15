@@ -48,10 +48,12 @@ function App() {
 
       <ToastContainer
         position="top-center"
+        autoClose={5000}
         newestOnTop
         closeOnClick
         draggable
         pauseOnHover
+        limit={2}
         pauseOnFocusLoss={false}
       />
 

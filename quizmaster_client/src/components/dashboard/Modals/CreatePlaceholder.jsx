@@ -68,7 +68,7 @@ function CreatePlaceholder({ setModalOpen }) {
         return res.text().then((text) => { throw new Error(text); });
       }
 
-      return res;
+      return res.json();
     }), {
       pending: 'Placeholder wordt aangemaakt',
       success: 'Placeholder is aangemaakt',

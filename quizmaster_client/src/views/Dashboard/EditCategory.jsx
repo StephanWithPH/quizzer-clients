@@ -15,24 +15,32 @@ function EditCategory() {
   const [DBCategory, setDBCategory] = useState('');
   const [disabled, setDisabled] = useState(false);
 
-  const fetchCategory = () => {
-    fetcher(`${serverURL}/api/v1/manage/categories/${id}`, {
-      credentials: 'include',
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const fetchCategory = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/categories/${id}`, {
+        credentials: 'include',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      return res.json();
-    })
-      .then((data) => {
-        setDBCategory(data);
+        return res.json();
+      }),
+      {
+        pending: 'Categorie ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het ophalen van de categorie';
+          },
+        },
+      },
+    ).then((data) => {
+      setDBCategory(data);
 
-        setCategory(data.name);
-      })
-      .catch((err) => {
-        toast.error(JSON.parse(err.message).error || 'Er is iets fout gegaan met het ophalen van de categorie');
-      });
+      setCategory(data.name);
+    });
   };
 
   useEffect(() => {
@@ -60,7 +68,7 @@ function EditCategory() {
           });
         }
 
-        return res;
+        return res.json();
       }),
       {
         pending: 'Categorie bijwerken...',

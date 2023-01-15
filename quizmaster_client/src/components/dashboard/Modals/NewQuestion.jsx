@@ -92,7 +92,7 @@ function NewQuestion({ setModalOpen }) {
           });
         }
 
-        return res;
+        return res.json();
       }),
       {
         pending: 'Bezig met opslaan...',

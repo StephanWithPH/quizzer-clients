@@ -14,58 +14,86 @@ function NewTeamsPanel() {
   const teams = useSelector((state) => state.teams);
   const filteredTeams = teams.filter((team) => team.accepted === false);
 
-  const handleAcceptAll = () => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const handleAcceptAll = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      return res.json();
-    }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch((err) => {
-        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het accepteren van alle teams!');
-      });
+        return res.json();
+      }),
+      {
+        pending: 'Teams worden geaccepteerd...',
+        success: 'Alle teams zijn geaccepteerd!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het accepteren van alle teams!';
+          },
+        },
+      },
+    ).then(() => dispatch(getQuizTeamsActionAsync()));
   };
 
-  const handleAccept = (_id) => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const handleAccept = async (_id) => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      return res.json();
-    }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch((err) => {
-        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het accepteren van een team!');
-      });
+        return res.json();
+      }),
+      {
+        pending: 'Team wordt geaccepteerd...',
+        success: 'Team is geaccepteerd!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het accepteren van een team!';
+          },
+        },
+      },
+    ).then(() => dispatch(getQuizTeamsActionAsync()));
   };
 
-  const handleDecline = (_id) => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const handleDecline = async (_id) => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/teams/${_id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => { throw new Error(text); });
+        }
 
-      return res.json();
-    }).then(() => dispatch(getQuizTeamsActionAsync()))
-      .catch((err) => {
-        toast.error(JSON.parse(err.message).error || 'Er is een fout opgetreden met het weigeren van een team!');
-      });
+        return res.json();
+      }),
+      {
+        pending: 'Team wordt geweigerd...',
+        success: 'Team is geweigerd!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het weigeren van een team!';
+          },
+        },
+      },
+    ).then(() => dispatch(getQuizTeamsActionAsync()));
   };
 
   return (

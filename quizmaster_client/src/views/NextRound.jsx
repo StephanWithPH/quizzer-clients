@@ -16,19 +16,32 @@ function NextRound() {
   const rounds = useSelector((state) => state.rounds);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const handleFinishQuizClick = () => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}`, {
-      method: 'PATCH',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error();
-      }
-    }).then(() => {
+  const handleFinishQuizClick = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}`, {
+        method: 'PATCH',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+
+        return res.json();
+      }),
+      {
+        pending: 'Bezig met afronden van de quiz...',
+        success: 'Quiz succesvol afgerond!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het afronden van de quiz!';
+          },
+        },
+      },
+    ).then(() => {
       document.title = 'Quizmaster';
       dispatch(changeRouteAction('login'));
       dispatch(clearRoundAction());
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het afronden van de quiz!');
     });
   };
 

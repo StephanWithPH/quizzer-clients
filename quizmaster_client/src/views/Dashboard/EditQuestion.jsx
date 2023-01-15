@@ -58,28 +58,35 @@ function EditQuestion() {
       });
   }, []);
 
-  const fetchQuestion = () => {
-    fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
-      credentials: 'include',
-    }).then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => { throw new Error(text); });
-      }
+  const fetchQuestion = async () => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/manage/questions/${id}`, {
+        credentials: 'include',
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => {
+            throw new Error(text);
+          });
+        }
 
-      return res.json();
-    })
-      .then((data) => {
-        setDBQuestion(data);
+        return res.json();
+      }),
+      {
+        pending: 'Vraag ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is iets fout gegaan met het ophalen van de vraag';
+          },
+        },
+      },
+    ).then((data) => {
+      setDBQuestion(data);
 
-        setQuestion(data.question);
-        setAnswer(data.answer);
-        setCategory(data.category.name);
-        setImage(data.image);
-      })
-      .catch((err) => {
-        const message = JSON.parse(err.message).error;
-        toast.error(message || 'Er is iets fout gegaan met het ophalen van de vraag');
-      });
+      setQuestion(data.question);
+      setAnswer(data.answer);
+      setCategory(data.category.name);
+      setImage(data.image);
+    });
   };
 
   useEffect(() => {
@@ -108,7 +115,7 @@ function EditQuestion() {
           });
         }
 
-        return res;
+        return res.json();
       }),
       {
         pending: 'De vraag wordt bijgewerkt',
@@ -155,7 +162,7 @@ function EditQuestion() {
             return res.text().then((text) => { throw new Error(text); });
           }
 
-          return res;
+          return res.json();
         }),
       {
         pending: 'De afbeelding wordt bijgewerkt',

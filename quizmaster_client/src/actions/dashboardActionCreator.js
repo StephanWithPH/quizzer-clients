@@ -19,17 +19,27 @@ export function setCategoriesAction(data) {
 
 export function getCategoriesActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/categories?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/manage/categories?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error();
+        return res.text().then((text) => { throw new Error(text); });
       }
       return res.json();
-    }).then((data) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Categorieen ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van categorieen!';
+          },
+        },
+      },
+    ).then((data) => {
       dispatch(setCategoriesAction(data));
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het ophalen van categorieen!');
     });
   };
 }
@@ -43,17 +53,27 @@ export function setQuestionsAction(data) {
 
 export function getQuestionsActionAsync(search = '', page = 1, perPage = 10) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/manage/questions?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
-        throw new Error();
+        return res.text().then((text) => { throw new Error(text); });
       }
       return res.json();
-    }).then((data) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Vragen ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de vragen!';
+          },
+        },
+      },
+    ).then((data) => {
       dispatch(setQuestionsAction(data));
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het ophalen van de vragen!');
     });
   };
 }

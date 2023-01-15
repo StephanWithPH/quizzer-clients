@@ -17,23 +17,33 @@ function QuestionOverviewItem(props) {
     answer = askedQuestion.givenAnswers.find((givenAnswer) => givenAnswer.team._id === id);
   }
 
-  const handleCheck = (e) => {
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}/givenanswers/${answer._id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        isCorrect: e.target.checked,
+  const handleCheck = async (e) => {
+    await toast.promise(
+      fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${lobbyCode}/rounds/${round._id}/askedquestions/${askedQuestion._id}/givenanswers/${answer._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          isCorrect: e.target.checked,
+        }),
+      }).then((res) => {
+        if (!res.ok) {
+          return res.text().then((text) => { throw new Error(text); });
+        }
+
+        return res.json();
       }),
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error();
-      }
-    }).then(() => dispatch(getRoundsActionAsync()))
-      .catch(() => {
-        toast.error('Er is een fout opgetreden met het beoordelen van de vraag!');
-      });
+      {
+        pending: 'Beoordelen...',
+        success: 'Beoordeeld!',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het beoordelen van de vraag!';
+          },
+        },
+      },
+    ).then(() => dispatch(getRoundsActionAsync()));
   };
   return (
     <div className={`flex gap-3 border-b px-4 py-2 transition-all dark:border-neutral-400 

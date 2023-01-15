@@ -34,7 +34,7 @@ function CreateCategory({ setModalOpen }) {
           });
         }
 
-        return res;
+        return res.json();
       }),
       {
         pending: 'Category wordt aangemaakt...',
