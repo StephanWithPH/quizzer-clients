@@ -53,8 +53,6 @@ function App() {
         closeOnClick
         draggable
         pauseOnHover
-        limit={2}
-        pauseOnFocusLoss={false}
       />
 
       { window.location.pathname === '/' ? renderRoute(routeState.currentRoute) : (

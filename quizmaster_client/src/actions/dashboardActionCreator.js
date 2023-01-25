@@ -87,17 +87,27 @@ export function setQuizzesAction(data) {
 
 export function getQuizzesActionAsync(search = '', page = 1, perPage = 12) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/quizzes?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/manage/quizzes?page=${page}&perPage=${perPage}${search && `&search=${search}`}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((data) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Quizzen ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de quizzen!';
+          },
+        },
+      },
+    ).then((data) => {
       dispatch(setQuizzesAction(data));
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het ophalen van de quizzen!');
     });
   };
 }
@@ -111,17 +121,27 @@ export function setImagesAction(data) {
 
 export function getImagesActionAsync(offset = 1, limit = 12) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/images?offset=${offset}&limit=${limit}`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/manage/images?offset=${offset}&limit=${limit}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((images) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Afbeeldingen ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de afbeeldingen!';
+          },
+        },
+      },
+    ).then((images) => {
       dispatch(setImagesAction(images));
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het ophalen van de afbeeldingen!');
     });
   };
 }
@@ -135,17 +155,27 @@ export function setPlaceholderImagesAction(data) {
 
 export function getPlaceholderImagesActionAsync(offset = 1, limit = 12) {
   return async (dispatch) => {
-    fetcher(`${serverURL}/api/v1/manage/images/placeholder?offset=${offset}&limit=${limit}`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/manage/images/placeholder?offset=${offset}&limit=${limit}`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((data) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Placeholders ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de placeholders!';
+          },
+        },
+      },
+    ).then((data) => {
       dispatch(setPlaceholderImagesAction(data));
-    }).catch(() => {
-      toast.error('Er is een fout opgetreden met het ophalen van de placeholders!');
     });
   };
 }

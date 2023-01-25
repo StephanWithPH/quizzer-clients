@@ -1,4 +1,4 @@
-import toastr from 'toastr';
+import { toast } from 'react-toastify';
 import changeRouteAction from './routerActionCreator';
 import fetcher from '../fetcher';
 
@@ -12,27 +12,37 @@ export function setRoundsAction(rounds) {
 }
 
 export function getRoundsActionAsync() {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { global } = getState();
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
       credentials: 'include',
     }).then((res) => {
       if (!res.ok) {
         throw new Error();
       }
       return res.json();
-    }).then((rounds) => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Rondes ophalen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het ophalen van de rondes!';
+          },
+        },
+      },
+    ).then((rounds) => {
       dispatch(setRoundsAction(rounds));
-    }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het ophalen van de rondes!');
     });
   };
 }
 
 export function createRoundActionAsync(chosenCategories) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { global } = getState();
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,19 +54,29 @@ export function createRoundActionAsync(chosenCategories) {
       if (!res.ok) {
         throw new Error();
       }
-    }).then(() => {
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Ronde aanmaken...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het aanmaken van een ronde!';
+          },
+        },
+      },
+    ).then(() => {
       dispatch(getRoundsActionAsync());
       dispatch(changeRouteAction('selectQuestion'));
-    }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het aanmaken van een ronde!');
     });
   };
 }
 
 export function addAskedQuestionActionAsync(questionId) {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const { global, rounds } = getState();
-    fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
+    const doFetch = fetcher(`${serverURL}/api/v1/quizmaster/quizzes/${global.lobbyCode}/rounds/${rounds[rounds.length - 1]._id}/askedquestions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,9 +88,21 @@ export function addAskedQuestionActionAsync(questionId) {
       if (!res.ok) {
         throw new Error();
       }
+      return res.json();
+    });
+
+    await toast.promise(
+      doFetch,
+      {
+        pending: 'Vraag toevoegen...',
+        error: {
+          render({ data }) {
+            return JSON.parse(data.message).error || 'Er is een fout opgetreden met het toevoegen van een vraag!';
+          },
+        },
+      },
+    ).then(() => {
       dispatch(changeRouteAction('questionOverview'));
-    }).catch(() => {
-      toastr.error('Er is een fout opgetreden met het kiezen van een vraag!');
     });
   };
 }
