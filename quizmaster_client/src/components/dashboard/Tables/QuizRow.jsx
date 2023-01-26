@@ -156,14 +156,14 @@ function QuizRow({ quiz }) {
         </div>
       </td>
       <td className="px-6 py-4 flex justify-center">
-        <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 px-4 py-1 flex items-center justify-center transition-all
-                text-${color}-500 dark:text-${color}-300 min-w-[7rem] w-fit rounded-full text-sm`}
+        <span className={`bg-${color}-300/50 dark:bg-${color}-300/30 dark:text-${color}-300
+        px-4 py-1 flex items-center justify-center transition-all text-${color}-500 min-w-[7rem] w-fit rounded-full text-sm`}
         >
           {status}
         </span>
       </td>
       <td className="px-6 py-4 capitalize">
-        {new Date(quiz.date).toLocaleDateString('nl-NL', {
+        {new Date(quiz.updatedAt).toLocaleDateString('nl-NL', {
           weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
         })}
       </td>

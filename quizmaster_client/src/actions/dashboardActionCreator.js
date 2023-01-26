@@ -82,6 +82,35 @@ export function getQuizzesActionAsync(search = '', page = 1, perPage = 12) {
   };
 }
 
+export function setDetailQuizAction(data) {
+  return {
+    type: 'SET_DETAIL_QUIZ',
+    payload: data,
+  };
+}
+
+export function getDetailQuizActionAsync(id) {
+  return async (dispatch, getState) => {
+    const { dashboard } = getState();
+
+    console.log(dashboard.detailQuiz?.id || id);
+
+    fetcher(`${serverURL}/api/v1/manage/quizzes/${dashboard.detailQuiz?.id || id}`, {
+      credentials: 'include',
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error();
+      }
+      return res.json();
+    }).then((data) => {
+      dispatch(setDetailQuizAction(data));
+    }).catch((err) => {
+      console.log(err);
+      toastr.error('Er is een fout opgetreden met het ophalen van de quiz!');
+    });
+  };
+}
+
 export function setImagesAction(data) {
   return {
     type: 'SET_IMAGES',

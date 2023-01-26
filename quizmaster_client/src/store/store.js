@@ -9,6 +9,7 @@ import questionReducer from '../reducers/questionReducer';
 import scoreboardStateReducer from '../reducers/scoreboardStateReducer';
 import sidebarReducer from '../reducers/sidebarReducer';
 import dashboardReducer from '../reducers/dashboardReducer';
+import darkModeReducer from '../reducers/darkModeReducer';
 
 const store = createStore(
   combineReducers({
@@ -21,6 +22,7 @@ const store = createStore(
     scoreboardState: scoreboardStateReducer,
     sidebar: sidebarReducer,
     dashboard: dashboardReducer,
+    darkMode: darkModeReducer,
   }),
   applyMiddleware(thunk),
 );

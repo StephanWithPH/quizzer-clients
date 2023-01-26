@@ -10,6 +10,7 @@ const initialState = {
   totalImageCount: 0,
   placeholders: [],
   totalPlaceholderCount: 0,
+  detailQuiz: {},
 };
 
 // eslint-disable-next-line default-param-last
@@ -27,6 +28,8 @@ export default function dashboardReducer(state = initialState, action) {
       return { ...state, images: [...action.payload.images], totalImageCount: action.payload.total };
     case 'SET_PLACEHOLDERS':
       return { ...state, placeholders: [...action.payload.placeholders], totalPlaceholderCount: action.payload.total };
+    case 'SET_DETAIL_QUIZ':
+      return { ...state, detailQuiz: action.payload };
     default:
       return {
         ...state,

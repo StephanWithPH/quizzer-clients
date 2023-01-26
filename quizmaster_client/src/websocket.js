@@ -3,6 +3,7 @@ import { getQuizTeamsActionAsync } from './actions/teamActionCreator';
 import { getRoundsActionAsync } from './actions/roundActionCreator';
 import setScoreboardConnectedAction from './actions/scoreboardStateActionCreator';
 import {
+  getDetailQuizActionAsync,
   getImagesActionAsync, getQuizzesActionAsync,
   setDashboardConnectedAction,
 } from './actions/dashboardActionCreator';
@@ -78,6 +79,7 @@ export function messageHandler(msg) {
       store.dispatch(getTotalAmountsActionAsync());
       store.dispatch(getImagesActionAsync());
       store.dispatch(getQuizzesActionAsync());
+      store.dispatch(getDetailQuizActionAsync());
       break;
     default:
       break;
