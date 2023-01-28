@@ -93,21 +93,23 @@ export function getDetailQuizActionAsync(id) {
   return async (dispatch, getState) => {
     const { dashboard } = getState();
 
-    console.log(dashboard.detailQuiz?.id || id);
+    console.log(dashboard.detailQuiz?._id, id);
 
-    fetcher(`${serverURL}/api/v1/manage/quizzes/${dashboard.detailQuiz?.id || id}`, {
-      credentials: 'include',
-    }).then((res) => {
-      if (!res.ok) {
-        throw new Error();
-      }
-      return res.json();
-    }).then((data) => {
-      dispatch(setDetailQuizAction(data));
-    }).catch((err) => {
-      console.log(err);
-      toastr.error('Er is een fout opgetreden met het ophalen van de quiz!');
-    });
+    if (dashboard.detailQuiz?._id || id) {
+      fetcher(`${serverURL}/api/v1/manage/quizzes/${dashboard.detailQuiz?._id || id}`, {
+        credentials: 'include',
+      }).then((res) => {
+        if (!res.ok) {
+          throw new Error();
+        }
+        return res.json();
+      }).then((data) => {
+        dispatch(setDetailQuizAction(data));
+      }).catch((err) => {
+        console.log(err);
+        toastr.error('Er is een fout opgetreden met het ophalen van de quiz!');
+      });
+    }
   };
 }
 
