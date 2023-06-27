@@ -24,6 +24,7 @@ function NewQuestion({ setModalOpen }) {
   const [answer, setAnswer] = useState('');
   const [category, setCategory] = useState('0');
   const [image, setImage] = useState();
+  const [imageUrl, setImageUrl] = useState('');
 
   const [categories, setCategories] = useState([]);
   const [disabled, setDisabled] = useState(false);
@@ -69,6 +70,20 @@ function NewQuestion({ setModalOpen }) {
     return null;
   }
 
+  const decideIfImageShouldBeSent = async () => {
+    if (image) {
+      return fileToBase64(image);
+    }
+
+    if (imageUrl) {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      return fileToBase64(blob);
+    }
+
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setDisabled(true);
@@ -83,7 +98,7 @@ function NewQuestion({ setModalOpen }) {
           question,
           answer,
           category,
-          base64Image: await fileToBase64(image),
+          base64Image: await decideIfImageShouldBeSent(),
         }),
       }).then((res) => {
         if (!res.ok) {
@@ -147,45 +162,68 @@ function NewQuestion({ setModalOpen }) {
                     Categorie
                     <Dropdown name="Categorie" value={category} onChange={handleChangeCategory} options={categories} />
                   </label>
+                  {!imageUrl && (
+                    <label className="flex flex-col gap-y-2">
+                      Afbeelding
+                      {image ? (
+                        <div className="relative group w-44 h-44 overflow-hidden bg-neutral-500 rounded-xl border border-white">
+                          <img
+                            className="object-cover w-full h-full"
+                            src={image.preview}
+                            alt={image.name}
+                            // Revoke data uri after image is loaded
+                            onLoad={() => { URL.revokeObjectURL(image.preview); }}
+                          />
+                          <div className="absolute transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100
+                           group-hover:pointer-events-auto w-full h-full z-20 bg-neutral-800/80 top-0 left-0 flex justify-center items-center"
+                          >
+                            <X size={80} className="text-white" onClick={() => setImage(undefined)} />
+                          </div>
+                        </div>
+                      ) : (
+                        <div
+                          {
+                            ...getRootProps({
+                              className: `flex justify-center items-center bg-indigo-300/25 hover:bg-indigo-200/25 transition-all 
+                          px-4 py-24 rounded-xl border-dashed border-2 border-indigo-500 
+                          ${isDragAccept && acceptStyle || isDragReject && rejectStyle}`,
+                            })
+                          }
+                        >
+                          {isDragAccept ? (
+                            <Plus size={30} strokeWidth={2} className="text-green-500" />
+                          ) : (
+                            isDragReject ? (
+                              <AlertOctagon size={30} strokeWidth={2} className="text-red-500" />
+                            ) : (
+                              <Image size={30} strokeWidth={2} className="text-indigo-400" />
+                            )
+                          )}
+                        </div>
+                      )}
+                    </label>
+                  )}
+                  {!image && (
                   <label className="flex flex-col gap-y-2">
-                    Afbeelding
-                    {image ? (
+                    Afbeelding (URL)
+                    <Input name="imageUrl" styles="w-full" placeholder="Afbeelding (URL)" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+                    <p className="text-sm dark:text-gray-300 text-gray-500">Kijk a.u.b. na of de afbeelding onderstaand zichtbaar is.</p>
+                    {imageUrl && (
                       <div className="relative group w-44 h-44 overflow-hidden bg-neutral-500 rounded-xl border border-white">
                         <img
                           className="object-cover w-full h-full"
-                          src={image.preview}
-                          alt={image.name}
-                          // Revoke data uri after image is loaded
-                          onLoad={() => { URL.revokeObjectURL(image.preview); }}
+                          src={imageUrl}
+                          alt=""
                         />
                         <div className="absolute transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100
                          group-hover:pointer-events-auto w-full h-full z-20 bg-neutral-800/80 top-0 left-0 flex justify-center items-center"
                         >
-                          <X size={80} className="text-white" onClick={() => setImage(undefined)} />
+                          <X size={80} className="text-white" onClick={() => setImageUrl('')} />
                         </div>
-                      </div>
-                    ) : (
-                      <div
-                        {
-                          ...getRootProps({
-                            className: `flex justify-center items-center bg-indigo-300/25 hover:bg-indigo-200/25 transition-all 
-                        px-4 py-24 rounded-xl border-dashed border-2 border-indigo-500 
-                        ${isDragAccept && acceptStyle || isDragReject && rejectStyle}`,
-                          })
-                        }
-                      >
-                        {isDragAccept ? (
-                          <Plus size={30} strokeWidth={2} className="text-green-500" />
-                        ) : (
-                          isDragReject ? (
-                            <AlertOctagon size={30} strokeWidth={2} className="text-red-500" />
-                          ) : (
-                            <Image size={30} strokeWidth={2} className="text-indigo-400" />
-                          )
-                        )}
                       </div>
                     )}
                   </label>
+                  )}
                 </div>
               </div>
             </div>

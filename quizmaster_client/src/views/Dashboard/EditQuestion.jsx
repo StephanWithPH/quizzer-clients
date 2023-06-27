@@ -27,6 +27,7 @@ function EditQuestion() {
   const [category, setCategory] = useState('');
 
   const [image, setImage] = useState();
+  const [imageUrl, setImageUrl] = useState('');
   const [previewImage, setPreviewImage] = useState();
 
   const {
@@ -142,6 +143,19 @@ function EditQuestion() {
     }
     return null;
   }
+  const decideIfImageShouldBeSent = async () => {
+    if (previewImage) {
+      return fileToBase64(previewImage);
+    }
+
+    if (imageUrl) {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      return fileToBase64(blob);
+    }
+
+    return null;
+  };
 
   const handleImageSubmit = async (e) => {
     e.preventDefault();
@@ -154,7 +168,7 @@ function EditQuestion() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          base64Image: await fileToBase64(previewImage),
+          base64Image: await decideIfImageShouldBeSent(),
         }),
       })
         .then((res) => {
@@ -175,12 +189,17 @@ function EditQuestion() {
       },
     ).then(() => {
       setPreviewImage(null);
+      setImageUrl('');
       fetchQuestion();
     });
   };
 
   const handleChangeCategory = (e) => {
     setCategory(e.target.value);
+  };
+
+  const handleChangeImageUrl = (e) => {
+    setImageUrl(e.target.value);
   };
 
   return (
@@ -274,6 +293,7 @@ function EditQuestion() {
               <form onSubmit={handleImageSubmit}>
                 <div className="shadow sm:overflow-hidden sm:rounded-md">
                   <div className="space-y-6 bg-white px-4 py-5 sm:p-6 dark:bg-neutral-800">
+                    {!imageUrl && (
                     <div className="flex flex-col gap-y-2">
                       <label htmlFor="question" className="block text-lg font-medium dark:text-white text-gray-700">Afbeelding</label>
                       {image ? (
@@ -331,12 +351,34 @@ function EditQuestion() {
                         De afbeelding die bij de vraag getoond zal worden.
                       </p>
                     </div>
+                    )}
+                    {(!previewImage && !image) && (
+                    <div className="flex flex-col gap-y-2">
+                      <label htmlFor="question" className="block text-lg font-medium dark:text-white text-gray-700">Afbeelding (URL)</label>
+                      <p className="text-sm dark:text-gray-300 text-gray-500">Kijk a.u.b. na of de afbeelding onderstaand zichtbaar is.</p>
+                      <Input name="Afbeelding (URL)" placeholder="https://link-to-your-image/image.jpeg" value={imageUrl} onChange={handleChangeImageUrl} />
+                      {imageUrl && (
+                      <div className="relative group w-44 h-44 overflow-hidden bg-neutral-500 rounded-xl border border-white">
+                        <img
+                          className="object-cover w-full h-full"
+                          src={imageUrl}
+                          alt=""
+                        />
+                        <div className="absolute transition-all duration-300 opacity-0 pointer-events-none group-hover:opacity-100
+                         group-hover:pointer-events-auto w-full h-full z-20 bg-neutral-800/80 top-0 left-0 flex justify-center items-center"
+                        >
+                          <X size={80} className="text-white" onClick={() => setImageUrl('')} />
+                        </div>
+                      </div>
+                      )}
+                    </div>
+                    )}
                   </div>
                   <div className="bg-gray-50 dark:bg-neutral-800 px-4 py-6 flex items-center gap-x-6 justify-end">
                     <Button
                       type="submit"
                       name="Opslaan"
-                      disabled={DBQuestion?.image === image && !previewImage}
+                      disabled={image === DBQuestion?.image && imageUrl === '' && !previewImage}
                       className="bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500"
                     />
                   </div>

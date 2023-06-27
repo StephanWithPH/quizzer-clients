@@ -38,7 +38,7 @@ function QuestionsTable() {
           return res.text().then((text) => { throw new Error(text); });
         }
 
-        return res.json();
+        return null;
       }),
       {
         pending: 'Verwijderen...',
