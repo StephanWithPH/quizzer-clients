@@ -5,18 +5,18 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   safelist: [
-    // {
-    //   pattern: /^bg-/,
-    //   variants: ['dark'],
-    // },
-    // {
-    //   pattern: /^text-/,
-    //   variants: ['dark'],
-    // },
-    // {
-    //   pattern: /^border-/,
-    //   variants: ['dark'],
-    // },
+    {
+      pattern: /^bg-/,
+      variants: ['dark'],
+    },
+    {
+      pattern: /^text-/,
+      variants: ['dark'],
+    },
+    {
+      pattern: /^border-/,
+      variants: ['dark'],
+    },
   ],
   theme: {},
   plugins: [],

@@ -60,7 +60,7 @@ function Images() {
               >
                 <span className="absolute z-30 top-0 left-0 p-2 inline-flex rounded-br-md bg-indigo-500 text-white">{team.name}</span>
 
-                <span className="absolute z-30 bottom-0 right-0 p-2 inline-flex rounded-tl-md bg-neutral-600 text-white">{new Date(team.date).toLocaleDateString()}</span>
+                <span className="absolute z-30 bottom-0 right-0 p-2 inline-flex rounded-tl-md bg-neutral-600 text-white">{new Date(team.updatedAt).toLocaleDateString()}</span>
 
                 <div className="absolute z-20 w-full h-full bg-neutral-700/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-center items-center">
                   <Maximize className="absolute w-8 h-8 text-white group-hover:opacity-100 opacity-0 transition-all duration-300" />
