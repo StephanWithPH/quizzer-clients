@@ -8,7 +8,7 @@ import Team from "../models/team.ts";
 function Scoreboard() {
   const teamUrl = import.meta.env.VITE_TEAM_URL;
   const { lobbyCode } = useAppSelector((state) => state.global);
-  const teams = useAppSelector((state) => state.teams).sort(
+  const teams = useAppSelector((state) => state.teams)?.sort(
     (a: Team, b: Team) => b.roundPoints - a.roundPoints,
   );
   const rounds = useAppSelector((state) => state.rounds);

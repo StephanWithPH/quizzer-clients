@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Team from "../models/team.ts";
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
+import "swiper/css";
+import "swiper/css/navigation";
 
 interface SliderProps {
   teams: Team[];

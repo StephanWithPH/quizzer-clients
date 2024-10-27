@@ -6,7 +6,7 @@ interface ProfileBarProps {
 }
 
 function ProfileBar({ teams }: ProfileBarProps) {
-  const serverURL = import.meta.env.VITE_API_URL;
+  const rootServerUrl = import.meta.env.VITE_API_ROOT_URL;
   const teamsToShow = 5;
 
   return (
@@ -26,7 +26,7 @@ function ProfileBar({ teams }: ProfileBarProps) {
             {team.image ? (
               <img
                 className="w-full h-full object-cover object-center"
-                src={`${serverURL}${team.image}`}
+                src={`${rootServerUrl}${team.image}`}
                 alt={team.name}
               />
             ) : (
