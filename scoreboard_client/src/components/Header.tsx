@@ -20,7 +20,7 @@ function Header() {
         }, 1000);
       });
     }
-  }, [isCopied, lobbyCode]);
+  }, [isCopied]);
 
   const handleExit = () => {
     document.title = "Scoreboard";

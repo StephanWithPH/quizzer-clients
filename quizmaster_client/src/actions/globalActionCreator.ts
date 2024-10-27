@@ -25,7 +25,7 @@ export function createQuizActionAsync() {
                 dispatch(setLobbyCode(json.lobby));
                 dispatch(setRoute(Routes.LOBBY));
                 document.title = `QuizMaster - ${json.lobby}`;
-                openWebSocket(json.lobby);
+                openWebSocket();
             })
             .catch((err) => {
                 const message = JSON.parse(err.message).error;

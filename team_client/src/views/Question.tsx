@@ -74,7 +74,7 @@ function Question() {
 
     useEffect(() => {
         dispatch(getRoundsActionAsync());
-    }, [dispatch]);
+    }, []);
 
     return (
         <div className="h-screen">

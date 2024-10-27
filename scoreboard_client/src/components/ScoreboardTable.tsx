@@ -29,7 +29,7 @@ function ScoreboardTable({ teams }: ScoreboardTableProps) {
     if (round) {
       dispatch(getCorrectQuestionsActionAsync());
     }
-  }, [round, dispatch]);
+  }, []);
 
   return teams.length > 0 ? (
     <div className="border-2 my-4 border-grey-300 dark:border-neutral-500 shadow-md overflow-hidden rounded-xl">

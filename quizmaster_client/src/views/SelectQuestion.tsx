@@ -21,11 +21,11 @@ function SelectQuestion() {
   useEffect(() => {
     dispatch(setQuestions([]));
     dispatch(getQuestionsActionAsync());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     getRandomQuestions();
-  }, [getRandomQuestions, questions]);
+  }, [questions]);
 
   const handleSelectRandomQuestionClick = () => {
     dispatch(addAskedQuestionActionAsync(questions[Math.floor(Math.random() * questions.length)]._id));

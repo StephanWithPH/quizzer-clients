@@ -23,7 +23,7 @@ function QuestionOverviewItem({ name, id }: QuestionOverviewItemProps) {
         if (askedQuestion) {
             setGivenAnswer(askedQuestion.givenAnswers.find((givenAnswer) => givenAnswer.team._id === id));
         }
-    }, [setGivenAnswer, askedQuestion, id]);
+    }, [askedQuestion]);
 
     const handleCheck = (e: ChangeEvent<HTMLInputElement>) => {
         fetcher(

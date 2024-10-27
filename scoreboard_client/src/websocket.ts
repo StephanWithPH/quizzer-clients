@@ -22,14 +22,13 @@ enum MessageEvents {
   QUIZ_ENDED = "QUIZ_ENDED",
 }
 
-export function openWebSocket(lobby: string) {
+export function openWebSocket() {
   socket = io(serverHostname);
 
   socket.on("connect", () => {
     console.log("Connected to websocket server.");
 
     socket?.emit("TOKEN", window.sessionStorage.getItem("token"));
-    socket?.emit("JOIN", lobby);
   });
 
   socket.on(MessageEvents.TEAM_ACCEPTED, async () => {

@@ -11,7 +11,7 @@ function Lobby() {
 
     useEffect(() => {
         dispatch(getTeamActionAsync());
-    }, [dispatch]);
+    }, []);
 
     return (
         <div className="h-screen overflow-hidden">

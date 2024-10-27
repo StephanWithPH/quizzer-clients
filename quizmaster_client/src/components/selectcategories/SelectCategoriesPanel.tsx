@@ -26,11 +26,11 @@ function SelectCategoriesPanel({ selectedCategories, setSelectedCategories, maxC
 
     useEffect(() => {
         setSelectedCategories(categories.map((category) => ({ name: category, selected: false })));
-    }, [categories, setSelectedCategories]);
+    }, [categories]);
 
     useEffect(() => {
         dispatch(getCategoriesActionAsync());
-    }, [dispatch]);
+    }, []);
 
     return (
         <div className="h-full flex flex-col overflow-hidden">

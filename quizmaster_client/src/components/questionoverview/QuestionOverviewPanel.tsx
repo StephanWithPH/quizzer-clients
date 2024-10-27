@@ -12,7 +12,7 @@ function QuestionOverviewPanel() {
 
   useEffect(() => {
     dispatch(getRoundsActionAsync());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="h-full flex flex-col overflow-hidden">

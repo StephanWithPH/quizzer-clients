@@ -25,7 +25,7 @@ export function connectScoreboardActionAsync(lobbyCode: string) {
         dispatch(setLobbyCode(lobbyCode));
         document.title = `Scoreboard - ${lobbyCode}`;
         dispatch(setRoute(Routes.SCOREBOARD));
-        openWebSocket(lobbyCode);
+        openWebSocket();
       })
       .catch((err) => {
         const message = JSON.parse(err.message).error;

@@ -12,7 +12,7 @@ function ProfileBar({ teams }: ProfileBarProps) {
   return (
     <div
       className="fixed justify-center dark:bg-neutral-900 dark:border-neutral-400 justify-self-end w-full gap-y-7 max-w-[8rem] hidden xl:flex
-    h-screen flex-col right-0 top-0 bg-white p-4 border-l-2 overflow-hidden flex-col"
+    h-screen right-0 top-0 bg-white p-4 border-l-2 overflow-hidden flex-col"
     >
       {teams.slice(0, teamsToShow).map((team, index) => (
         <div

@@ -41,7 +41,7 @@ export function addTeamToQuizActionAsync(lobbyCode: string, teamName: string, da
                     dispatch(setLobbyCode(lobbyCode));
                     document.title = `${teamName} - ${lobbyCode}`;
                     dispatch(setRoute(Routes.WAITING));
-                    openWebSocket(lobbyCode);
+                    openWebSocket();
                     resolve(null);
                 })
                 .catch((err) => {
