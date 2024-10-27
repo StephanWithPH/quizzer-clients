@@ -1,0 +1,75 @@
+import { useEffect, useState } from "react";
+import { Check, Copy, LogOut } from "react-feather";
+import { useAppDispatch, useAppSelector } from "../hooks/redux.ts";
+import { setRoute } from "../reducers/routerReducer.ts";
+import { Routes } from "../enums/routes.ts";
+import { logout } from "../reducers/globalReducer.ts";
+
+function Header() {
+  const dispatch = useAppDispatch();
+  const [isCopied, setIsCopied] = useState(false);
+  const { lobbyCode } = useAppSelector((state) => state.global);
+  const rounds = useAppSelector((state) => state.rounds);
+  const maxQuestionsPerRound = import.meta.env.VITE_QUESTIONS_PER_ROUND;
+
+  useEffect(() => {
+    if (isCopied) {
+      navigator.clipboard.writeText(lobbyCode || '').then(() => {
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1000);
+      });
+    }
+  }, [isCopied, lobbyCode]);
+
+  const handleExit = () => {
+    document.title = "Scoreboard";
+    dispatch(logout());
+    dispatch(setRoute(Routes.LOGIN));
+  };
+
+  return (
+    <header className="sticky top-0 w-full z-30 px-20 dark:bg-neutral-900 dark:border-neutral-600 transition-all bg-white py-3 border-b-2 flex justify-between items-center">
+      <div className="flex justify-center items-center gap-x-4 text-lg">
+        <button
+          type="button"
+          onClick={() => setIsCopied(true)}
+          className="relative group outline-none inline-flex gap-x-2 items-center bg-indigo-500 text-white p-2 rounded-xl"
+        >
+          <Copy
+            className={`absolute ${!isCopied && "group-hover:opacity-100"} opacity-0 transition-all -left-8 text-indigo-300`}
+          />
+          <Check
+            className={`absolute ${isCopied ? "opacity-100" : "opacity-0"} transition-all -left-8 text-green-500`}
+          />
+          {lobbyCode}
+        </button>
+        {rounds.length > 0 && (
+          <p className="inline-flex gap-x-2 items-center">
+            Ronde:
+            <span className="bg-indigo-500 rounded-full w-12 h-12 text-sm flex justify-center items-center text-white">
+              {rounds.length}
+            </span>
+          </p>
+        )}
+        {rounds.length > 0 &&
+          rounds[rounds.length - 1].askedQuestions &&
+          rounds[rounds.length - 1].askedQuestions.length > 0 && (
+            <p className="inline-flex gap-x-2 items-center">
+              Vraag:
+              <span className="bg-indigo-500 rounded-full w-12 h-12 text-sm flex justify-center items-center text-white">
+                {`${rounds[rounds.length - 1].askedQuestions.length}/${maxQuestionsPerRound}`}
+              </span>
+            </p>
+          )}
+      </div>
+      <div className="flex items-center gap-x-7">
+        <button onClick={() => handleExit()} aria-label="exit">
+          <LogOut className="text-indigo-500" strokeWidth={2} size={25} />
+        </button>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
